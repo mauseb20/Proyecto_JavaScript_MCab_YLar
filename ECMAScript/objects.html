@@ -36,37 +36,25 @@
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                     <li><a href="index.html"><i class="small material-icons left">home</i> Inicio</a></li>
-                        <li class="divider"></li>
-                        <li><a href="var.html">var vs let vs const</a></li>
-                        <li><a href="iifes.html">IIFEs ahora Blocks</a></li>
-                        <li><a href="arrow.html">Arrow Functions</a></li>
-                        <li><a href="strings.html">Strings .includes() .repeat()</a></li>
-                        <li><a href="template.html">Template literals</a></li>
-                        <li><a href="arrays.html">Destructuring arrays</a></li>
-                        <li><a href="objects.html">Destructuring objects</a></li>
-                        <li><a href="modules.html">Modules export and import</a></li>
-                        <li><a href="default.html">Default, Rest y Named Parameters</a></li>
-                        <li><a href="spread.html">Spread Operator</a></li>
-                        <li><a href="classes.html">Classes</a></li>
-                        <li><a href="promises.html">Promises (goodbye callback hell)</a></li>
-                        <li><a href="getter.html">Getter and Setter in Classes</a></li>
+                    <li class="divider"></li>
+                    <li><a href="var.html">var vs let vs const</a></li>
+                    <li><a href="iifes.html">IIFEs ahora Blocks</a></li>
+                    <li><a href="arrow.html">Arrow Functions</a></li>
+                    <li><a href="strings.html">Strings .includes() .repeat()</a></li>
+                    <li><a href="template.html">Template literals</a></li>
+                    <li><a href="arrays.html">Destructuring arrays</a></li>
+                    <li><a href="objects.html">Destructuring objects</a></li>
+                    <li><a href="modules.html">Modules export and import</a></li>
+                    <li><a href="default.html">Default, Rest y Named Parameters</a></li>
+                    <li><a href="spread.html">Spread Operator</a></li>
+                    <li><a href="classes.html">Classes</a></li>
+                    <li><a href="promises.html">Promises (goodbye callback hell)</a></li>
+                    <li><a href="getter.html">Getter and Setter in Classes</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
         </nav>
-        <div class="section no-pad-bot" id="index-banner">
-            <div class="container">
-                <br><br>
-                <h1 class="header center light-blue-text">¡Bienvenidos!</h1>
-                <div class="row center">
-                    <h5 class="header col s12 light">Tutorial de ECMAScript 2015</h5>
-                </div>
-                <div class="row center">
-                    <a href="var.html" id="download-button" class="btn-large waves-effect waves-light blue"> Empezar </a>
-                </div>
-                <br>
-            </div>
-        </div>
+
 
         <div class="container">
             <div class="section">
@@ -74,25 +62,82 @@
                 <div class="row">
                     <div class="col s12 m1">
                         <div class="icon-block">
+                            <h2 class="center light-blue-text"><a href="arrays.html"><i class="medium material-icons">fast_rewind</i></a></h2>
 
                         </div>
                     </div>
 
                     <div class="col s12 m10">
                         <div class="icon-block">
-                            <h5 class="justified light">ECMAScript es una especificación de lenguaje de programación publicada por ECMA International. El desarrollo empezó en 1996 y estuvo basado en el popular lenguaje JavaScript propuesto como estándar por Netscape Communications Corporation. Actualmente está aceptado como el estándar ISO 16262. ECMAScript define un lenguaje de tipos dinámicos ligeramente inspirado en Java y otros lenguajes del estilo de C. Soporta algunas características de la programación orientada a objetos mediante objetos basados en prototipos y pseudoclases.</h5>
+                            <h2 class="center light-blue-text"><a href="index.html"><i class="medium material-icons">home</i></a></h2>
                         </div>
                     </div>
 
                     <div class="col s12 m1">
                         <div class="icon-block button">
-                            
+                            <h2 class="center light-blue-text"><a href="modules.html"><i class="medium material-icons" >fast_forward</i></a></h2>
                         </div>
                     </div>
                 </div>
 
             </div>
 
+        </div>
+
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <h4 class="header center light-blue-text">Destructuring objects</h4>
+                <div class="row">
+                    <div class="col s12 m1">
+
+                    </div>
+
+                    <div class="col s12 m10">
+                        <pre><code class="language-javascript">
+                // var es usado en el JavaScript antiguo y tenia algunos problemas.
+                var a = 12;
+
+                // let es usado con el nuevo Ecmascript 2015
+                let a = 13;
+
+                // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
+
+                const url = 'http://localhost:1337';
+
+                // Un arreglo es un ejemplo que se puede aumentar
+
+                const arrayGrande = ['a','b','c'];
+                arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
+                arrayGrande.pop(); // HAY error
+                        </code></pre>
+                    </div>
+
+                    <div class="col s12 m1">
+
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col m12 l4">
+                    <h4>Descripción</h4>
+                </div>
+                <div class="col m12 l8">
+                    <p>descripción de cada componente</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m12 l4">
+                    <h4>Peculiaridades</h4>
+                </div>
+                <div class="col m12 l8">
+                    <ol>
+                        <li>peculiaridad 1</li>
+                    </ol>
+                </div>
+            </div>
         </div>
 
         <footer class="page-footer light-blue">
@@ -119,7 +164,7 @@
                 </div>
             </div>
         </footer>
-        
+
 
     </body>
 </html>

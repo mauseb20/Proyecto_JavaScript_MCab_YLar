@@ -6,50 +6,50 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
         <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="/ECMAScript/materialize.js"></script>
-        <script src="/ECMAScript/init.js"></script>
+        <script src="materialize.js"></script>
+        <script src="init.js"></script>
     </head>
     <body>
 
         <nav class="light-blue lighten-1" role="navigation">
-            <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Cabrera Larco - Materialize</a>
-                <a href="#!" class="brand-logo">Cabrera Larco - Materialize</a>
+            <div class="nav-wrapper container"><a id="logo-container" href="index.html" class="brand-logo">Cabrera Larco - Materialize</a>
+                <a href="index.html" class="brand-logo">Cabrera Larco - Materialize</a>
                 <ul class="right hide-on-med-and-down">
                     <ul id="dropdown1" class="dropdown-content">
-                        <li><a href="#!"><i class="small material-icons left">home</i> Inicio</a></li>
+                        <li><a href="index.html"><i class="small material-icons left">home</i> Inicio</a></li>
                         <li class="divider"></li>
                         <li><a href="var.html">var vs let vs const</a></li>
-                        <li><a href="#!">IIFEs ahora Blocks</a></li>
-                        <li><a href="#!">Arrow Functions</a></li>
-                        <li><a href="#!">Strings .includes() .repeat()</a></li>
-                        <li><a href="#!">Template literals</a></li>
-                        <li><a href="#!">Destructuring arrays</a></li>
-                        <li><a href="#!">Destructuring objects</a></li>
-                        <li><a href="#!">Modules export and import</a></li>
-                        <li><a href="#!">Default, Rest y Named Parameters</a></li>
-                        <li><a href="#!">Spread Operator</a></li>
-                        <li><a href="#!">Classes</a></li>
-                        <li><a href="#!">Promises (goodbye callback hell)</a></li>
-                        <li><a href="#!">Getter and Setter in Classes</a></li>
+                        <li><a href="iifes.html">IIFEs ahora Blocks</a></li>
+                        <li><a href="arrow.html">Arrow Functions</a></li>
+                        <li><a href="strings.html">Strings .includes() .repeat()</a></li>
+                        <li><a href="template.html">Template literals</a></li>
+                        <li><a href="arrays.html">Destructuring arrays</a></li>
+                        <li><a href="objects.html">Destructuring objects</a></li>
+                        <li><a href="modules.html">Modules export and import</a></li>
+                        <li><a href="default.html">Default, Rest y Named Parameters</a></li>
+                        <li><a href="spread.html">Spread Operator</a></li>
+                        <li><a href="classes.html">Classes</a></li>
+                        <li><a href="promises.html">Promises (goodbye callback hell)</a></li>
+                        <li><a href="getter.html">Getter and Setter in Classes</a></li>
                     </ul>
                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1" style="width:300px" align="right"><i class="material-icons right">more_vert</i>Menu</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#!"><i class="small material-icons left">home</i> Inicio</a></li>
+                    <li><a href="index.html"><i class="small material-icons left">home</i> Inicio</a></li>
                     <li class="divider"></li>
                     <li><a href="var.html">var vs let vs const</a></li>
-                    <li><a href="#!">IIFEs ahora Blocks</a></li>
-                    <li><a href="#!">Arrow Functions</a></li>
-                    <li><a href="#!">Strings .includes() .repeat()</a></li>
-                    <li><a href="#!">Template literals</a></li>
-                    <li><a href="#!">Destructuring arrays</a></li>
-                    <li><a href="#!">Destructuring objects</a></li>
-                    <li><a href="#!">Modules export and import</a></li>
-                    <li><a href="#!">Default, Rest y Named Parameters</a></li>
-                    <li><a href="#!">Spread Operator</a></li>
-                    <li><a href="#!">Classes</a></li>
-                    <li><a href="#!">Promises (goodbye callback hell)</a></li>
-                    <li><a href="#!">Getter and Setter in Classes</a></li>
+                    <li><a href="iifes.html">IIFEs ahora Blocks</a></li>
+                    <li><a href="arrow.html">Arrow Functions</a></li>
+                    <li><a href="strings.html">Strings .includes() .repeat()</a></li>
+                    <li><a href="template.html">Template literals</a></li>
+                    <li><a href="arrays.html">Destructuring arrays</a></li>
+                    <li><a href="objects.html">Destructuring objects</a></li>
+                    <li><a href="modules.html">Modules export and import</a></li>
+                    <li><a href="default.html">Default, Rest y Named Parameters</a></li>
+                    <li><a href="spread.html">Spread Operator</a></li>
+                    <li><a href="classes.html">Classes</a></li>
+                    <li><a href="promises.html">Promises (goodbye callback hell)</a></li>
+                    <li><a href="getter.html">Getter and Setter in Classes</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
@@ -75,8 +75,7 @@
 
                     <div class="col s12 m1">
                         <div class="icon-block button">
-                            <h2 class="center light-blue-text"><a href="#"><i class="medium material-icons" >fast_forward</i></a></h2>
-
+                            <h2 class="center light-blue-text"><a href="iifes.html"><i class="medium material-icons" >fast_forward</i></a></h2>
                         </div>
                     </div>
                 </div>
@@ -89,44 +88,50 @@
             <div class="container">
                 <h4 class="header center light-blue-text">var vs let vs const</h4>
                 <div class="row">
-                    <div class="col s12 m1">
+                    
 
-                    </div>
-
-                    <div class="col s12 m10">
+                    <div class="col m12 m12">
                         <pre><code class="language-javascript">
-                // var es usado en el JavaScript antiguo y tenia algunos problemas.
-                var a = 12;
+    // var es usado en el JavaScript antiguo y tenia algunos problemas.
+    var a = 12;
 
-                // let es usado con el nuevo Ecmascript 2015
-                let a = 13;
+    // let es usado con el nuevo Ecmascript 2015
+    let a = 13;
 
-                // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
+    // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
 
-                const url = 'http://localhost:1337';
+    const url = 'http://localhost:1337';
 
-                // Un arreglo es un ejemplo que se puede aumentar
+    // Un arreglo es un ejemplo que se puede aumentar
 
-                const arrayGrande = ['a','b','c'];
-                arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
-                arrayGrande.pop(); // HAY error
+    const arrayGrande = ['a','b','c'];
+    arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
+    arrayGrande.pop(); // HAY error
                         </code></pre>
                     </div>
 
-                    <div class="col s12 m1">
-
-                    </div>
+                    
                 </div>
                 <br>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col s12 l3">
+                <div class="col m12 l4">
                     <h4>Descripción</h4>
                 </div>
-                <div class="col s12 l9">
+                <div class="col m12 l8">
                     <p>descripción de cada componente</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m12 l4">
+                    <h4>Peculiaridades</h4>
+                </div>
+                <div class="col m12 l8">
+                    <ol>
+                        <li>peculiaridad 1</li>
+                    </ol>
                 </div>
             </div>
         </div>
@@ -142,8 +147,8 @@
                     <div class="col l4 s12">
                         <h5 class="white-text">Colaboradores</h5>
                         <ul>
-                            <li><a class="white-text" href="#!">Yessenia Larco</a></li>
-                            <li><a class="white-text" href="#!">Mauricio Cabrera</a></li>
+                            <li><a class="white-text" href="https://github.com/YessLarco" target="_blank">Yessenia Larco</a></li>
+                            <li><a class="white-text" href="https://github.com/mauseb20" target="_blank">Mauricio Cabrera</a></li>
                         </ul>
                     </div>
 
@@ -151,7 +156,7 @@
             </div>
             <div class="footer-copyright">
                 <div class="container">
-                    <h5>Tomado de: <a class="white-text text-darken-2" href="http://materializecss.com/">Materialize</a></h5>
+                    <h5>Tomado de: <a class="white-text text-darken-2" href="http://materializecss.com/" target="_blank">Materialize</a></h5>
                 </div>
             </div>
         </footer>
