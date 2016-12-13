@@ -87,55 +87,160 @@
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
                 <h4 class="header center light-blue-text">Strings .includes() .repeat()</h4>
+                <div class="row"><h4 class="header left blue-text">.includes()</h4></div>
+
                 <div class="row">
-                    <div class="col s12 m1">
-
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
                     </div>
-
-                    <div class="col s12 m10">
+                    <div class="col m12 l8">
+                        <p>El método <code class="language-javascript">includes()</code> determina si se puede encontrar una cadena dentro de otra cadena, devolviendo true o false según sea apropiado.</p>
+                    </div>
+                </div>
+                <div class="row">
+                   <div class="col m12 l2"></div>
+                    <div class="col m12 l8">
                         <pre><code class="language-javascript">
-                // var es usado en el JavaScript antiguo y tenia algunos problemas.
-                var a = 12;
+    //Sintaxis
+        str.includes(searchString[, position])
 
-                // let es usado con el nuevo Ecmascript 2015
-                let a = 13;
+    //Parámetros
+        searchString //Una cadena de texto a buscar en la cadena.
+    
+        position //Opcional. 
+             //Indica la posición en ese string donde se empieza a buscar el seachString. 
+             //Por defecto empieza en 0.
 
-                // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
-
-                const url = 'http://localhost:1337';
-
-                // Un arreglo es un ejemplo que se puede aumentar
-
-                const arrayGrande = ['a','b','c'];
-                arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
-                arrayGrande.pop(); // HAY error
                         </code></pre>
                     </div>
+                    <div class="col m12 l2"></div>
 
-                    <div class="col s12 m1">
+                </div>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p> El método <code class="language-javascript">includes()</code> es case sensitive. Por ejemplo, la siguiente expresión retorna <code class="language-javascript">false</code>:</p>
+                        <pre><code class="language-javascript">
+    'Blue Whale'.includes('blue'); // returns false
+                        </code></pre>
+                        <p>Un ejemplo de aplicacion es el siguiente codigo:</p>
+                        <pre><code class="language-javascript">
+    var str = 'To be, or not to be, that is the question.';
 
+    console.log(str.includes('To be'));       // true
+    console.log(str.includes('question'));    // true
+    console.log(str.includes('nonexistent')); // false
+    console.log(str.includes('To be', 1));    // false
+    console.log(str.includes('TO BE'));       // false
+                        </code></pre>
                     </div>
                 </div>
-                <br>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Descripción</h4>
+<!--        let-->
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row"><h4 class="header left blue-text">.repeat()</h4></div>
+
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>El método <code class="language-javascript">repeat()</code> construye y devuelve una nueva cadena que contiene el número especificado de copias de la cadena en la cual fue llamada, concatenados.</p>
+                        <pre><code class="language-javascript">
+    let points = 50;
+    let winner = false;
+                        </code></pre>
+                        <p>si se desea re-declarar la variable let:</p>
+                        <pre><code class="language-javascript">
+    let points = 60;
+                        </code></pre>
+                        <p>El browser lanzará un error indicando que dicha variable ya ha sido definida. Esta variable se puede actualizar, pero no se permitirá declarar dos veces con el mismo nombre.</p>
+                    </div>
                 </div>
-                <div class="col m12 l8">
-                    <p>descripción de cada componente</p>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Si se tiene el siguiente código:</p>
+                        <pre><code class="language-javascript">
+    let points = 50;
+    let winner = false;
+
+    if(points > 40) {
+       let winner = true
+    }
+    Console.log(winner); //false
+
+                        </code></pre>
+                        <p>El resultado es false, esto se da porque <code class="language-javascript">let</code> declara la variable dentro de su propio ámbito, este tipo de variables no son hoisted. En este caso se tienen dos variables diferentes, aunque tengan el mismo nombre, por estar en diferentes ámbitos.</p>
+                        <pre><code class="language-javascript">
+    let winner = false //fuera del lazo if, está delimitada al uso en la ventana.
+    let winner = true //dentro del lazo if, está delimitada al uso exclusivo del bloque.
+                        </code></pre>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Peculiaridades</h4>
+        </div>
+<!--const-->
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row"><h4 class="header left blue-text">const</h4></div>
+
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Otro tipo de variables usadas son las <code class="language-javascript">const</code>, estas variables tienen la misma definición que las variables <code class="language-javascript">let</code>, la diferencia entre estas dos, es que las variables <code class="language-javascript">let</code>, se la puede actualizar, pero las variables <code class="language-javascript">const</code>, van a tener un solo valor, no se las puede actualizar.</p>
+                        <p>Si se tiene el siguiente código:</p>
+                        <pre><code class="language-javascript">
+    const key = 'abc123';
+    let points = 50;
+    let winner = false;
+
+    points = 60;
+                        </code></pre>
+                        <p>Este va a funcionar correctamente. La variable points se actualizará sin ningún problema.</p>
+                        <p>Pero con el siquiente codigo:</p>
+                        <pre><code class="language-javascript">
+    const key = 'abc123';
+    let points = 50;
+    let winner = false;
+
+    key = abc1234;
+                        </code></pre>
+                        <p>Este no va a funcionar, porque no se puede actualizar una variable <code class="language-javascript">const</code>.</p>
+                    </div>
                 </div>
-                <div class="col m12 l8">
-                    <ol>
-                        <li>peculiaridad 1</li>
-                    </ol>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Se puede definir un objeto completo con tipo <code class="language-javascript">const</code>:</p>
+                        <pre><code class="language-javascript">
+    const person = {
+       name: 'Wes',
+       age: 28
+    }
+                        </code></pre>
+                        <p>El objeto en sí es inmutable. Por ejemplo, si se desea redefinir el objeto <code class="language-javascript">tipeando person = { name: ‘Wesley’}</code>, esto sin duda dará un error, ya que no se puede redefinir al objeto completo.</p>
+                        <p>Pero si se pueden actualizar sus propiedades individualmente, como se lo muestra en el código a continuación:</p>
+                        <pre><code class="language-javascript">
+    const person = {
+       name: 'Wes',
+       age: 28
+    }
+
+    person.age = 29
+                        </code></pre>
+                        <p>Esto no dará problema y correrá sin ninguna dificultad.</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -88,57 +88,42 @@
             <div class="container">
                 <h4 class="header center light-blue-text">IIFEs ahora Blocks</h4>
                 <div class="row">
-                    <div class="col s12 m1">
-
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
                     </div>
-
-                    <div class="col s12 m10">
+                    <div class="col m12 l8">
+                        <p> Un uso común de las expresiones de función inmediatamente invocadas es incluir valores dentro de su ámbito de aplicación. En ES6, ahora tenemos la capacidad de crear ámbitos basados en bloques y por lo tanto no están limitados puramente al ámbito basado en funciones.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Por ejemplo, si se tiene la siguiente función:</p>
                         <pre><code class="language-javascript">
-                // var es usado en el JavaScript antiguo y tenia algunos problemas.
-                var a = 12;
+    (function () {
+        var food = 'Meow Mix';
+    }());
 
-                // let es usado con el nuevo Ecmascript 2015
-                let a = 13;
-
-                // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
-
-                const url = 'http://localhost:1337';
-
-                // Un arreglo es un ejemplo que se puede aumentar
-
-                const arrayGrande = ['a','b','c'];
-                arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
-                arrayGrande.pop(); // HAY error
+    console.log(food); // Reference Error
                         </code></pre>
-                    </div>
+                        <p>Con el uso de Block de ES6, se puede definir de la siguiente manera:</p>
+                        <pre><code class="language-javascript">
+    {
+        let food = 'Meow Mix';
+    };
 
-                    <div class="col s12 m1">
+    console.log(food); // Reference Error
 
+                        </code></pre>
+                        <p>Con lo cual obtenemos el mismo resultado.</p>
                     </div>
-                </div>
-                <br>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Descripción</h4>
-                </div>
-                <div class="col m12 l8">
-                    <p>descripción de cada componente</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Peculiaridades</h4>
-                </div>
-                <div class="col m12 l8">
-                    <ol>
-                        <li>peculiaridad 1</li>
-                    </ol>
                 </div>
             </div>
         </div>
+
+
 
         <footer class="page-footer light-blue">
             <div class="container">

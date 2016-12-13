@@ -88,54 +88,131 @@
             <div class="container">
                 <h4 class="header center light-blue-text">Arrow Functions</h4>
                 <div class="row">
-                    <div class="col s12 m1">
-
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
                     </div>
-
-                    <div class="col s12 m10">
+                    <div class="col m12 l8">
+                        <p>La expresión de función arrow dispone de una sintaxis más corta comparada con la expresión de función convencional y vincula contextualmente el valor de <code class="language-javascript">this</code>. Las Funciones Arrow siempre son anónimas.</p>
+                    </div>
+                </div>
+                <div class="row">
+                   <div class="col m12 l2"></div>
+                    <div class="col m12 l8">
                         <pre><code class="language-javascript">
-                // var es usado en el JavaScript antiguo y tenia algunos problemas.
-                var a = 12;
+    // Sintaxis básica:
+    (param1, param2, paramN) => { statements }
+    (param1, param2, paramN) => expression
+       // equivalente a:  => { return expression; }
 
-                // let es usado con el nuevo Ecmascript 2015
-                let a = 13;
+    // Los paréntesis son opcionales cuando solo dispone de un argumento:
+    singleParam => { statements }
+    singleParam => expression
 
-                // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
+    // Una función sin argumentos requiere paréntesis:
+    () => { statements }
 
-                const url = 'http://localhost:1337';
+    // Avanzado:
+    // Incluir entre paréntesis el cuerpo para retornar un objeto literal:
+    params => ({foo: bar})
 
-                // Un arreglo es un ejemplo que se puede aumentar
+    // Soporta Parámetros rest
+    (param1, param2, ...rest) => { statements }
 
-                const arrayGrande = ['a','b','c'];
-                arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
-                arrayGrande.pop(); // HAY error
                         </code></pre>
                     </div>
+                    <div class="col m12 l2"></div>
 
-                    <div class="col s12 m1">
-
+                </div>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p> La inclusión de las Funciones Flecha se vieron influenciadas por dos factores: Sintaxis reducida y <code class="language-javascript">this</code> contextual.</p>
                     </div>
                 </div>
-                <br>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Descripción</h4>
-                </div>
-                <div class="col m12 l8">
-                    <p>descripción de cada componente</p>
+<!--        reduccion-->
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row"><h5 class="header left blue-text">Funciones reducidas</h5></div>
+
+                <div class="row">
+                    <div class="col m12 l3">
+                        <h4></h4>
+                    </div>
+                    <div class="col m12 l9">
+                        <p>En algunos patrones funcionales, se agradece disponer de funciones reducidas. Compara:</p>
+                        <pre><code class="language-javascript">
+    var a = [
+      "Hydrogen",
+      "Helium",
+      "Lithium",
+      "Beryl¬lium"
+    ];
+
+    var a2 = a.map(function(s){ return s.length });
+
+    var a3 = a.map( s => s.length );
+
+                        </code></pre>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Peculiaridades</h4>
-                </div>
-                <div class="col m12 l8">
-                    <ol>
-                        <li>peculiaridad 1</li>
-                    </ol>
+        </div>
+<!--this-->
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row"><h5 class="header left blue-text"><code class="language-javascript">this</code> Contextual</h5></div>
+                <div class="row">
+                    <div class="col m12 l3">
+                        <h4></h4>
+                    </div>
+                    <div class="col m12 l9">
+                        <p>Anterior a las funciones flecha, cada nueva función definía su propio valor de <code class="language-javascript">this</code> (un nuevo objeto en el caso de un constructor, <code class="language-javascript">undefined</code> en llamadas a funciones en modo estricto, el objeto contextual si la función se llama como un "método de un objeto", etc.). Lo cual resultaba molesto cuando se intentaba aplicar programación orientada a objetos.</p>
+                        <pre><code class="language-javascript">
+    function Person() { 
+       // El constructor Person() define `this` como una instancia de sí mismo.   
+       this.age = 0; 
+       setInterval(function growUp() { 
+          // En modo no estricto, la función growUp() define `this` 
+          // como el objeto global, el cual es diferente al objeto `this` 
+          // definido por el constructor Person().
+          this.age++; 
+       }, 1000); 
+    } 
+
+    var p = new Person();
+                        </code></pre>
+                        <p>En ECMAScript 3/5, este problema fue corregido asignándosele el valor de <code class="language-javascript">this</code> a una variable por fuera de la función interna.</p>
+                        <pre><code class="language-javascript">
+    function Person() {
+      var self = this; // Algunas personas prefieren `that` en lugar de `self`. 
+                       // Escoja cualquiera pero sea consistente.
+      self.age = 0;
+
+      setInterval(function growUp() {
+        // La función tipo callback apunta a la variable `self` la cual
+        // contiene el objeto esperado.
+        self.age++;
+      }, 1000);
+    }
+                        </code></pre>
+                        <p>Alternativamente, el método <code class="language-javascript">bind</code> puede ser utilizado para crear una función donde podremos asignar <code class="language-javascript">this</code> al valor deseado, de esta forma podemos pasar this a la función <code class="language-javascript">growUp()</code>.</p>
+                        <p>Las funciones de flecha capturan el valor de <code class="language-javascript">this</code> del contexto actual, por lo tanto, el código funciona como se espera.</p>
+                        <pre><code class="language-javascript">
+    function Person(){
+      this.age = 0;
+
+      setInterval(() => {
+        this.age++; // |this| apunta al objeto person
+      }, 1000);
+    }
+
+    var p = new Person();
+                        </code></pre>
+                    </div>
                 </div>
             </div>
         </div>
