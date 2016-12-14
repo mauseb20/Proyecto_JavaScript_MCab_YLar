@@ -87,55 +87,98 @@
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
                 <h4 class="header center light-blue-text">Promises (goodbye callback hell)</h4>
+                <div class="row"><h4 class="header left blue-text">var</h4></div>
+
                 <div class="row">
-                    <div class="col s12 m1">
-
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
                     </div>
-
-                    <div class="col s12 m10">
+                    <div class="col m12 l8">
+                        <p>La interfaz Promise representa un proxy para un valor no necesariamente conocido cuando se crea la promesa. Permite asociar manejadores a un eventual éxito o fracaso de acciones asíncronas. Esto permite que los métodos asíncronos devuelvan valores como métodos sincrónicos: en lugar del valor final, el método asíncrono devuelve una promesa de tener un valor en algún momento en el futuro.</p>
+                        <p>El objeto Promise se usa para computaciones diferidas o asíncronas. Una Promesa puede estar en uno de estos estados:</p>
+                    </div>
+                </div>
+                <div class="row">
+                   <div class="col m12 l2"></div>
+                    <div class="col m12 l8">
                         <pre><code class="language-javascript">
-                // var es usado en el JavaScript antiguo y tenia algunos problemas.
-                var a = 12;
-
-                // let es usado con el nuevo Ecmascript 2015
-                let a = 13;
-
-                // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
-
-                const url = 'http://localhost:1337';
-
-                // Un arreglo es un ejemplo que se puede aumentar
-
-                const arrayGrande = ['a','b','c'];
-                arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
-                arrayGrande.pop(); // HAY error
+    pending ( pendiente ): estado inicial, no cumplida o rechazada.
+    fulfilled ( cumplida ): operación satisfactoria.
+    rejected ( rechazada ): operación fallida.
                         </code></pre>
                     </div>
-
-                    <div class="col s12 m1">
-
+                    <div class="col m12 l2"></div>
+                </div>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Sintaxis</p>
+                        <pre><code class="language-javascript">
+    new Promise(ejecutor);
+    new Promise(function(resolver, rechazar) { ... });
+                        </code></pre>
+                        <p>Devuelve una promesa que se resuelve cuando todas las promesas del argumento iterable han sido resueltas.</p>
+                        <pre><code class="language-javascript">
+    Promise.all(iterable)
+                        </code></pre>
+                        <p>Devuelve una promesa que resuelve o rechaza tan pronto como una de las promesas del iterable se resuelve o rechaza, con el valor o razón de esa promesa.</p>
+                        <pre><code class="language-javascript">
+    Promise.race(iterable)
+                        </code></pre>
+                        <p>Devuelve un objeto Promise que es rechazado con la razón dada.</p>
+                        <pre><code class="language-javascript">
+    Promise.reject(reason)
+                        </code></pre>
+                        <p>Devuelve un objeto Promise que es resuelto con el valor dado.. Si el valor es un thenable (p.e. tiene un método then), la promesa devuelta "seguirá" este thenable, adoptando su estado eventual; de lo contraro la promesa devuelta será resuelta con el valor. Generalmente, si quieres saber si un valor es una promesa o no, se podría usar - Promise.resolve(value) y trabajar con el valor devuelto como una promesa.</p>
+                        <pre><code class="language-javascript">Promise.resolve(value)</code></pre>
                     </div>
                 </div>
-                <br>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Descripción</h4>
-                </div>
-                <div class="col m12 l8">
-                    <p>descripción de cada componente</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Peculiaridades</h4>
-                </div>
-                <div class="col m12 l8">
-                    <ol>
-                        <li>peculiaridad 1</li>
-                    </ol>
+                <div class="row">
+                    <div class="col m12 l1"></div>
+                    <div class="col m12 l10">
+                        <h5><b>Ejemplo</b></h5>
+                        <pre><code class="language-javascript">
+    'use strict';
+    var promiseCount = 0;
+
+    function testPromise() {
+      var thisPromiseCount = ++promiseCount;
+
+      var log = document.getElementById('log');
+      log.insertAdjacentHTML('beforeend', thisPromiseCount + 
+          ') Started (<small>Código sincrónico empezado</small>)<br/>');
+
+      // Hacemos una nueva promesa: prometemos la cadena 'resultado' (después de esperar 3s)
+      var p1 = new Promise(
+        // La función de resolución se llama con la capacidad de  
+        // resolver o rechzar la promesa
+        function(resolve, reject) {       
+          log.insertAdjacentHTML('beforeend', thisPromiseCount + 
+              ') Promesa empezada (<small>Código asíncrono empezado</small>)<br/>');
+          // Esto sólo es un ejemplo para crear asincronismo
+          window.setTimeout(
+            function() {
+              // ¡Cumplimos la promesa!
+              resolve(thisPromiseCount)
+            }, Math.random() * 2000 + 1000);
+        });
+
+      // definimos que hacer cuando la promesa se ha cumplido.
+      p1.then(
+        // Solo registramos el mensaje y un valor.
+        function(val) {
+          log.insertAdjacentHTML('beforeend', val +
+              ') Promesa cumplida (<small>Código asíncrono terminado</small>)<br/>');
+        });
+
+      log.insertAdjacentHTML('beforeend', thisPromiseCount + 
+          ') Promesa hecha (<small>Código sincrónico terminado</small>)<br/>');
+    }
+                        </code></pre>
+                    </div>
+                    <div class="col m12 l1"></div>
                 </div>
             </div>
         </div>

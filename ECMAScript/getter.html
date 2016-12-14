@@ -87,59 +87,109 @@
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
                 <h4 class="header center light-blue-text">Getter and Setter in Classes</h4>
+                <div class="row"><h4 class="header left blue-text">var</h4></div>
+
                 <div class="row">
-                    <div class="col s12 m1">
-
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
                     </div>
-
-                    <div class="col s12 m10">
+                    <div class="col m12 l8">
+                        <p> <code class="language-javascript">var</code> es la forma más común de declaración de una variable en Javascript. Una vez que se crea una variable como var, esta tendrá un ámbito global, por lo tanto, se podrá actualizar o redefinir en cualquier momento.</p>
+                    </div>
+                </div>
+                <div class="row">
+                   <div class="col m12 l4"></div>
+                    <div class="col m12 l4">
                         <pre><code class="language-javascript">
-                // var es usado en el JavaScript antiguo y tenia algunos problemas.
-                var a = 12;
-
-                // let es usado con el nuevo Ecmascript 2015
-                let a = 13;
-
-                // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
-
-                const url = 'http://localhost:1337';
-
-                // Un arreglo es un ejemplo que se puede aumentar
-
-                const arrayGrande = ['a','b','c'];
-                arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
-                arrayGrande.pop(); // HAY error
+    var width = 100;
+    console.log(width); // 100
+    width = 200;
+    console.log(width); // 200
                         </code></pre>
                     </div>
+                    <div class="col m12 l4"></div>
 
-                    <div class="col s12 m1">
-
+                </div>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p> <code class="language-javascript">var</code> se la puede definir dentro de una función y usarla.</p>
+                        <pre><code class="language-javascript">
+    function setWidth() {
+      var width = 100;
+      console.log(width);
+    }
+    setWidth();
+                        </code></pre>
                     </div>
                 </div>
-                <br>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Descripción</h4>
-                </div>
-                <div class="col m12 l8">
-                    <p>descripción de cada componente</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Peculiaridades</h4>
-                </div>
-                <div class="col m12 l8">
-                    <ol>
-                        <li>peculiaridad 1</li>
-                    </ol>
+                <div class="row">
+                    <div class="col m12 l4"></div>
+                    <div class="col m12 l8">
+                        <p>Pero si tratamos de usarla fuera de la función que fue definida, esta no se imprimirá y sale un error de que no ha sido declarada.</p>
+                        <pre><code class="language-javascript">
+    function setWidth() {
+      var width = 100;
+      console.log(width);
+    }
+    setWidth();
+    console.log(width); // error, width no esta definido
+                        </code></pre>
+                        <p>Esto se debe a que dentro de la función es declarada como local y solo en estos casos es que se la define como local.</p>
+                    </div>
                 </div>
             </div>
         </div>
+<!--        let-->
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row"><h4 class="header left blue-text">let</h4></div>
 
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Como <code class="language-javascript">var</code> permite redefinirla, se daba los problemas de que se podía declarar dos variables con el mismo nombre dentro de una misma pantalla. Para evitar este inconveniente se tiene las variables que se declaran con <code class="language-javascript">let</code>.</p>
+                        <p>Si se tiene la declaración de las siguientes variables:</p>
+                        <pre><code class="language-javascript">
+    let points = 50;
+    let winner = false;
+                        </code></pre>
+                        <p>si se desea re-declarar la variable let:</p>
+                        <pre><code class="language-javascript">
+    let points = 60;
+                        </code></pre>
+                        <p>El browser lanzará un error indicando que dicha variable ya ha sido definida. Esta variable se puede actualizar, pero no se permitirá declarar dos veces con el mismo nombre.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Si se tiene el siguiente código:</p>
+                        <pre><code class="language-javascript">
+    let points = 50;
+    let winner = false;
+
+    if(points > 40) {
+       let winner = true
+    }
+    Console.log(winner); //false
+
+                        </code></pre>
+                        <p>El resultado es false, esto se da porque <code class="language-javascript">let</code> declara la variable dentro de su propio ámbito, este tipo de variables no son hoisted. En este caso se tienen dos variables diferentes, aunque tengan el mismo nombre, por estar en diferentes ámbitos.</p>
+                        <pre><code class="language-javascript">
+    let winner = false //fuera del lazo if, está delimitada al uso en la ventana.
+    let winner = true //dentro del lazo if, está delimitada al uso exclusivo del bloque.
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
         <footer class="page-footer light-blue">
             <div class="container">
                 <div class="row">
