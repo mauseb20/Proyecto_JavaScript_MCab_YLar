@@ -87,55 +87,119 @@
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
                 <h4 class="header center light-blue-text">Default, Rest y Named Parameters</h4>
+                <div class="row"><h4 class="header left blue-text">Default Parameters</h4></div>
+
                 <div class="row">
-                    <div class="col s12 m1">
-
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
                     </div>
-
-                    <div class="col s12 m10">
+                    <div class="col m12 l8">
+                        <p>Los parámetros por defecto de una función permiten que los parámetros formales de la función sean inicializados con valores por defecto si no se pasan valores o los valores pasados son <code class="language-javascript">undefined</code>.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Si en el siguiente ejemplo no se proveyera un valor para <code class="language-javascript">b</code> en la llamada, su valor sería <code class="language-javascript">undefined</code> cuando se evalúe <code class="language-javascript">a*b</code> y la llamada a <code class="language-javascript">multiplicar</code> hubiera retornado <code class="language-javascript">NaN</code>.</p>
                         <pre><code class="language-javascript">
-                // var es usado en el JavaScript antiguo y tenia algunos problemas.
-                var a = 12;
+    ffunction multiplicar(a, b) {
+      b = typeof b !== 'undefined' ?  b : 1;
 
-                // let es usado con el nuevo Ecmascript 2015
-                let a = 13;
+      return a*b;
+    }
 
-                // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
+    multiplicar(5); // 5
+                        </code></pre>
+                        <p>Con parámetros por defecto, la verificación en el cuerpo de la función ya no es necesaria. Ahora, puedes colocar simplemente 1 como el valor por defecto de b en la cabecera de la función:</p>
+                        <pre><code class="language-javascript">
+    function multiplicar(a, b = 1) {
+      return a*b;
+    }
 
-                const url = 'http://localhost:1337';
-
-                // Un arreglo es un ejemplo que se puede aumentar
-
-                const arrayGrande = ['a','b','c'];
-                arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
-                arrayGrande.pop(); // HAY error
+    multiplicar(5); // 5
                         </code></pre>
                     </div>
-
-                    <div class="col s12 m1">
-
-                    </div>
                 </div>
-                <br>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Descripción</h4>
+<!--let-->
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row"><h4 class="header left blue-text">Rest Parameters</h4></div>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>La sintaxis de los parámetros rest nos permiten representar un número indefinido de argumentos como un arreglo.</p>
+                    </div>
                 </div>
-                <div class="col m12 l8">
-                    <p>descripción de cada componente</p>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Los parámetros rest han sido agregados para reducir el codigo repetitivo que se usaba en los parámetros.</p>
+                        <pre><code class="language-javascript">
+    // Antes de los parámetros rest se realizaba:
+    function f(a, b){
+      var args = Array.prototype.slice.call(arguments, f.length);
+
+      // …
+    }
+
+    // Ahora es equivalente a 
+
+    function f(a, b, ...args) {
+
+    }
+                        </code></pre>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Peculiaridades</h4>
+        </div>
+
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row"><h4 class="header left blue-text">Named Parameters</h4></div>
+
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Uno de los patrones en ES6 para manejar los parámetros nombrados fue usar el patrón de objetos de opciones, adoptado desde jQuery.</p>
+                        <pre><code class="language-javascript">
+    function initializeCanvas(options) {
+        var height = options.height || 600;
+        var width  = options.width  || 400;
+        var lineStroke = options.lineStroke || 'black';
+    }
+                        </code></pre>
+                    </div>
                 </div>
-                <div class="col m12 l8">
-                    <ol>
-                        <li>peculiaridad 1</li>
-                    </ol>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Podemos lograr la misma funcionalidad usando la desestructuración como un parámetro formal para una función:</p>
+                        <pre><code class="language-javascript">
+    function initializeCanvas(
+        { height=600, width=400, lineStroke='black'}) {
+            // Use variables height, width, lineStroke here
+        }
+                        </code></pre>
+                        <p>Si queremos que todo el valor sea opcional, podemos hacerlo desestructurando un objeto vacío:</p>
+                        <pre><code class="language-javascript">
+    function initializeCanvas(
+        { height=600, width=400, lineStroke='black'} = {}) {
+            // ...
+        }
+                        </code></pre>
+                    </div>
                 </div>
             </div>
         </div>

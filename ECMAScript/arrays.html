@@ -88,58 +88,45 @@
             <div class="container">
                 <h4 class="header center light-blue-text">Destructuring arrays</h4>
                 <div class="row">
-                    <div class="col s12 m1">
-
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
                     </div>
-
-                    <div class="col s12 m10">
+                    <div class="col m12 l8">
+                        <p> La sintaxis de destructuring assignment es una expresión de JavaScript  que hace posible la extracción de datos de arreglos u objetos usando una sintaxis que equivale a la construcción de arreglos y objetos literales.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>Sintaxis</p>
                         <pre><code class="language-javascript">
-                // var es usado en el JavaScript antiguo y tenia algunos problemas.
-                var a = 12;
-
-                // let es usado con el nuevo Ecmascript 2015
-                let a = 13;
-
-                // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
-
-                const url = 'http://localhost:1337';
-
-                // Un arreglo es un ejemplo que se puede aumentar
-
-                const arrayGrande = ['a','b','c'];
-                arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
-                arrayGrande.pop(); // HAY error
+    [a, b] = [1, 2]
+    [a, b, ...rest] = [1, 2, 3, 4, 5]
+    {a, b} = {a:1, b:2}
                         </code></pre>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col m12 l4"></div>
+                    <div class="col m12 l8">
+                        <p>Array destructuring</p>
+                        <pre><code class="language-javascript">
+    var foo = ["uno", "dos", "tres"];
 
-                    <div class="col s12 m1">
+    // sin destructuring
+    var uno  = foo[0];
+    var dos  = foo[1];
+    var tres = foo[2]; // asignación en tres lineas
 
+    // con destructuring
+    var [uno, dos, tres] = foo; // asignación en una sola linea
+                        </code></pre>
                     </div>
                 </div>
-                <br>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Descripción</h4>
-                </div>
-                <div class="col m12 l8">
-                    <p>descripción de cada componente</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Peculiaridades</h4>
-                </div>
-                <div class="col m12 l8">
-                    <ol>
-                        <li>peculiaridad 1</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-
         <footer class="page-footer light-blue">
             <div class="container">
                 <div class="row">

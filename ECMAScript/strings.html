@@ -150,101 +150,51 @@
                     </div>
                     <div class="col m12 l8">
                         <p>El método <code class="language-javascript">repeat()</code> construye y devuelve una nueva cadena que contiene el número especificado de copias de la cadena en la cual fue llamada, concatenados.</p>
-                        <pre><code class="language-javascript">
-    let points = 50;
-    let winner = false;
-                        </code></pre>
-                        <p>si se desea re-declarar la variable let:</p>
-                        <pre><code class="language-javascript">
-    let points = 60;
-                        </code></pre>
-                        <p>El browser lanzará un error indicando que dicha variable ya ha sido definida. Esta variable se puede actualizar, pero no se permitirá declarar dos veces con el mismo nombre.</p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col m12 l4">
-                        <h4>Caracteristicas</h4>
-                    </div>
+                   <div class="col m12 l2"></div>
                     <div class="col m12 l8">
-                        <p>Si se tiene el siguiente código:</p>
                         <pre><code class="language-javascript">
-    let points = 50;
-    let winner = false;
+    //Sintaxis
+        str.repeat(count)
 
-    if(points > 40) {
-       let winner = true
-    }
-    Console.log(winner); //false
+    //Parámetros
+        count //Un entero entre 0 y +∞: [0, +∞), indicando el número de veces 
+              //a repetir la cadena en la nueva cadenada creada que será devuelta.
+    
+    //Errores
+        RangeError //El número de repeticiones debe ser positivo y menor que infinito.
 
-                        </code></pre>
-                        <p>El resultado es false, esto se da porque <code class="language-javascript">let</code> declara la variable dentro de su propio ámbito, este tipo de variables no son hoisted. En este caso se tienen dos variables diferentes, aunque tengan el mismo nombre, por estar en diferentes ámbitos.</p>
-                        <pre><code class="language-javascript">
-    let winner = false //fuera del lazo if, está delimitada al uso en la ventana.
-    let winner = true //dentro del lazo if, está delimitada al uso exclusivo del bloque.
                         </code></pre>
                     </div>
+                    <div class="col m12 l2"></div>
+
                 </div>
+                <div class="row">
+                   <div class="col m12 l2"></div>
+                    <div class="col m12 l8">
+                        <pre><code class="language-javascript">
+    //Ejemplos
+       
+        'abc'.repeat(-1);   // RangeError
+        'abc'.repeat(0);    // ''
+        'abc'.repeat(1);    // 'abc'
+        'abc'.repeat(2);    // 'abcabc'
+        'abc'.repeat(3.5);  // 'abcabcabc' (count will be converted to integer)
+        'abc'.repeat(1/0);  // RangeError
+
+        ({ toString: () => 'abc', repeat: String.prototype.repeat }).repeat(2);
+        // 'abcabc' (repeat() is a generic method)
+
+                        </code></pre>
+                    </div>
+                    <div class="col m12 l2"></div>
+
+                </div>
+                
             </div>
         </div>
-<!--const-->
-        <div class="section no-pad-bot" id="index-banner">
-            <div class="container">
-                <div class="row"><h4 class="header left blue-text">const</h4></div>
-
-                <div class="row">
-                    <div class="col m12 l4">
-                        <h4>Descripción</h4>
-                    </div>
-                    <div class="col m12 l8">
-                        <p>Otro tipo de variables usadas son las <code class="language-javascript">const</code>, estas variables tienen la misma definición que las variables <code class="language-javascript">let</code>, la diferencia entre estas dos, es que las variables <code class="language-javascript">let</code>, se la puede actualizar, pero las variables <code class="language-javascript">const</code>, van a tener un solo valor, no se las puede actualizar.</p>
-                        <p>Si se tiene el siguiente código:</p>
-                        <pre><code class="language-javascript">
-    const key = 'abc123';
-    let points = 50;
-    let winner = false;
-
-    points = 60;
-                        </code></pre>
-                        <p>Este va a funcionar correctamente. La variable points se actualizará sin ningún problema.</p>
-                        <p>Pero con el siquiente codigo:</p>
-                        <pre><code class="language-javascript">
-    const key = 'abc123';
-    let points = 50;
-    let winner = false;
-
-    key = abc1234;
-                        </code></pre>
-                        <p>Este no va a funcionar, porque no se puede actualizar una variable <code class="language-javascript">const</code>.</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col m12 l4">
-                        <h4>Caracteristicas</h4>
-                    </div>
-                    <div class="col m12 l8">
-                        <p>Se puede definir un objeto completo con tipo <code class="language-javascript">const</code>:</p>
-                        <pre><code class="language-javascript">
-    const person = {
-       name: 'Wes',
-       age: 28
-    }
-                        </code></pre>
-                        <p>El objeto en sí es inmutable. Por ejemplo, si se desea redefinir el objeto <code class="language-javascript">tipeando person = { name: ‘Wesley’}</code>, esto sin duda dará un error, ya que no se puede redefinir al objeto completo.</p>
-                        <p>Pero si se pueden actualizar sus propiedades individualmente, como se lo muestra en el código a continuación:</p>
-                        <pre><code class="language-javascript">
-    const person = {
-       name: 'Wes',
-       age: 28
-    }
-
-    person.age = 29
-                        </code></pre>
-                        <p>Esto no dará problema y correrá sin ninguna dificultad.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <footer class="page-footer light-blue">
             <div class="container">
                 <div class="row">
