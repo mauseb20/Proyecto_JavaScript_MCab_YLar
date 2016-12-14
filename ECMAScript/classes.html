@@ -88,54 +88,82 @@
             <div class="container">
                 <h4 class="header center light-blue-text">Classes</h4>
                 <div class="row">
-                    <div class="col s12 m1">
-
+                    <div class="col m12 l4">
+                        <h4>Descripción</h4>
                     </div>
-
-                    <div class="col s12 m10">
-                        <pre><code class="language-javascript">
-                // var es usado en el JavaScript antiguo y tenia algunos problemas.
-                var a = 12;
-
-                // let es usado con el nuevo Ecmascript 2015
-                let a = 13;
-
-                // const es usado para declarar objetos que no se van a modificar, pero si se pueden aumentar
-
-                const url = 'http://localhost:1337';
-
-                // Un arreglo es un ejemplo que se puede aumentar
-
-                const arrayGrande = ['a','b','c'];
-                arrayGrande.push('d'); // NO hay error const arrayGrande = ['a','b','c','d'];
-                arrayGrande.pop(); // HAY error
-                        </code></pre>
-                    </div>
-
-                    <div class="col s12 m1">
-
+                    <div class="col m12 l8">
+                        <p>Las clases son de hecho funciones, y justo como puedes definir expresiones de funciones y declaraciones de funciones.</p>
                     </div>
                 </div>
-                <br>
+                <div class="row">
+                    <div class="col m12 l4">
+                        <h4>Caracteristicas</h4>
+                    </div>
+                    <div class="col m12 l8">
+                        <p>La sintaxis de la clase tiene dos componentes, declaración de clases y expresión de clases.</p>
+                    </div>
+                </div>
+                
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Descripción</h4>
-                </div>
-                <div class="col m12 l8">
-                    <p>descripción de cada componente</p>
+<!--        cadenas-->
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row"><h5 class="header left blue-text">Declaracíon de clases</h5></div>
+
+                <div class="row">
+                    <div class="col m12 l3">
+                        <h4></h4>
+                    </div>
+                    <div class="col m12 l9">
+                        <p>Una manera de definir una clase es mediante una declaración de clase. Para la declaración de una clase, es necesario el uso de la palabra reservada class y un nombre para la clase ("Poligono" en esté caso).</p>
+                        <pre><code class="language-javascript">
+    class Poligono {
+      constructor(alto, ancho) {
+        this.alto = alto;
+        this.ancho = ancho;
+      }
+    }
+                        </code></pre>
+                        <p>Una importante diferencia entre las declaraciones de funciones y las declaraciones de clases es que las declaraciones de funciones son hoisting y las declaraciones de clases no lo son.</p>
+                        <pre><code class="language-javascript">
+    var p = new Poligono(); // ReferenceError
+
+    class Poligono {}
+                        </code></pre>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col m12 l4">
-                    <h4>Peculiaridades</h4>
-                </div>
-                <div class="col m12 l8">
-                    <ol>
-                        <li>peculiaridad 1</li>
-                    </ol>
+        </div>
+<!--interpolacion-->
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+                <div class="row"><h5 class="header left blue-text">Expresión de clases</h5></div>
+                <div class="row">
+                    <div class="col m12 l3">
+                        <h4></h4>
+                    </div>
+                    <div class="col m12 l9">
+                        <p>Una expresión de clase es otra manera de definir una clase. Las expresiones de clase pueden ser denominadas o anónimas. El nombre dado a la expresión de clase denominada es local al cuerpo de la misma.</p>
+                        <pre><code class="language-javascript">
+    // Anonima
+    var Poligono = class {
+      constructor(alto, ancho) {
+        this.alto = alto;
+        this.ancho = ancho;
+      }
+    };
+
+    // Denominada
+    var Poligono = class Poligono {
+      constructor(alto, ancho) {
+        this.alto = alto;
+        this.ancho = ancho;
+      }
+    };
+
+                        </code></pre>
+                    </div>
                 </div>
             </div>
         </div>
