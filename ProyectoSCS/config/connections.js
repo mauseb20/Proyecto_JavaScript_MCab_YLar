@@ -48,7 +48,7 @@ module.exports.connections = {
   //   database: 'YOUR_MYSQL_DB' //optional
   // },
     
-    mysql: {
+    conexionBaseSwControl: {
     adapter   : 'sails-mysql',
     host      : 'localhost',
     port      : 3306,
