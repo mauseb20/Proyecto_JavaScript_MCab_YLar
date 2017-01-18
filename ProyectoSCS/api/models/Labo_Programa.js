@@ -7,23 +7,21 @@
 
 module.exports = {
 
-  attributes: {
-      
-      idLaboratorio: {
-          model: 'Laboratorio',
-          required: true,
-      },
-      
-      idMateria: {
-          model: 'Laboratorio',
-          required: true,
-      },
-      
-      grupo:{
-          type: 'string',
-          enum: ['GR1', 'GR2', 'GR3'] 
-      }
+    connection: 'conexionBaseSwControl',
+    tableName: 'laboratorio_programa',
 
-  }
+    attributes: {
+
+        idLaboratorio: {
+            model: 'Laboratorio',
+            required: true,
+        },
+
+        idPrograma: {
+            model: 'Programa',
+            required: true,
+        }
+
+    }
 };
 

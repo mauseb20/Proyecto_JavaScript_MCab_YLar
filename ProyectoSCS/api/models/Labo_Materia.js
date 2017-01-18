@@ -12,16 +12,13 @@ module.exports = {
 
     attributes: {
 
-        connection: 'conexionBaseSwControl',
-        tableName: 'laboratorio',
-
         idLaboratorio: {
             model: 'Laboratorio',
             required: true,
         },
 
         idMateria: {
-            model: 'Laboratorio',
+            model: 'Materia',
             required: true,
         },
 

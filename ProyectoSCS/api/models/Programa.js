@@ -30,24 +30,27 @@ module.exports = {
       tipoProg: {
           type: 'string',
           required: true,
-          size: 20
+          enum: ['SO', 'APP'],
+          size: 5
       },
       
       servicio: {
           type: 'string',
           defaultsTo: 'NULL',
-          size: 15
+          enum: ['Ofimatica', 'IDE', 'BDD', 'Case'],
+          size: 10
       },
         
       categoria: {
           type: 'string',
           required: true,
-          size: 10
+          enum: ['Pago', 'Libre']
       },
       
      versionProg: {
           type: 'string',
           required: true,
+         defaultsTo: 'NULL',
           size: 10
       },
       
@@ -55,7 +58,17 @@ module.exports = {
           type: 'string',
           defaultsTo: 'NULL',
           size: 10
-      }
+      },
+      
+      LaboratoriosProgramasDePrograma: {
+            collection: 'Labo_Programa',
+            via: 'idPrograma'
+        },
+      
+      MateriasProgramasDePrograma: {
+            collection: 'Materia_Programa',
+            via: 'idPrograma'
+        }
 
   }
 };

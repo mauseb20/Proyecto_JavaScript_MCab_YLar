@@ -7,36 +7,41 @@
 
 module.exports = {
 
-  connection: 'conexionBaseSwControl',
-  tableName: 'materia',
-    
+    connection: 'conexionBaseSwControl',
+    tableName: 'materia',
+
     attributes: {
-      
-      idMateria: {
-          type: 'number',
-          primaryKey: true,
-          unique: true,
-          required: true,
-          autoIncrement: true,
-          size: 6
-      },
-        
-      codigoMateria: {
-          type: 'string',
-          required: true,
-          size: 6
-      },
-        
-      nombreMateria: {
-          type: 'string',
-          required: true,
-          size: 100
-      },
-        
-      LaboratoriosMateriasDeMateria: {
-          collection: 'Labo_Materia',
-          via: 'idMateria'
-      }
-  }
+
+        idMateria: {
+            type: 'number',
+            primaryKey: true,
+            unique: true,
+            required: true,
+            autoIncrement: true,
+            size: 6
+        },
+
+        codigoMateria: {
+            type: 'string',
+            required: true,
+            size: 6
+        },
+
+        nombreMateria: {
+            type: 'string',
+            required: true,
+            size: 100
+        },
+
+        LaboratoriosMateriasDeMateria: {
+            collection: 'Labo_Materia',
+            via: 'idMateria'
+        },
+
+        MateriasProgramasDeMateria: {
+            collection: 'Materia_Programa',
+            via: 'idMateria'
+        }
+    }
 };
 
