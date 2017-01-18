@@ -56,6 +56,11 @@ module.exports = {
           required: true,
           defaultsTo: 'NO',
           size: 2
+      },
+      
+      LaboratoriosMateriasDeLaboratorio: {
+          collection: 'Labo_Materia',
+          via: 'idLaboratorio'
       }
 
   }

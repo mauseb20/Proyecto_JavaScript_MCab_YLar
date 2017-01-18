@@ -31,6 +31,11 @@ module.exports = {
           type: 'string',
           required: true,
           size: 100
+      },
+        
+      LaboratoriosMateriasDeMateria: {
+          collection: 'Labo_Materia',
+          via: 'idMateria'
       }
   }
 };

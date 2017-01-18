@@ -7,25 +7,29 @@
 
 module.exports = {
 
-  connection: 'conexionBaseSwControl',
-  tableName: 'laboratorio_materia',
-    
-  attributes: {
+    connection: 'conexionBaseSwControl',
+    tableName: 'laboratorio_materia',
 
-      idLaboratorio: {
-          type: 'number',
-          primaryKey: true,
-          required: true,
-          size: 6
-      },
-      
-      idMateria: {
-          type: 'number',
-          primaryKey: true,
-          required: true,
-          size: 6
-      },
-      
-  }
+    attributes: {
+
+        connection: 'conexionBaseSwControl',
+        tableName: 'laboratorio',
+
+        idLaboratorio: {
+            model: 'Laboratorio',
+            required: true,
+        },
+
+        idMateria: {
+            model: 'Laboratorio',
+            required: true,
+        },
+
+        grupo:{
+            type: 'string',
+            enum: ['GR1', 'GR2', 'GR3']
+        }
+
+    }
 };
 
