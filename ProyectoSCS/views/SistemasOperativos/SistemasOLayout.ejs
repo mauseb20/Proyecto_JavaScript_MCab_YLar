@@ -67,21 +67,34 @@ For example, here are a few things you could do:
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-        <%- body %>
-        
-        <br>
-        <div class="page-header">
-            <h2> Mayor información - Contactos:</h2>
-        </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8" align="center">
-                   <a href="http://fis.epn.edu.ec" target="_blank"><img alt="siguenos en facebook" height="48" src="https://raw.githubusercontent.com/mauseb20/Proyecto_JavaScript_MCab_YLar/MauViews/ProyectoSCS/assets/images/FIS48.png"  width="48" /></a>
-                   <a href="https://www.facebook.com/blogldicc/" target="_blank"><img alt="siguenos en facebook" height="48" src="http://2.bp.blogspot.com/-GlLV_MydcBk/UiX09MYOSfI/AAAAAAAAB18/5vkDADo6qEw/s1600/Facebook+alt+1.png" title="siguenos en facebook" width="48" /></a>
-                   <a href="http://fis.epn.edu.ec/dicc/laboratorios" target="_blank"><img alt="mas informacion" height="48" src="https://raw.githubusercontent.com/mauseb20/Proyecto_JavaScript_MCab_YLar/MauViews/ProyectoSCS/assets/images/LogoP48.png"  width="48" /></a>
+                <div class="col-md-1" align="center">
+                    <h1><span class="glyphicon glyphicon-chevron-left"></span></h1>
                 </div>
-                <div class="col-md-2"></div>
+                <div class="col-md-4" align="center">
+                    <h1>Sistemas Operativos</h1>
+                </div>
+                <div class="col-md-1" align="center">
+                    <h1><span class="glyphicon glyphicon-chevron-right"></span></h1>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="jumbotron">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li role="presentation"><a href="/home">Home </a></li>
+                            <li role="presentation"><a href="/materias">Materias <span class="glyphicon glyphicon-triangle-right"></span></a></li>
+                            <li role="presentation"><a href="/laboratorios">Laboratorios </a></li>
+                            <li role="presentation"><a href="/software">Software </a></li>
+                            <li role="presentation" class="active"><a href="/sistemasO">Sistemas Operativos <span class="glyphicon glyphicon-triangle-right"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <%- body %>
+                </div>
             </div>
         </div>
 

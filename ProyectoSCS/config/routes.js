@@ -33,13 +33,41 @@ module.exports.routes = {
   ***************************************************************************/
 
     '/': {
-        view: 'Login',
+        view: 'Login/Login',
         locals: {
-          layout: 'layouts/LoginLayout'
+          layout: 'Login/LoginLayout'
         }
     },
     '/home':{
-        view:'Home'
+        view:'Home/Home',
+        locals: {
+          layout: 'Home/HomeLayout'
+        }
+        
+    },
+    '/materias':{
+        view:'Materias/Materias',
+        locals: {
+          layout: 'Materias/MateriasLayout'
+        }
+    },
+    '/laboratorios':{
+        view:'Laboratorios/Laboratorios',
+        locals: {
+          layout: 'Laboratorios/LaboratoriosLayout'
+        }
+    },
+    '/software':{
+        view:'Software/Software',
+        locals: {
+          layout: 'Software/SoftwareLayout'
+        }
+    },
+    '/sistemasO':{
+        view:'SistemasOperativos/SistemasO',
+        locals: {
+          layout: 'SistemasOperativos/SistemasOLayout'
+        }
     }
 
   /***************************************************************************
