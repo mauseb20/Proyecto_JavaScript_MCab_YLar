@@ -48,17 +48,17 @@ module.exports.connections = {
   //   database: 'YOUR_MYSQL_DB' //optional
   // },
     
-    conexionBaseSwControl: {
-    adapter   : 'sails-mysql',
-    host      : 'localhost',
-    port      : 3306,
-    user      : 'root',
-    password  : 'root',
-    database  : 'sw_control',
-
-    // Optional
-    charset   : 'utf8'
-  },
+//    conexionBaseSwControl: {
+//    adapter   : 'sails-mysql',
+//    host      : 'localhost',
+//    port      : 3306,
+//    user      : 'root',
+//    password  : 'root',
+//    database  : 'sw_control',
+//
+//    // Optional
+//    charset   : 'utf8'
+//  },
 
   /***************************************************************************
   *                                                                          *

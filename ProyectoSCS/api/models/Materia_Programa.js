@@ -7,8 +7,8 @@
 
 module.exports = {
 
-    connection: 'conexionBaseSwControl',
-    tableName: 'materia_prog',
+//    connection: 'conexionBaseSwControl',
+//    tableName: 'materia_prog',
 
     attributes: {
 
