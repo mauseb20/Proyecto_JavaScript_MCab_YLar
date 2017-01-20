@@ -22,7 +22,7 @@
 
 module.exports.routes = {
 
-  /***************************************************************************
+    /***************************************************************************
   *                                                                          *
   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
   * etc. depending on your default view engine) your home page.              *
@@ -35,42 +35,90 @@ module.exports.routes = {
     '/': {
         view: 'Login/Login',
         locals: {
-          layout: 'Login/LoginLayout'
+            layout: 'Login/LoginLayout'
         }
     },
-    '/home':{
-        view:'Home/Home',
+    '/home': {
+        view: 'Home/Home',
         locals: {
-          layout: 'Home/HomeLayout'
+            layout: 'Home/HomeLayout'
         }
-        
+
     },
-    '/materias':{
-        view:'Materias/Materias',
+    '/materias': {
+        view: 'Materias/Materias',
         locals: {
-          layout: 'Materias/MateriasLayout'
-        }
-    },
-    '/laboratorios':{
-        view:'Laboratorios/Laboratorios',
-        locals: {
-          layout: 'Laboratorios/LaboratoriosLayout'
+            layout: 'Materias/MateriasLayout'
         }
     },
-    '/software':{
-        view:'Software/Software',
+    '/laboratorios': {
+        view: 'Laboratorios/Laboratorios',
         locals: {
-          layout: 'Software/SoftwareLayout'
+            layout: 'Laboratorios/LaboratoriosLayout'
         }
     },
-    '/sistemasO':{
-        view:'SistemasOperativos/SistemasO',
+    '/software': {
+        view: 'Software/Software',
         locals: {
-          layout: 'SistemasOperativos/SistemasOLayout'
+            layout: 'Software/SoftwareLayout'
+        }
+    },
+    '/sistemasO': {
+        view: 'SistemasOperativos/SistemasO',
+        locals: {
+            layout: 'SistemasOperativos/SistemasOLayout'
+        }
+    },
+    '/asignarSW': {
+        view: 'Materias/MateriaSoftware',
+        locals: {
+            layout: 'Materias/MateriasLayout'
+        }
+    },
+    '/asignacion': {
+        view: 'Home/HomeRelacion',
+        locals: {
+            layout: 'Home/HomeLayout'
+        }
+    },
+    '/crearMateria': {
+        view: 'Materias/CrearMateria',
+        locals: {
+            layout: 'Materias/MateriasLayout'
+        }
+    },
+    '/editarMateria': {
+        view: 'Materias/EditarMateria',
+        locals: {
+            layout: 'Materias/MateriasLayout'
+        }
+    },
+    '/crearLaboratorio': {
+        view: 'Laboratorios/CrearLaboratorio',
+        locals: {
+            layout: 'Laboratorios/LaboratoriosLayout'
+        }
+    },
+    '/editarLaboratorio': {
+        view: 'Laboratorios/EditarLaboratorio',
+        locals: {
+            layout: 'Laboratorios/LaboratoriosLayout'
+        }
+    },
+    '/asignarSO': {
+        view: 'Laboratorios/AsignarSO',
+        locals: {
+            layout: 'Laboratorios/LaboratoriosLayout'
+        }
+    },
+    '/asignarMateria': {
+        view: 'Laboratorios/AsignarMateria',
+        locals: {
+            layout: 'Laboratorios/LaboratoriosLayout'
         }
     }
 
-  /***************************************************************************
+    /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
   *                                                                          *
