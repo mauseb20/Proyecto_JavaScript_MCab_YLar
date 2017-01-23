@@ -14,11 +14,6 @@ module.exports = {
          
          console.log(parametros);
          
-//         /Usuario/crearUsuario?nombres=Yessenia&apellidos:Larco
-//         
-//         POST 
-//         
-//         correo: yessenia.larco@gmail.com
          if(req.method == 'POST'){
          if(parametros.codigoMateria&&parametros.nombreMateria){
              //crear usuario

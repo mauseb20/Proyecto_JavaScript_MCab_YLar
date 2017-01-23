@@ -16,7 +16,7 @@ module.exports = {
             type: 'number',
             primaryKey: true,
             unique: true,
-            required: true,
+           // required: true,
             autoIncrement: true,
             size: 6
         },
@@ -53,7 +53,7 @@ module.exports = {
 
         proyectorEmpotrado: {
             type: 'string',
-            required: true,
+            //required: true,
             defaultsTo: 'NO',
             enum: ['SI', 'NO'],
             size: 2

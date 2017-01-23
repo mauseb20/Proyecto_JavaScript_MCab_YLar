@@ -16,7 +16,7 @@ module.exports = {
           type: 'number',
           primaryKey: true,
           unique: true,
-          required: true,
+         // required: true,
           autoIncrement: true,
           size: 6
       },
