@@ -116,6 +116,30 @@ module.exports.routes = {
         locals: {
             layout: 'Laboratorios/LaboratoriosLayout'
         }
+    },
+    '/crearSoftware': {
+        view: 'Software/CrearSoftware',
+        locals: {
+            layout: 'Software/SoftwareLayout'
+        }
+    },
+    '/editarSoftware': {
+        view: 'Software/EditarSoftware',
+        locals: {
+            layout: 'Software/SoftwareLayout'
+        }
+    },
+    '/crearSO': {
+        view: 'SistemasOperativos/CrearSO',
+        locals: {
+            layout: 'SistemasOperativos/SistemasOLayout'
+        }
+    },
+    '/editarSO': {
+        view: 'SistemasOperativos/EditarSO',
+        locals: {
+            layout: 'SistemasOperativos/SistemasOLayout'
+        }
     }
 
     /***************************************************************************
