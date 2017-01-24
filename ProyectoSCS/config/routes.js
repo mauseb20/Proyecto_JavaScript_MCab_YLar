@@ -22,7 +22,7 @@
 
 module.exports.routes = {
 
-  /***************************************************************************
+    /***************************************************************************
   *                                                                          *
   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
   * etc. depending on your default view engine) your home page.              *
@@ -32,11 +32,117 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+    '/': {
+        view: 'Login/Login',
+        locals: {
+            layout: 'Login/LoginLayout'
+        }
+    },
+    '/home': {
+        view: 'Home/Home',
+        locals: {
+            layout: 'Home/HomeLayout'
+        }
 
-  /***************************************************************************
+    },
+    '/materias': {
+        view: 'Materias/Materias',
+        locals: {
+            layout: 'Materias/MateriasLayout'
+        }
+    },
+    '/laboratorios': {
+        view: 'Laboratorios/Laboratorios',
+        locals: {
+            layout: 'Laboratorios/LaboratoriosLayout'
+        }
+    },
+    '/software': {
+        view: 'Software/Software',
+        locals: {
+            layout: 'Software/SoftwareLayout'
+        }
+    },
+    '/sistemasO': {
+        view: 'SistemasOperativos/SistemasO',
+        locals: {
+            layout: 'SistemasOperativos/SistemasOLayout'
+        }
+    },
+    '/asignarSW': {
+        view: 'Materias/MateriaSoftware',
+        locals: {
+            layout: 'Materias/MateriasLayout'
+        }
+    },
+    '/asignacion': {
+        view: 'Home/HomeRelacion',
+        locals: {
+            layout: 'Home/HomeLayout'
+        }
+    },
+    '/crearMateria': {
+        view: 'Materias/CrearMateria',
+        locals: {
+            layout: 'Materias/MateriasLayout'
+        }
+    },
+    '/editarMateria': {
+        view: 'Materias/EditarMateria',
+        locals: {
+            layout: 'Materias/MateriasLayout'
+        }
+    },
+    '/crearLaboratorio': {
+        view: 'Laboratorios/CrearLaboratorio',
+        locals: {
+            layout: 'Laboratorios/LaboratoriosLayout'
+        }
+    },
+    '/editarLaboratorio': {
+        view: 'Laboratorios/EditarLaboratorio',
+        locals: {
+            layout: 'Laboratorios/LaboratoriosLayout'
+        }
+    },
+    '/asignarSO': {
+        view: 'Laboratorios/AsignarSO',
+        locals: {
+            layout: 'Laboratorios/LaboratoriosLayout'
+        }
+    },
+    '/asignarMateria': {
+        view: 'Laboratorios/AsignarMateria',
+        locals: {
+            layout: 'Laboratorios/LaboratoriosLayout'
+        }
+    },
+    '/crearSoftware': {
+        view: 'Software/CrearSoftware',
+        locals: {
+            layout: 'Software/SoftwareLayout'
+        }
+    },
+    '/editarSoftware': {
+        view: 'Software/EditarSoftware',
+        locals: {
+            layout: 'Software/SoftwareLayout'
+        }
+    },
+    '/crearSO': {
+        view: 'SistemasOperativos/CrearSO',
+        locals: {
+            layout: 'SistemasOperativos/SistemasOLayout'
+        }
+    },
+    '/editarSO': {
+        view: 'SistemasOperativos/EditarSO',
+        locals: {
+            layout: 'SistemasOperativos/SistemasOLayout'
+        }
+    }
+
+    /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
   *                                                                          *
