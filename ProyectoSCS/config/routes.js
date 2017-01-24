@@ -69,6 +69,12 @@ module.exports.routes = {
             layout: 'SistemasOperativos/SistemasOLayout'
         }
     },
+    '/formulario': {
+        view: 'FormularioProfesores/EnvioFormulario',
+        locals: {
+            layout: 'FormularioProfesores/FormularioLayout'
+        }
+    },
     '/asignarSW': {
         view: 'Materias/MateriaSoftware',
         locals: {
