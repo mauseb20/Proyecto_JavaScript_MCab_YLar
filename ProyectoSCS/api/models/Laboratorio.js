@@ -54,8 +54,8 @@ module.exports = {
         proyectorEmpotrado: {
             type: 'string',
             //required: true,
-            defaultsTo: 'NO',
             enum: ['SI', 'NO'],
+            defaultsTo: 'NO',
             size: 2
         },
 

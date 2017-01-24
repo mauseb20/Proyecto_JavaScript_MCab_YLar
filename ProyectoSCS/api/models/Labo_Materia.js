@@ -24,6 +24,7 @@ module.exports = {
 
         grupo:{
             type: 'string',
+            required: true,
             enum: ['GR1', 'GR2', 'GR3']
         }
 

@@ -15,15 +15,16 @@ module.exports = {
         console.log(parametros);
 
         if(req.method == 'POST'){
-            if(parametros.nombreLaboratorio && parametros.numAula && parametros.capacidad && parametros.numOrdenadores){
+            if(parametros.nombreLaboratorio && parametros.numAula && parametros.capacidad && parametros.numOrdenadores && parametros.proyectorEmpotrado){
                 //crear programa
 
-                Programa.create({
+                Laboratorio.create({
 
                     nombreLaboratorio: parametros.nombreLaboratorio,
                     numAula: parametros.numAula,
                     capacidad: parametros.capacidad,
-                    numOrdenadores: parametros.numOrdenadores
+                    numOrdenadores: parametros.numOrdenadores,
+               proyectorEmpotrado: parametros.proyectorEmpotrado
 
                 }).exec(function (error, laboratorioCreado){
 

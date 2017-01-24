@@ -37,7 +37,7 @@ module.exports = {
       servicio: {
           type: 'string',
           defaultsTo: 'NULL',
-          enum: ['Ofimatica', 'IDE', 'BDD', 'Case'],
+          enum: ['Ofimatica', 'IDE', 'BDD', 'Case', 'Otro'],
           size: 10
       },
         
@@ -57,6 +57,7 @@ module.exports = {
       anioProg: {
           type: 'string',
           defaultsTo: 'NULL',
+          required:false,
           size: 10
       },
       

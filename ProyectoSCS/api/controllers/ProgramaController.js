@@ -15,15 +15,17 @@ module.exports = {
         console.log(parametros);
 
         if(req.method == 'POST'){
-            if(parametros.nombrePrograma&&parametros.tipoProg&&parametros.categoria&&parametros.versionProg){
+            if(parametros.nombrePrograma && parametros.tipoProg && parametros.servicio && parametros.categoria && parametros.versionProg ){
                 //crear programa
 
                 Programa.create({
 
                     nombrePrograma: parametros.nombrePrograma,
                     tipoProg: parametros.tipoProg,
+                    servicio: parametros.servicio,
                     categoria: parametros.categoria,
-                    versionProg: parametros.versionProg
+                    versionProg: parametros.versionProg,
+                    
 
                 }).exec(function (error, programaCreado){
 
