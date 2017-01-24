@@ -17,7 +17,7 @@ module.exports.models = {
   * connections (see `config/connections.js`)                                *
   *                                                                          *
   ***************************************************************************/
-  // connection: 'localDiskDb',
+   connection: 'localDiskDb'
 
   /***************************************************************************
   *                                                                          *
@@ -28,5 +28,7 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
   // migrate: 'alter'
+    
+   // connection: 'mysql'
 
 };
