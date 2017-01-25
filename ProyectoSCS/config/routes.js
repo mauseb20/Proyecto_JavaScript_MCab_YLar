@@ -146,6 +146,24 @@ module.exports.routes = {
         locals: {
             layout: 'SistemasOperativos/SistemasOLayout'
         }
+    },
+    '/crearProf': {
+        view: 'FormularioProfesores/AgregarProfesor',
+        locals: {
+            layout: 'FormularioProfesores/FormularioLayout'
+        }
+    },
+    '/editarProf': {
+        view: 'FormularioProfesores/EditarProfesor',
+        locals: {
+            layout: 'FormularioProfesores/FormularioLayout'
+        }
+    },
+    '/formProfesor': {
+        view: 'formulario'
+    },
+    '/gracias': {
+        view: 'gracias'
     }
 
     /***************************************************************************
