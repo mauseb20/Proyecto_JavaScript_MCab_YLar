@@ -16,32 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `laboratorio`
+-- Table structure for table `programa`
 --
 
-DROP TABLE IF EXISTS `laboratorio`;
+DROP TABLE IF EXISTS `programa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `laboratorio` (
-  `ID_LABORATORIO` smallint(6) NOT NULL AUTO_INCREMENT,
-  `NOMBRE_LAB` char(10) NOT NULL,
-  `NUM_AULA` smallint(6) NOT NULL,
-  `CAPACIDAD` smallint(6) NOT NULL,
-  `DESC_UBICACION` varchar(100) DEFAULT NULL,
-  `NUM_ORDENADORES` smallint(6) NOT NULL,
-  `PROY_EMPOTRADO` char(2) NOT NULL,
-  PRIMARY KEY (`ID_LABORATORIO`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+CREATE TABLE `programa` (
+  `ID_PROGRAMA` smallint(6) NOT NULL AUTO_INCREMENT,
+  `NOMBRE_PROG` char(30) NOT NULL,
+  `TIPO` char(20) DEFAULT 'SIN ASIGNAR',
+  `SERVICIO` char(15) DEFAULT 'S/A',
+  `CATEGORIA` char(10) NOT NULL,
+  `VERSION` char(10) DEFAULT NULL,
+  `ANIO` char(10) DEFAULT NULL,
+  UNIQUE KEY `ID_PROGRAMA_UNIQUE` (`ID_PROGRAMA`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `laboratorio`
+-- Dumping data for table `programa`
 --
 
-LOCK TABLES `laboratorio` WRITE;
-/*!40000 ALTER TABLE `laboratorio` DISABLE KEYS */;
-INSERT INTO `laboratorio` VALUES (1,'Beta',302,25,'Entrada al pasillo mano derecha',22,'SI'),(2,'Alfa',301,10,'Entrada al pasillo mano izquierda',15,'NO');
-/*!40000 ALTER TABLE `laboratorio` ENABLE KEYS */;
+LOCK TABLES `programa` WRITE;
+/*!40000 ALTER TABLE `programa` DISABLE KEYS */;
+INSERT INTO `programa` VALUES (1,'WINDOWS SERVER','SO',NULL,'PAGO','2012','2012'),(2,'SQL SERVER','APP','BDD','PAGO','2012','2012'),(3,'ECLIPSE','APP','IDE','FREE','8.3','2015'),(4,'OFFICE','APP','OFIMATICA','PAGO','2010','2010');
+/*!40000 ALTER TABLE `programa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-09 15:25:48
+-- Dump completed on 2017-02-03 15:01:20

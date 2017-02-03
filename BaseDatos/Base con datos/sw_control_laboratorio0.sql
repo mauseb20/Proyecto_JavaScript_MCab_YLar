@@ -16,28 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `materia`
+-- Table structure for table `laboratorio`
 --
 
-DROP TABLE IF EXISTS `materia`;
+DROP TABLE IF EXISTS `laboratorio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `materia` (
-  `ID_MATERIA` smallint(6) NOT NULL AUTO_INCREMENT,
-  `CODIGO_MAT` char(6) NOT NULL,
-  `NOMBRE_MAT` varchar(100) NOT NULL,
-  PRIMARY KEY (`ID_MATERIA`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+CREATE TABLE `laboratorio` (
+  `ID_LABORATORIO` smallint(6) NOT NULL AUTO_INCREMENT,
+  `NOMBRE_LAB` char(10) NOT NULL,
+  `NUM_AULA` smallint(6) NOT NULL,
+  `CAPACIDAD` smallint(6) NOT NULL,
+  `DESC_UBICACION` varchar(100) DEFAULT NULL,
+  `NUM_ORDENADORES` smallint(6) NOT NULL,
+  `PROY_EMPOTRADO` char(2) NOT NULL DEFAULT 'NO',
+  PRIMARY KEY (`ID_LABORATORIO`),
+  UNIQUE KEY `ID_LABORATORIO_UNIQUE` (`ID_LABORATORIO`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `materia`
+-- Dumping data for table `laboratorio`
 --
 
-LOCK TABLES `materia` WRITE;
-/*!40000 ALTER TABLE `materia` DISABLE KEYS */;
-INSERT INTO `materia` VALUES (1,'SIC803','CERTIFICACION DE GERENCIA DE SEGURIDAD DE INFORMACION'),(2,'SIC514','TECNOLOGIAS DE SEGURIDAD'),(3,'SIC8B4','TECNOLOGIAS WEB CON JAVASCRIPT');
-/*!40000 ALTER TABLE `materia` ENABLE KEYS */;
+LOCK TABLES `laboratorio` WRITE;
+/*!40000 ALTER TABLE `laboratorio` DISABLE KEYS */;
+INSERT INTO `laboratorio` VALUES (1,'Beta',302,25,'Entrada al pasillo mano derecha',22,'SI'),(2,'Alfa',301,10,'Entrada al pasillo mano izquierda',15,'NO');
+/*!40000 ALTER TABLE `laboratorio` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -49,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-09 15:25:48
+-- Dump completed on 2017-02-03 15:01:20

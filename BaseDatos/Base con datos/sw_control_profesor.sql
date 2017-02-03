@@ -16,30 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `laboratorio_programa`
+-- Table structure for table `profesor`
 --
 
-DROP TABLE IF EXISTS `laboratorio_programa`;
+DROP TABLE IF EXISTS `profesor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `laboratorio_programa` (
-  `ID_LABORATORIO` smallint(6) NOT NULL,
-  `ID_PROGRAMA` smallint(6) NOT NULL,
-  PRIMARY KEY (`ID_LABORATORIO`,`ID_PROGRAMA`),
-  KEY `FK_LABORATORIO_PROGRAMA2` (`ID_PROGRAMA`),
-  CONSTRAINT `FK_LABORATORIO_PROGRAMA` FOREIGN KEY (`ID_LABORATORIO`) REFERENCES `laboratorio` (`ID_LABORATORIO`),
-  CONSTRAINT `FK_LABORATORIO_PROGRAMA2` FOREIGN KEY (`ID_PROGRAMA`) REFERENCES `programa` (`ID_PROGRAMA`)
+CREATE TABLE `profesor` (
+  `idprofesor` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_apellido_prof` varchar(100) NOT NULL,
+  `correo_prof` varchar(60) NOT NULL,
+  `num_intentos` smallint(4) DEFAULT NULL,
+  PRIMARY KEY (`idprofesor`),
+  UNIQUE KEY `idprofesor_UNIQUE` (`idprofesor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `laboratorio_programa`
+-- Dumping data for table `profesor`
 --
 
-LOCK TABLES `laboratorio_programa` WRITE;
-/*!40000 ALTER TABLE `laboratorio_programa` DISABLE KEYS */;
-INSERT INTO `laboratorio_programa` VALUES (2,1),(1,2),(2,3),(1,4);
-/*!40000 ALTER TABLE `laboratorio_programa` ENABLE KEYS */;
+LOCK TABLES `profesor` WRITE;
+/*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
+/*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-09 15:25:48
+-- Dump completed on 2017-02-03 15:01:20

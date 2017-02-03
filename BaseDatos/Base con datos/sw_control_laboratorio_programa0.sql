@@ -16,31 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `laboratorio_materia`
+-- Table structure for table `laboratorio_programa`
 --
 
-DROP TABLE IF EXISTS `laboratorio_materia`;
+DROP TABLE IF EXISTS `laboratorio_programa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `laboratorio_materia` (
+CREATE TABLE `laboratorio_programa` (
   `ID_LABORATORIO` smallint(6) NOT NULL,
-  `ID_MATERIA` smallint(6) NOT NULL,
-  `GRUPO` char(4) NOT NULL,
-  PRIMARY KEY (`ID_LABORATORIO`,`ID_MATERIA`,`GRUPO`),
-  KEY `FK_LABORATORIO_MATERIA2` (`ID_MATERIA`),
-  CONSTRAINT `FK_LABORATORIO_MATERIA` FOREIGN KEY (`ID_LABORATORIO`) REFERENCES `laboratorio` (`ID_LABORATORIO`),
-  CONSTRAINT `FK_LABORATORIO_MATERIA2` FOREIGN KEY (`ID_MATERIA`) REFERENCES `materia` (`ID_MATERIA`)
+  `ID_PROGRAMA` smallint(6) NOT NULL,
+  PRIMARY KEY (`ID_LABORATORIO`,`ID_PROGRAMA`),
+  KEY `FK_LABORATORIO_PROGRAMA2` (`ID_PROGRAMA`),
+  CONSTRAINT `FK_LABORATORIO_PROGRAMA` FOREIGN KEY (`ID_LABORATORIO`) REFERENCES `laboratorio` (`ID_LABORATORIO`),
+  CONSTRAINT `FK_LABORATORIO_PROGRAMA2` FOREIGN KEY (`ID_PROGRAMA`) REFERENCES `programa` (`ID_PROGRAMA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `laboratorio_materia`
+-- Dumping data for table `laboratorio_programa`
 --
 
-LOCK TABLES `laboratorio_materia` WRITE;
-/*!40000 ALTER TABLE `laboratorio_materia` DISABLE KEYS */;
-INSERT INTO `laboratorio_materia` VALUES (1,1,'GR1'),(2,1,'GR1'),(1,2,'GR2'),(2,2,'GR2'),(1,3,'GR1');
-/*!40000 ALTER TABLE `laboratorio_materia` ENABLE KEYS */;
+LOCK TABLES `laboratorio_programa` WRITE;
+/*!40000 ALTER TABLE `laboratorio_programa` DISABLE KEYS */;
+INSERT INTO `laboratorio_programa` VALUES (2,1),(1,2),(2,3),(1,4);
+/*!40000 ALTER TABLE `laboratorio_programa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-09 15:25:47
+-- Dump completed on 2017-02-03 15:01:20

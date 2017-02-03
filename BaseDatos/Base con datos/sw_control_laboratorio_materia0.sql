@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `materia_prog`
+-- Table structure for table `laboratorio_materia`
 --
 
-DROP TABLE IF EXISTS `materia_prog`;
+DROP TABLE IF EXISTS `laboratorio_materia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `materia_prog` (
-  `ID_PROGRAMA` smallint(6) NOT NULL,
+CREATE TABLE `laboratorio_materia` (
+  `ID_LABORATORIO` smallint(6) NOT NULL,
   `ID_MATERIA` smallint(6) NOT NULL,
-  `ESTADO` varchar(12) NOT NULL,
-  PRIMARY KEY (`ID_PROGRAMA`,`ID_MATERIA`),
-  KEY `FK_MATERIA_PROGRAMA2` (`ID_MATERIA`),
-  CONSTRAINT `FK_MATERIA_PROGRAMA` FOREIGN KEY (`ID_PROGRAMA`) REFERENCES `programa` (`ID_PROGRAMA`),
-  CONSTRAINT `FK_MATERIA_PROGRAMA2` FOREIGN KEY (`ID_MATERIA`) REFERENCES `materia` (`ID_MATERIA`)
+  `GRUPO` char(4) NOT NULL,
+  PRIMARY KEY (`ID_LABORATORIO`,`ID_MATERIA`,`GRUPO`),
+  KEY `FK_LABORATORIO_MATERIA2` (`ID_MATERIA`),
+  CONSTRAINT `FK_LABORATORIO_MATERIA` FOREIGN KEY (`ID_LABORATORIO`) REFERENCES `laboratorio` (`ID_LABORATORIO`),
+  CONSTRAINT `FK_LABORATORIO_MATERIA2` FOREIGN KEY (`ID_MATERIA`) REFERENCES `materia` (`ID_MATERIA`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `materia_prog`
+-- Dumping data for table `laboratorio_materia`
 --
 
-LOCK TABLES `materia_prog` WRITE;
-/*!40000 ALTER TABLE `materia_prog` DISABLE KEYS */;
-INSERT INTO `materia_prog` VALUES (1,3,'Instalado'),(2,2,'Instalado'),(3,1,'Solicitado');
-/*!40000 ALTER TABLE `materia_prog` ENABLE KEYS */;
+LOCK TABLES `laboratorio_materia` WRITE;
+/*!40000 ALTER TABLE `laboratorio_materia` DISABLE KEYS */;
+INSERT INTO `laboratorio_materia` VALUES (1,1,'GR1'),(2,1,'GR1'),(1,2,'GR2'),(2,2,'GR2'),(1,3,'GR1');
+/*!40000 ALTER TABLE `laboratorio_materia` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-09 15:25:47
+-- Dump completed on 2017-02-03 15:01:19
