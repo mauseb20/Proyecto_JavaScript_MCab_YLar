@@ -33,9 +33,9 @@ module.exports = {
             size: 100
         },
 
-        LaboratoriosMateriasDeMateria: {
-            collection: 'Labo_Materia',
-            via: 'idMateria'
+        MateriasGruposDeMateria: {
+            collection: 'Materia_Grupo',
+            via: 'materia_gru'
         },
 
         MateriasProgramasDeMateria: {

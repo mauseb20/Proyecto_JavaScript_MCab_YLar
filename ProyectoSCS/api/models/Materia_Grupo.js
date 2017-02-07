@@ -7,19 +7,34 @@
 
 module.exports = {
 
-  attributes: {
-      
-           idMateria: {
-            model: 'Materia',
-            required: true,
+    attributes: {
+
+       
+        idMateria_grupo: {
+            type: 'number',
+            primaryKey: true,
+            unique: true,
+            //  required: true,
+            autoIncrement: true,
+            size: 6
         },
 
         grupoMateria:{
             type: 'string',
             required: true,
             enum: ['GR1', 'GR2', 'GR3']
+        },
+
+        materia_gru: {
+            model: 'Materia',
+            //required: true,
+        },
+
+        profesor_gru: {
+            model: 'Profesor',
+            //required: true,
         }
 
-  }
+    }
 };
 

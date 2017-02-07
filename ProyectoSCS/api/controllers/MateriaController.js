@@ -7,7 +7,7 @@
 
 module.exports = {
     
-    //Para acceder a este método se lo debería hacer así : /Usuario/crearUsuario
+    
      crearMateria: function (req, res) {
         
          var parametros = req.allParams();
