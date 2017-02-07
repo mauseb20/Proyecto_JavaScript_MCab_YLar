@@ -17,16 +17,16 @@ module.exports = {
             required: true,
         },
 
-        idMateria: {
-            model: 'Materia',
-            required: true,
-        },
-
-        grupo:{
-            type: 'string',
-            required: true,
-            enum: ['GR1', 'GR2', 'GR3']
-        }
+//        idMateria: {
+//            model: 'Materia',
+//            required: true,
+//        },
+//
+//        grupoMateria:{
+//            type: 'string',
+//            required: true,
+//            enum: ['GR1', 'GR2', 'GR3']
+//        }
 
     }
 };
