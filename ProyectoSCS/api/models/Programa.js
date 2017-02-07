@@ -29,27 +29,29 @@ module.exports = {
       
       tipoProg: {
           type: 'string',
-          required: true,
-          enum: ['SO', 'APP'],
+          //required: true,
+          //enum: ['SO', 'APP'],
+          defaultsTo: 'NULL',
           size: 5
       },
       
       servicio: {
           type: 'string',
           defaultsTo: 'NULL',
-          enum: ['Ofimatica', 'IDE', 'BDD', 'Case', 'Otro'],
+         // enum: ['Ofimatica', 'IDE', 'BDD', 'Case', 'Otro'],
           size: 10
       },
         
       categoria: {
           type: 'string',
-          required: true,
-          enum: ['Pago', 'Libre']
+         // required: true,
+          defaultsTo: 'NULL'
+         // enum: ['Pago', 'Libre']
       },
       
      versionProg: {
           type: 'string',
-          required: true,
+         // required: true,
          defaultsTo: 'NULL',
           size: 10
       },
@@ -57,7 +59,7 @@ module.exports = {
       anioProg: {
           type: 'string',
           defaultsTo: 'NULL',
-          required:false,
+         // required:false,
           size: 10
       },
       

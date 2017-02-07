@@ -20,7 +20,7 @@ module.exports = {
              
               Materia.create({
            //       idMateria: 1,
-             codigoMateria:parametros.codigoMateria,
+             codigoMateria: parametros.codigoMateria,
              nombreMateria: parametros.nombreMateria,
                   
          }).exec(function (error, materiaCreada){
