@@ -8,17 +8,19 @@
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-3 control-label">Seleccionar Profesor</label>
                 <div class="col-sm-6">
-                    <select class="form-control">
-                        <option> </option>
-                        <option>Profesor 1</option>
-                        <option>Profesor 2</option>
-                        <option>Profesor x</option>
+                    <select class="form-control" name="idProfesor">
+                        <option value="0"></option>
+                        <% for(var i=0; i<profesores.length; i++){ %>
+                        <option value='<%=profesores[i].idProfesor%>'>
+                            <%=profesores[i].nombre_Prof%> <%=profesores[i].apellido_Prof%>
+                        </option>
+                        <%  } %>
                     </select>
                 </div>
                 <div id="" class="col-md-3">
                     <div class="btn-group btn-group-justified" role="group">
-                        <a href="/crearProf"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button></a>
-                        <a href="/editarProf"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button></a>
+                        <a href="/crearProf" data-toggle="tooltip" title="Agregar Profesor"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button></a>
+                        <a href="/editarProf" data-toggle="tooltip" title="Editar Profesor"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button></a>
                     </div>
                 </div>
             </div>

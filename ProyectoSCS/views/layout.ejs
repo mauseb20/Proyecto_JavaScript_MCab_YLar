@@ -50,25 +50,51 @@ For example, here are a few things you could do:
                     <ul class="nav navbar-nav">
                         <li><a href="#">L-DICC</a></li>
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Nombre de Usuario X <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Opciones del usuario</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Salir</a></li>
+                            </ul>
+                        </li>
+                    </ul>
 
 
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
-        <br>
-        <%- body %>
-        <br>
         <div class="container">
-            <div class="page-header">
-                <h2> Mayor información - Contactos:</h2>
-            </div>
             <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-8" align="center">
-                    <a href="https://www.facebook.com/blogldicc/" target="_blank"><img alt="siguenos en facebook" height="48" src="https://raw.githubusercontent.com/mauseb20/Proyecto_JavaScript_MCab_YLar/master/ProyectoSCS/assets/images/LogoP48.png"  width="48" /></a>
-                    <a href="http://fis.epn.edu.ec/dicc/laboratorios" target="_blank"><img alt="mas informacion" height="48" src="https://raw.githubusercontent.com/mauseb20/Proyecto_JavaScript_MCab_YLar/master/ProyectoSCS/assets/images/FIS48.png"  width="48" /></a>
+                <br>
+                <div class="col-md-5" align="left">
+                    <h1 style="display:<%= (title == 'home'||title=='asignacion') ? 'inline' :'none'%>">Home</h1>
+                    <h1 style="display:<%= (title == 'materias'||title=='crearMaterias'||title=='editarMaterias'||title=='asignarSW') ? 'inline' :'none'%>">Materias</h1>
+                    <h1 style="display:<%= (title == 'laboratorios'||title=='crearLaboratorios'||title=='editarLaboratorios'||title=='asignarSO'||title=='asignarMateria') ? 'inline' :'none'%>">Laboratorios</h1>
+                    <h1 style="display:<%= (title == 'software'||title=='crearSoftware'||title=='editarSoftware') ? 'inline' :'none'%>">Software</h1>
+                    <h1 style="display:<%= (title == 'sistemasOperativos'||title=='crearSO'||title=='editarSO') ? 'inline' :'none'%>">Sistemas Operativos</h1>
+                    <h1 style="display:<%= (title == 'envioFormulario'||title=='crearProfesor'||title=='editarProfesor') ? 'inline' :'none'%>">Formulario Profesores</h1>
                 </div>
-                <div class="col-md-2"></div>
+                <br>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="jumbotron">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li role="presentation" class="<%= (title == 'home'||title=='asignacion') ? 'active' :''%>"><a href="/home">Home <span class="<%= (title == 'home'||title=='asignacion') ? 'glyphicon glyphicon-triangle-right' :''%>"></span></a></li>
+                            <li role="presentation" class="<%= (title == 'materias'||title=='crearMaterias'||title=='editarMaterias'||title=='asignarSW') ? 'active' :''%>"><a href="/materias">Materias <span class="<%= (title == 'materias'||title=='crearMaterias'||title=='editarMaterias'||title=='asignarSW') ? 'glyphicon glyphicon-triangle-right' :''%>"></span></a></li>
+                            <li role="presentation" class="<%= (title == 'laboratorios'||title=='crearLaboratorios'||title=='editarLaboratorios'||title=='asignarSO'||title=='asignarMateria') ? 'active' :''%>"><a href="/laboratorios">Laboratorios <span class="<%= (title == 'laboratorios'||title=='crearLaboratorios'||title=='editarLaboratorios'||title=='asignarSO'||title=='asignarMateria') ? 'glyphicon glyphicon-triangle-right' :''%>"></span></a></li>
+                            <li role="presentation" class="<%= (title == 'software'||title=='crearSoftware'||title=='editarSoftware') ? 'active' :''%>"><a href="/software">Software <span class="<%= (title == 'software'||title=='crearSoftware'||title=='editarSoftware') ? 'glyphicon glyphicon-triangle-right' :''%>"></span></a></li>
+                            <li role="presentation" class="<%= (title == 'sistemasOperativos'||title=='crearSO'||title=='editarSO') ? 'active' :''%>"><a href="/sistemasO">Sistemas Operativos <span class="<%= (title == 'sistemasOperativos'||title=='crearSO'||title=='editarSO') ? 'glyphicon glyphicon-triangle-right' :''%>"></span></a></li>
+                            <li role="presentation"class="<%= (title == 'envioFormulario'||title=='crearProfesor'||title=='editarProfesor') ? 'active' :''%>"><a href="/formulario">Formulario Profesores <span class="<%= (title == 'envioFormulario'||title=='crearProfesor'||title=='editarProfesor') ? 'glyphicon glyphicon-triangle-right' :''%>"></span></a>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <%- body %>
+                </div>
             </div>
         </div>
 
