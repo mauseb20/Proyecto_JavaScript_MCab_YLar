@@ -1,11 +1,13 @@
 <div class="col-md-12">
     <div class="row">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-            </span>
-        </div>
+        <form class="form-inline" action="Materia/buscarMateria" method="GET">
+            <div class="input-group col-md-12">
+                <input type="text" class="form-control" placeholder="Buscar Materia..." name="materiaBuscada">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+        </form>
     </div>
     <br>
     <div class="row">
@@ -29,42 +31,17 @@
 
                     </thead>
                     <tbody>
+                        <% for(var i=0; i<materias.length; i++){ %>
                         <tr>
-                            <th>1</th>
-                            <td>Programacion I</td>
+                            <th><%= materias[i].idMateria%></th>
+                            <td><%= materias[i].nombreMateria%></td>
                             <td>Gr1</td>
-                            <td>BSC101</td>
-                            <td><a href="/editarMateria" data-toggle="tooltip" title="Editar Materia"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                            <td><a href="" data-toggle="tooltip" title="Eliminar Materia"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-erase"></span></button></a></td>
-                            <td><a href="/asignarSW" data-toggle="tooltip" title="Asiganar Software"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-cd"></span></button></a></td>
+                            <td><%= materias[i].codigoMateria%></td>
+                            <td><a href="/editarMateria?idMateria=<%= materias[i].idMateria%>" data-toggle="tooltip" title="Editar Materia"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href="/Materia/borrarMateria?idMateria=<%= materias[i].idMateria%>" data-toggle="tooltip" title="Eliminar Materia"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-erase"></span></button></a></td>
+                            <td><a href="/asignarSW?idMateria=<%= materias[i].idMateria%>" data-toggle="tooltip" title="Asiganar Software"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-cd"></span></button></a></td>
                         </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Programacion II</td>
-                            <td>Gr2</td>
-                            <td>SIC209</td>
-                            <td><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                            <td><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-erase"></span></button></td>
-                            <td><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-cd"></span></button></td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Tecnologias Web con JavaScript</td>
-                            <td>Gr1</td>
-                            <td>SIC809</td>
-                            <td><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                            <td><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-erase"></span></button></td>
-                            <td><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-cd"></span></button></td>
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>Tecnologias de Seguridad</td>
-                            <td>Gr1</td>
-                            <td>SIC510</td>
-                            <td><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></td>
-                            <td><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-erase"></span></button></td>
-                            <td><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-cd"></span></button></td>
-                        </tr>
+                        <%  } %>
                     </tbody>
                 </table>
             </div>

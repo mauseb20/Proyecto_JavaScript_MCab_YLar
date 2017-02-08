@@ -25,9 +25,14 @@ module.exports = {
     materias: function (req, res) {
 
         // res.view(String: Nombre vista, Datos JSON)
-        return res.view('Materias/Materias',{
-            title: 'materias'
-        })
+        Materia.find().exec(function(error,materiasEncontradas){
+            if (error) return res.serverError()
+            sails.log.info(materiasEncontradas);
+            return res.view('Materias/Materias',{
+                title: 'materias',
+                materias: materiasEncontradas
+            })
+        });
 
     },
     crearMaterias: function (req, res) {
