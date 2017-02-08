@@ -6,30 +6,14 @@
  */
 
 module.exports = {
-	
-     home: function(req, res){
-        
-        return res.view('vistas/home/Home.ejs',{
-            titulo: 'Inicio',
-            numero: 1,
-            mauricio:{
-                nombre: 'Mauricio',
-                cedula: 1722741061
-            }
+    home: function (req, res) {
+
+        // res.view(String: Nombre vista, Datos JSON)
+        return res.view('Home/Home', {
+            locals: {
+                layout: 'Home/HomeLayout'
+            },
         })
-    },
-    
-    Materias: function(req, res){
-        
-        return res.view('vistas/Materias/Materias.ejs',{
-            titulo: 'Crear',
-            numero: 1,
-            mauricio:{
-                nombre: 'Mauricio',
-                cedula: 1722741061
-            }
-        })
-        
     }
 };
 

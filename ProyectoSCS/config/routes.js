@@ -38,12 +38,11 @@ module.exports.routes = {
             layout: 'Login/LoginLayout'
         }
     },
-    '/home': {
+    'get /home': {
         view: 'Home/Home',
         locals: {
             layout: 'Home/HomeLayout'
         }
-
     },
     '/materias': {
         view: 'Materias/Materias',

@@ -43,7 +43,7 @@
                             <td>Programacion II</td>
                             <td>NetBeans</td>
                             <td>Epsilon</td>
-                            <td><a href="/asignacion"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href="/asignacion" data-toggle="tooltip" title="Editar Relación"><button id="edit" type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
                         </tr>
                         <tr>
                             <th>2</th>
@@ -71,4 +71,9 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
+    </script>
 </div>
