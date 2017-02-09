@@ -4,17 +4,18 @@
     </div>
     <br>
     <div class="row">
-        <form class="form-horizontal" action="" method="">
+        <form class="form-horizontal" action="/Materia/editarMateria" method="POST">
             <div class="form-group">
+                <input type="text" style="display:none" value="<%= materia.idMateria%>" name="idMateria">
                 <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Nombre de la materia">
+                    <input type="text" class="form-control" name="nombreMateria" value="<%= materia.nombreMateria%>">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Código</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Codigo de la materia">
+                    <input type="text" class="form-control" name="codigoMateria" value="<%= materia.codigoMateria%>">
                 </div>
             </div>
             <div class="form-group">

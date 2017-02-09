@@ -22,7 +22,7 @@ module.exports = {
         grupoMateria:{
             type: 'string',
             required: true,
-            enum: ['GR1', 'GR2', 'GR3']
+            enum: ['Sin Grupo', 'GR1', 'GR2', 'GR3', 'GR4']
         },
 
         materia_gru: {

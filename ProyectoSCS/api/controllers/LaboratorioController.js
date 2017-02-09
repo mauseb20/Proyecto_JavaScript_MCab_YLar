@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-    
+
     //Para acceder a este método se lo debería hacer así : /Laboratorio/crearLaboratorio
     crearLaboratorio: function (req, res) {
 
@@ -24,7 +24,7 @@ module.exports = {
                     numAula: parametros.numAula,
                     capacidad: parametros.capacidad,
                     numOrdenadores: parametros.numOrdenadores,
-               proyectorEmpotrado: parametros.proyectorEmpotrado
+                    proyectorEmpotrado: parametros.proyectorEmpotrado
 
                 }).exec(function (error, laboratorioCreado){
 
@@ -33,7 +33,14 @@ module.exports = {
 
                     sails.log.info(laboratorioCreado);
 
-                    return res.ok(laboratorioCreado);
+                    Laboratorio.find().exec(function(error,laboratoriosEncontrados){
+                        if(error) return res.serverError()
+                        sails.log.info(laboratoriosEncontrados);
+                        return res.view('Laboratorios/Laboratorios',{
+                            title: 'laboratorios',
+                            laboratorio: laboratoriosEncontrados
+                        })
+                    })
                 });
 
             } else {
@@ -47,6 +54,6 @@ module.exports = {
 
         }
     }
-	
+
 };
 

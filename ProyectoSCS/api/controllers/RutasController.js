@@ -25,7 +25,7 @@ module.exports = {
     materias: function (req, res) {
 
         // res.view(String: Nombre vista, Datos JSON)
-        Materia.find().exec(function(error,materiasEncontradas){
+        Materia.find().populate('MateriasGruposDeMateria').exec(function(error,materiasEncontradas){
             if (error) return res.serverError()
             sails.log.info(materiasEncontradas);
             return res.view('Materias/Materias',{
@@ -44,12 +44,21 @@ module.exports = {
 
     },
     editarMaterias: function (req, res) {
-
         // res.view(String: Nombre vista, Datos JSON)
-        return res.view('Materias/EditarMateria',{
-            title: 'editarMaterias'
-        })
-
+        var parametros = req.allParams();
+        console.log(parametros);
+        if(parametros.idMateria){
+            Materia.findOne({
+                idMateria: parametros.idMateria
+            }).exec(function(error,materiaEncontrada){
+                if (error) return res.serverError()
+                sails.log.info(materiaEncontrada);
+                return res.view('Materias/EditarMateria',{
+                    title: 'editarMaterias',
+                    materia: materiaEncontrada
+                })
+            })
+        }
     },
     asignarSW: function (req, res) {
 
@@ -62,8 +71,13 @@ module.exports = {
     laboratorios: function (req, res) {
 
         // res.view(String: Nombre vista, Datos JSON)
-        return res.view('Laboratorios/Laboratorios',{
-            title: 'laboratorios'
+        Laboratorio.find().exec(function(error,laboratoriosEncontrados){
+            if(error) return res.serverError()
+            sails.log.info(laboratoriosEncontrados);
+            return res.view('Laboratorios/Laboratorios',{
+                title: 'laboratorios',
+                laboratorio: laboratoriosEncontrados
+            })
         })
 
     },
