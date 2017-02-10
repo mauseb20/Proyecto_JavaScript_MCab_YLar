@@ -7,6 +7,7 @@
         <form class="form-horizontal" action="/Materia/editarMateria" method="POST">
             <div class="form-group">
                 <input type="text" style="display:none" value="<%= materia.idMateria%>" name="idMateria">
+                <input type="text" style="display:none" value="<%= grupo.grupoMateria%>" name="grupoMateriaModificar">
                 <label for="inputEmail3" class="col-sm-2 control-label">Nombre</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="nombreMateria" value="<%= materia.nombreMateria%>">
@@ -21,11 +22,12 @@
             <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">Grupo</label>
                 <div class="col-sm-10">
-                    <select class="form-control">
-                        <option>Sin Grupo</option>
-                        <option>Gr1</option>
-                        <option>Gr2</option>
-                        <option>Gr3</option>
+                    <select class="form-control" name="grupoMateria">
+                        <option value="Sin Grupo" <%= (grupo.grupoMateria == 'Sin Grupo') ? 'selected' :''%>>Sin Grupo</option>
+                        <option value="GR1" <%= (grupo.grupoMateria == 'GR1') ? 'selected' :''%>>GR1</option>
+                        <option value="GR2" <%= (grupo.grupoMateria == 'GR2') ? 'selected' :''%>>GR2</option>
+                        <option value="GR3" <%= (grupo.grupoMateria == 'GR3') ? 'selected' :''%>>GR3</option>
+                        <option value="GR4" <%= (grupo.grupoMateria == 'GR4') ? 'selected' :''%>>GR4</option>
                     </select>
                 </div>
             </div>

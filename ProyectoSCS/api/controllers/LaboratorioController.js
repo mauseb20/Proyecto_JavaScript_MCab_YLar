@@ -29,18 +29,11 @@ module.exports = {
                 }).exec(function (error, laboratorioCreado){
 
 
-                    if (error) { return res.serverError(); }
+                   // if (error) { return res.serverError(); }
 
                     sails.log.info(laboratorioCreado);
 
-                    Laboratorio.find().exec(function(error,laboratoriosEncontrados){
-                        if(error) return res.serverError()
-                        sails.log.info(laboratoriosEncontrados);
-                        return res.view('Laboratorios/Laboratorios',{
-                            title: 'laboratorios',
-                            laboratorio: laboratoriosEncontrados
-                        })
-                    })
+                    
                 });
 
             } else {

@@ -22,9 +22,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% for(var i=0; i<laboratorios.length; i++){ %>
+                        <% var count=1; %>
+                        <% for(var i=0; i<laboratorio.length; i++){ %>
                         <tr>
-                            <th><%= laboratorio[i].idLaboratorio%></th>
+                            <th><%= count%></th>
                             <td><%= laboratorio[i].nombreLaboratorio%></td>
                             <td><%= laboratorio[i].numAula%></td>
                             <td align="center"><%= laboratorio[i].capacidad%></td>
@@ -36,6 +37,7 @@
                             <td><a href="/asignarMateria" data-toggle="tooltip" title="Asignar Una Materia"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-book"></span></button></a></td>
                             <td><a href="/asignarSO" data-toggle="tooltip" title="Asignar Sistema Operativo"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-cd"></span></button></a></td>
                         </tr>
+                        <% var count=count+1; %>
                         <%  } %>
                     </tbody>
                 </table>

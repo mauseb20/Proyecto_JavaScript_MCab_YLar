@@ -27,7 +27,7 @@ module.exports = {
         // res.view(String: Nombre vista, Datos JSON)
         Materia.find().populate('MateriasGruposDeMateria').exec(function(error,materiasEncontradas){
             if (error) return res.serverError()
-            sails.log.info(materiasEncontradas);
+            //sails.log.info(materiasEncontradas);
             return res.view('Materias/Materias',{
                 title: 'materias',
                 materias: materiasEncontradas
@@ -46,17 +46,24 @@ module.exports = {
     editarMaterias: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         var parametros = req.allParams();
-        console.log(parametros);
+        //console.log(parametros);
         if(parametros.idMateria){
             Materia.findOne({
                 idMateria: parametros.idMateria
-            }).exec(function(error,materiaEncontrada){
+            }).populate('MateriasGruposDeMateria').exec(function(error,materiaEncontrada){
                 if (error) return res.serverError()
                 sails.log.info(materiaEncontrada);
-                return res.view('Materias/EditarMateria',{
-                    title: 'editarMaterias',
-                    materia: materiaEncontrada
+                Materia_Grupo.findOne({
+                    grupoMateria:parametros.grupoMateria
+                }).exec(function(error,grupoEncontrado){
+                    return res.view('Materias/EditarMateria',{
+                        title: 'editarMaterias',
+                        materia: materiaEncontrada,
+                        grupo: grupoEncontrado
+                    })
                 })
+
+
             })
         }
     },
