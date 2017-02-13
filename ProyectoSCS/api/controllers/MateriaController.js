@@ -20,7 +20,7 @@ module.exports = {
                     codigoMateria:parametros.codigoMateria
                 }).exec(function(error,materiaEncontrada){
                     if (error) { return res.serverError(); }
-                    console.log(materiaEncontrada);
+                    //console.log(materiaEncontrada);
                     if(materiaEncontrada!=undefined){
                         Materia_Grupo.findOne({
                             materia_gru:materiaEncontrada.idMateria,

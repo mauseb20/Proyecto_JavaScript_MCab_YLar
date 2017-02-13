@@ -88,10 +88,10 @@ module.exports = {
         })
 
     },
-    crearLaboratorios: function (req, res) {
+    agregarLaboratorio: function (req, res) {
 
         // res.view(String: Nombre vista, Datos JSON)
-        return res.view('Laboratorios/CrearLaboratorio',{
+        return res.view('Laboratorios/AgregarLaboratorio',{
             title: 'crearLaboratorios'
         })
 

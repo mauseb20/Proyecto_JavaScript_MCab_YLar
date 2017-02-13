@@ -48,7 +48,7 @@ module.exports.routes = {
     '/asignarSW': 'RutasController.asignarSW',
     
     '/laboratorios': 'RutasController.laboratorios',
-    '/crearLaboratorio': 'RutasController.crearLaboratorios',
+    '/agregarLaboratorio': 'RutasController.agregarLaboratorio',
     '/editarLaboratorio': 'RutasController.editarLaboratorios',
     '/asignarSO': 'RutasController.asignarSO',
     '/asignarMateria': 'RutasController.asignarMateria',
