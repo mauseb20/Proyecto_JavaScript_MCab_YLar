@@ -10,8 +10,8 @@ module.exports = {
         var parametros = req.allParams();
         console.log(parametros);
         if(parametros.idMateria){
-            Materia_Grupo.destroy({
-                materia_gru:parametros.idMateria,
+            Grupo.destroy({
+                materiaGru:parametros.idMateria,
                 grupoMateria:parametros.grupoMateria                
             }).exec(function(error,grupoEliminado){
                 if (error) return res.serverError()

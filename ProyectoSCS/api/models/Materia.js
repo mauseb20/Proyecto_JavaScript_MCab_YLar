@@ -34,12 +34,12 @@ module.exports = {
         },
 
         MateriasGruposDeMateria: {
-            collection: 'Materia_Grupo',
-            via: 'materia_gru'
+            collection: 'MateriaGrupo',
+            via: 'materiaGru'
         },
 
         MateriasProgramasDeMateria: {
-            collection: 'Materia_Programa',
+            collection: 'MateriaPrograma',
             via: 'idMateria'
         }
     }

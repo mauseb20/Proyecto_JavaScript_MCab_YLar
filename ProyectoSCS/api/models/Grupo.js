@@ -28,7 +28,6 @@ module.exports = {
          estado:{
             type: 'string',
             size: 6,
-            //required: true,
             enum: ['Solicitado', 'Instalado']
         },
 

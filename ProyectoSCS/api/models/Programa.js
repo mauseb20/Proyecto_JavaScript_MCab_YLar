@@ -64,7 +64,7 @@ module.exports = {
       },
       
       LaboratoriosProgramasDePrograma: {
-            collection: 'Labo_Programa',
+            collection: 'LaboPrograma',
             via: 'idPrograma'
         },
       

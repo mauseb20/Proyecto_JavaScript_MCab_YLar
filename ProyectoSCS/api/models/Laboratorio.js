@@ -60,12 +60,12 @@ module.exports = {
         },
 
         LaboratoriosMateriasDeLaboratorio: {
-            collection: 'Labo_Materia',
+            collection: 'LaboMateria',
             via: 'idLaboratorio'
         },
 
         LaboratoriosProgramasDeLaboratorio: {
-            collection: 'Labo_Programa',
+            collection: 'LaboPrograma',
             via: 'idLaboratorio'
         }
 

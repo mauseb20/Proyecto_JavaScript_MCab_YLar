@@ -17,32 +17,32 @@ module.exports = {
             size: 6
         },
 
-        nombre_Prof: {
+        nombreProf: {
             type: 'string',
             required: true,
             size: 50
         },
 
-        apellido_Prof: {
+        apellidoProf: {
             type: 'string',
             required: true,
             size: 50
         },
 
-        correo_Prof: {
+        correoProf: {
             type: 'email',
             required: true,
             size: 60
         },
 
-        num_Intentos: {
+        numIntentos: {
             type: 'number',
             size: 4
         },
 
         MateriasGruposDeProfesor: {
-            collection: 'Materia_Grupo',
-            via: 'profesor_gru'
+            collection: 'MateriaGrupo',
+            via: 'profesorGru'
         }
     }
 };
