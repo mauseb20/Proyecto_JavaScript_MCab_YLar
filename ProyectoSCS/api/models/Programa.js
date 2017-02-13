@@ -68,9 +68,9 @@ module.exports = {
             via: 'idPrograma'
         },
       
-      MateriasProgramasDePrograma: {
-            collection: 'Materia_Programa',
-            via: 'idPrograma'
+      ProgramasGruposDePrograma: {
+            collection: 'Grupo',
+            via: 'materiaProg'
         }
 
   }
