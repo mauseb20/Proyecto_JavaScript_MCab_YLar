@@ -12,19 +12,46 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="inputPassword3" class="col-md-2 control-label">Materia</label>
-                <div id="" class="col-md-9">
-                    <select class="form-control">
-                        <option></option>
-                        <option>Programacion I - Gr1</option>
-                        <option>ProgramacionII - Gr2</option>
-                        <option>Tec. de Seguridad - Gr1</option>
-                    </select>
+                <div class="col-sm-offset-2 col-md-10">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">Materias Impartidas</h2>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+
+                                        <th>#</th>
+                                        <th>Nombre</th>
+                                        <th>Grupo</th>
+                                        <th>Codigo</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <th>1</th>
+                                        <td>Progra</td>
+                                        <td>GR1</td>
+                                        <td>SIC101</td>
+
+                                        <td><a href="/Materia/borrarMateria?idMateria=" data-toggle="tooltip" title="Eliminar Materia"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div id="" class="col-md-1">
-                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></button>
-                </div>
+
             </div>
+
             <div class="form-group">
                 <div id="" class="col-sm-offset-2 col-md-9">
                     <select class="form-control">
@@ -35,7 +62,7 @@
                     </select>
                 </div>
                 <div id="" class="col-md-1">
-                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span></button>
+                    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button>
                 </div>
             </div>
             <br>

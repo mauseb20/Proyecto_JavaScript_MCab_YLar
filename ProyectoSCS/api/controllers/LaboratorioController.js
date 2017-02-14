@@ -49,7 +49,12 @@ module.exports = {
                     }
                 })
             }else{
-                return res.badRequest('No envia todos los parametros');
+                return res.view('error',{
+                    title: 'laboratorios',
+                    tituloError: 'error',
+                    error: 'Algunos campos se encuentran vacios',
+                    url: '/agregarLaboratorio'
+                })
             }
         }else{
             return res.badRequest('Metodo invalido');
@@ -104,7 +109,12 @@ module.exports = {
                     }
                 })
             }else{
-                return res.badRequest('No envia todos los parametros');
+                return res.view('error',{
+                    title: 'laboratorios',
+                    tituloError: 'error',
+                    error: 'Algunos campos se encuentran vacios',
+                    url: '/laboratorios'
+                })
             }
         }else{
             return res.badRequest('Metodo invalido');

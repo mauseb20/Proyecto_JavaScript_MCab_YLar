@@ -88,7 +88,13 @@ module.exports = {
             } else {
 
                 //bad request
-                return res.badRequest('No envia todos los parametros');
+                return res.view('error',{
+                    title: 'materias',
+                    tituloError: 'error',
+                    error: 'Algunos campos se encuentran vacios',
+                    url: '/crearMateria'
+                })
+                //return res.badRequest('No envia todos los parametros');
             }
         } else {
 
@@ -218,7 +224,12 @@ module.exports = {
                 })
 
             }else{
-                return res.badRequest('No envia todos los parametros');
+                return res.view('error',{
+                    title: 'materias',
+                    tituloError: 'error',
+                    error: 'Algunos campos se encuentran vacios',
+                    url: '/materias'
+                })
             }
         }else{
             return res.badRequest('Metodo invalido');
