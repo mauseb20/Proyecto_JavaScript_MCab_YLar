@@ -24,12 +24,6 @@ module.exports = {
             required: true,
             enum: ['Sin Grupo', 'GR1', 'GR2', 'GR3', 'GR4']
         },
-        
-         estado:{
-            type: 'string',
-            size: 6,
-            enum: ['Solicitado', 'Instalado']
-        },
 
         materiaGru: {
             model: 'Materia',
@@ -44,6 +38,10 @@ module.exports = {
         materiaProg: {
             model: 'Programa',
             //required: true,
+        },
+        
+        laboratorioGru: {
+            model: 'Laboratorio'
         }
 
     }

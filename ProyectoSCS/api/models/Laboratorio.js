@@ -67,6 +67,11 @@ module.exports = {
         LaboratoriosProgramasDeLaboratorio: {
             collection: 'LaboPrograma',
             via: 'idLaboratorio'
+        },
+        
+        LaboratoriosGruposDeLaboratorio: {
+            collection: 'Grupo',
+            via: 'idLaboratorio'
         }
 
     }
