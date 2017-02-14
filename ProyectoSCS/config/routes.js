@@ -45,6 +45,7 @@ module.exports.routes = {
     '/materias': 'RutasController.materias',
     '/crearMateria': 'RutasController.crearMaterias',
     '/editarMateria': 'RutasController.editarMaterias',
+    '/buscarMaterias': 'RutasController.buscarMateria',
     '/asignarSW': 'RutasController.asignarSW',
     
     '/laboratorios': 'RutasController.laboratorios',
@@ -65,6 +66,7 @@ module.exports.routes = {
     '/crearProf': 'RutasController.crearProfesor',
     '/editarProf': 'RutasController.editarProfesor',
     
+    '/error': 'RutasController.error',
     
     '/formProfesor': {
         view: 'formulario',

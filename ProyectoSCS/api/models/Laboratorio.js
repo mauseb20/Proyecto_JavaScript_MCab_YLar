@@ -28,13 +28,13 @@ module.exports = {
         },
 
         numAula: {
-            type: 'number',
+            type: 'string',
             required: true,
             size: 6
         },
 
         capacidad: {
-            type: 'number',
+            type: 'string',
             required: true,
             size: 6
         },
@@ -46,7 +46,7 @@ module.exports = {
         },
 
         numOrdenadores: {
-            type: 'number',
+            type: 'string',
             required: true,
             size: 6
         },

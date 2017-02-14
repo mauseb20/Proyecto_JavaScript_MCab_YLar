@@ -34,13 +34,8 @@ module.exports = {
         },
 
         MateriasGruposDeMateria: {
-            collection: 'MateriaGrupo',
+            collection: 'Grupo',
             via: 'materiaGru'
-        },
-
-        MateriasProgramasDeMateria: {
-            collection: 'MateriaPrograma',
-            via: 'idMateria'
         }
     }
 };

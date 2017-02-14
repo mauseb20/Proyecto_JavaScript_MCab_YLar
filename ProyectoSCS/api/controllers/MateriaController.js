@@ -22,16 +22,21 @@ module.exports = {
                     if (error) { return res.serverError(); }
                     //console.log(materiaEncontrada);
                     if(materiaEncontrada!=undefined){
-                        Materia_Grupo.findOne({
-                            materia_gru:materiaEncontrada.idMateria,
+                        Grupo.findOne({
+                            materiaGru:materiaEncontrada.idMateria,
                             grupoMateria:parametros.grupoMateria,
                         }).exec(function(error,grupoEncontrado){
                             if(grupoEncontrado!=undefined){
-                                return res.badRequest('La Materia Ya existe');
+                                return res.view('error',{
+                                    title: 'materias',
+                                    tituloError: 'error',
+                                    error: 'La materia "'+parametros.nombreMateria+' - '+parametros.grupoMateria+'" ya se encuentra registrada',
+                                    url: '/crearMateria'
+                                })
                             }else{
-                                Materia_Grupo.create({
+                                Grupo.create({
                                     grupoMateria:parametros.grupoMateria,
-                                    materia_gru:materiaEncontrada.idMateria,
+                                    materiaGru:materiaEncontrada.idMateria,
                                 }).exec(function(error,grupoCreado){
                                     if (error) { return res.serverError(); }
                                     sails.log.info(grupoCreado);
@@ -40,6 +45,7 @@ module.exports = {
                                         sails.log.info(materiasEncontradas);
                                         return res.view('Materias/Materias',{
                                             title: 'materias',
+                                            tituloError: '',
                                             materias: materiasEncontradas
                                         })
                                     });
@@ -57,9 +63,9 @@ module.exports = {
 
                             if (error) { return res.serverError(); }
                             sails.log.info(materiaCreada);
-                            Materia_Grupo.create({
+                            Grupo.create({
                                 grupoMateria:parametros.grupoMateria,
-                                materia_gru:materiaCreada.idMateria,
+                                materiaGru:materiaCreada.idMateria,
                             }).exec(function(error,grupoCreado){
                                 if (error) { return res.serverError(); }
                                 sails.log.info(grupoCreado);
@@ -68,6 +74,7 @@ module.exports = {
                                     sails.log.info(materiasEncontradas);
                                     return res.view('Materias/Materias',{
                                         title: 'materias',
+                                        tituloError: '',
                                         materias: materiasEncontradas
                                     })
                                 });
@@ -89,28 +96,7 @@ module.exports = {
 
         }
     },
-    buscarMateria: function(req,res){
-        var parametros = req.allParams();
-        console.log(parametros);
-        if(req.method=='GET'){
-            if (parametros.materiaBuscada){
-                Materia.find({
-                    nombreMateria: {contains: parametros.materiaBuscada}
-                }).populate('MateriasGruposDeMateria').exec(function(error, materiasEncontradas){
-                    if (error) return res.serverError()
-                    sails.log.info(materiasEncontradas);
-                    return res.view('Materias/Materias',{
-                        title: 'materias',
-                        materias: materiasEncontradas
-                    })
-                })
-            }else{
-                return res.badRequest('No envia todos los parametros');
-            }
-        }else{
-            return res.badRequest('Metodo invalido');
-        }
-    },
+
     borrarMateria: function(req,res){
         var parametros = req.allParams();
         console.log(parametros);
@@ -119,14 +105,15 @@ module.exports = {
                 idMateria:parametros.idMateria
             }).exec(function(error,materiaEliminada){
                 if (error) return res.serverError()
-                Materia_Grupo.destroy({
-                    materia_gru:materiaEliminada.idMateria,
+                Grupo.destroy({
+                    materiaGru:materiaEliminada.idMateria,
                 }).exec(function(error,grupoEliminado){
                     Materia.find().populate('MateriasGruposDeMateria').exec(function(error,materiasEncontradas){
                         if (error) return res.serverError()
-                        sails.log.info(materiasEncontradas);
+                        //sails.log.info(materiasEncontradas);
                         return res.view('Materias/Materias',{
                             title: 'materias',
+                            tituloError: '',
                             materias: materiasEncontradas
                         })
                     })
@@ -142,17 +129,23 @@ module.exports = {
         if(req.method == 'POST'){
             if(parametros.idMateria&&parametros.codigoMateria&&parametros.nombreMateria){
                 Materia.findOne({
-                    codigoMateria:parametros.codigoMateria
+                    codigoMateria:parametros.codigoMateria,
+                    nombreMateria:parametros.nombreMateria
                 }).exec(function(error,materiaEncontrada){
                     if (error) { return res.serverError(); }
                     //console.log(materiaEncontrada);
                     if(materiaEncontrada!=undefined){
-                        Materia_Grupo.findOne({
-                            materia_gru:materiaEncontrada.idMateria,
+                        Grupo.findOne({
+                            materiaGru:materiaEncontrada.idMateria,
                             grupoMateria:parametros.grupoMateria,
                         }).exec(function(error,grupoEncontrado){
                             if(grupoEncontrado!=undefined){
-                                return res.badRequest('La Materia Ya existe');
+                                return res.view('error',{
+                                    title: 'materias',
+                                    tituloError: 'error',
+                                    error: 'La materia "'+parametros.nombreMateria+' - '+parametros.grupoMateria+'" ya se encuentra registrada',
+                                    url: '/materias'
+                                })
                             }else{
                                 Materia.update({
                                     idMateria:parametros.idMateria
@@ -161,14 +154,14 @@ module.exports = {
                                     codigoMateria:parametros.codigoMateria
                                 }).exec(function(error, materiaEditada){
                                     if (error) return res.serverError()
-                                    Materia_Grupo.findOne({
-                                        materia_gru:parametros.idMateria,
+                                    Grupo.findOne({
+                                        materiaGru:parametros.idMateria,
                                         grupoMateria:parametros.grupoMateriaModificar
                                     }).exec(function(error,grupoEncontrado){
                                         if (error) { return res.serverError(); }
                                         sails.log.info(grupoEncontrado);
-                                        Materia_Grupo.update({
-                                            idMateria_grupo:grupoEncontrado.idMateria_grupo
+                                        Grupo.update({
+                                            idGrupo:grupoEncontrado.idGrupo
                                         },{
                                             grupoMateria:parametros.grupoMateria
                                         }).exec(function(error,grupoEditado){
@@ -179,6 +172,7 @@ module.exports = {
                                                 sails.log.info(materiasEncontradas);
                                                 return res.view('Materias/Materias',{
                                                     title: 'materias',
+                                                    tituloError: '',
                                                     materias: materiasEncontradas
                                                 })
                                             })
@@ -195,14 +189,14 @@ module.exports = {
                             codigoMateria:parametros.codigoMateria
                         }).exec(function(error, materiaEditada){
                             if (error) return res.serverError()
-                            Materia_Grupo.find({
-                                materia_gru:parametros.idMateria,
+                            Grupo.find({
+                                materiaGru:parametros.idMateria,
                                 grupoMateria:parametros.grupoMateriaModificar
                             }).exec(function(error,grupoEncontrado){
                                 if (error) { return res.serverError(); }
                                 sails.log.info(grupoEncontrado);
-                                Materia_Grupo.update({
-                                    idMateria_grupo:grupoEncontrado.idMateria_grupo
+                                Grupo.update({
+                                    idGrupo:grupoEncontrado.idGrupo
                                 },{
                                     grupoMateria:parametros.grupoMateria
                                 }).exec(function(error,grupoEditado){
@@ -213,6 +207,7 @@ module.exports = {
                                         sails.log.info(materiasEncontradas);
                                         return res.view('Materias/Materias',{
                                             title: 'materias',
+                                            tituloError: '',
                                             materias: materiasEncontradas
                                         })
                                     })

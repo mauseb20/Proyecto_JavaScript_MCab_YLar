@@ -31,9 +31,9 @@
                             <td align="center"><%= laboratorio[i].capacidad%></td>
                             <td align="center"><%= laboratorio[i].numOrdenadores%></td>
                             <td align="center"><%= laboratorio[i].proyectorEmpotrado%></td>
-                            <td><%= laboratorio[i].descrpcionUbicacion%></td>
-                            <td><a href="/editarLaboratorio" data-toggle="tooltip" title="Editar Laboratorio"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                            <td><a href="" data-toggle="tooltip" title="Eliminar Laboratorio"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+                            <td><%= laboratorio[i].descripcionUbicacion%></td>
+                            <td><a href="/editarLaboratorio?idLaboratorio=<%= laboratorio[i].idLaboratorio%>" data-toggle="tooltip" title="Editar Laboratorio"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href="/Laboratorio/borrarLaboratorio?idLaboratorio=<%= laboratorio[i].idLaboratorio%>" data-toggle="tooltip" title="Eliminar Laboratorio"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
                             <td><a href="/asignarMateria" data-toggle="tooltip" title="Asignar Una Materia"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-book"></span></button></a></td>
                             <td><a href="/asignarSO" data-toggle="tooltip" title="Asignar Sistema Operativo"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-cd"></span></button></a></td>
                         </tr>

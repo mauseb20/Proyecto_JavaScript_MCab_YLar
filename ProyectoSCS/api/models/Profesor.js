@@ -41,7 +41,7 @@ module.exports = {
         },
 
         MateriasGruposDeProfesor: {
-            collection: 'MateriaGrupo',
+            collection: 'Grupo',
             via: 'profesorGru'
         }
     }

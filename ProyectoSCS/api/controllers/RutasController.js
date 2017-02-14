@@ -10,7 +10,8 @@ module.exports = {
 
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('Home/Home',{
-            title: 'home'
+            title: 'home',
+            tituloError: ''
         })
 
     },
@@ -18,7 +19,8 @@ module.exports = {
 
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('Home/HomeRelacion',{
-            title: 'asignacion'
+            title: 'asignacion',
+            tituloError: ''
         })
 
     },
@@ -30,6 +32,7 @@ module.exports = {
             //sails.log.info(materiasEncontradas);
             return res.view('Materias/Materias',{
                 title: 'materias',
+                tituloError: '',
                 materias: materiasEncontradas
             })
         });
@@ -39,7 +42,8 @@ module.exports = {
 
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('Materias/CrearMateria',{
-            title: 'crearMaterias'
+            title: 'crearMaterias',
+            tituloError: ''
         })
 
     },
@@ -53,11 +57,12 @@ module.exports = {
             }).populate('MateriasGruposDeMateria').exec(function(error,materiaEncontrada){
                 if (error) return res.serverError()
                 sails.log.info(materiaEncontrada);
-                Materia_Grupo.findOne({
+                Grupo.findOne({
                     grupoMateria:parametros.grupoMateria
                 }).exec(function(error,grupoEncontrado){
                     return res.view('Materias/EditarMateria',{
                         title: 'editarMaterias',
+                        tituloError: '',
                         materia: materiaEncontrada,
                         grupo: grupoEncontrado
                     })
@@ -67,11 +72,45 @@ module.exports = {
             })
         }
     },
+    buscarMateria: function(req,res){
+        var parametros = req.allParams();
+        console.log(parametros);
+        if(req.method=='GET'){
+            if (parametros.materiaBuscada){
+                Materia.find({
+                    nombreMateria: {contains: parametros.materiaBuscada}
+                }).populate('MateriasGruposDeMateria').exec(function(error, materiasEncontradas){
+                    if (error) return res.serverError();
+                    sails.log.info(materiasEncontradas);
+                    if (materiasEncontradas!=undefined){
+                        return res.view('Materias/Materias',{
+                            title: 'materias',
+                            tituloError: '',
+                            materias: materiasEncontradas
+                        })
+                    }
+                })
+            }else{
+                Materia.find().populate('MateriasGruposDeMateria').exec(function(error,materiasEncontradas){
+                    if (error) return res.serverError()
+                    //sails.log.info(materiasEncontradas);
+                    return res.view('Materias/Materias',{
+                        title: 'materias',
+                        tituloError: '',
+                        materias: materiasEncontradas
+                    })
+                });
+            }
+        }else{
+            return res.badRequest('Metodo invalido');
+        }
+    },
     asignarSW: function (req, res) {
 
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('Materias/MateriaSoftware',{
-            title: 'asignarSW'
+            title: 'asignarSW',
+            tituloError: ''
         })
 
     },
@@ -80,9 +119,10 @@ module.exports = {
         // res.view(String: Nombre vista, Datos JSON)
         Laboratorio.find().exec(function(error,laboratoriosEncontrados){
             if(error) return res.serverError()
-            sails.log.info(laboratoriosEncontrados);
+            //sails.log.info(laboratoriosEncontrados);
             return res.view('Laboratorios/Laboratorios',{
                 title: 'laboratorios',
+                tituloError: '',
                 laboratorio: laboratoriosEncontrados
             })
         })
@@ -92,71 +132,90 @@ module.exports = {
 
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('Laboratorios/AgregarLaboratorio',{
-            title: 'crearLaboratorios'
+            title: 'crearLaboratorios',
+            tituloError: ''
         })
 
     },
     editarLaboratorios: function (req, res) {
 
         // res.view(String: Nombre vista, Datos JSON)
-        return res.view('Laboratorios/EditarLaboratorio',{
-            title: 'editarLaboratorios'
-        })
-
+        var parametros = req.allParams();
+        if(parametros.idLaboratorio){
+            Laboratorio.findOne({
+                idLaboratorio: parametros.idLaboratorio
+            }).exec(function(error,laboratorioEncontrado){
+                if (error) return res.serverError()
+                sails.log.info(laboratorioEncontrado);
+                return res.view('Laboratorios/EditarLaboratorio',{
+                    title: 'editarLaboratorios',
+                    tituloError: '',
+                    laboratorio: laboratorioEncontrado
+                })
+            })
+        }
     },
     asignarSO: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('Laboratorios/AsignarSO',{
-            title: 'asignarSO'
+            title: 'asignarSO',
+            tituloError: ''
         })
 
     },
     asignarMateria: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('Laboratorios/AsignarMateria',{
-            title: 'asignarMateria'
+            title: 'asignarMateria',
+            tituloError: ''
         })
 
     },
     software: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('Software/Software',{
-            title: 'software'
+            title: 'software',
+            tituloError: ''
         })
 
     },
     crearSoftware: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('Software/CrearSoftware',{
-            title: 'crearSoftware'
+            title: 'crearSoftware',
+            tituloError: ''
         })
 
     },
     editarSoftware: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('Software/EditarSoftware',{
-            title: 'editarSoftware'
+            title: 'editarSoftware',
+            tituloError: ''
         })
 
     },
     sistemasOperativos: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('SistemasOperativos/SistemasO',{
-            title: 'sistemasOperativos'
+            title: 'sistemasOperativos',
+            tituloError: ''
         })
 
     },
     crearSO: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('SistemasOperativos/CrearSO',{
-            title: 'crearSO'
+            title: 'crearSO',
+            tituloError: ''
         })
 
     },
     editarSO: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('SistemasOperativos/EditarSO',{
-            title: 'editarSO'
+            title: 'editarSO',
+            tituloError: ''
         })
 
     },
@@ -166,6 +225,7 @@ module.exports = {
             if (error) return res.serverError()
             return res.view('FormularioProfesores/EnvioFormulario', {
                 title: 'envioFormulario',
+                tituloError: '',
                 profesores: profesoresEncontrados
             });
         });
@@ -174,16 +234,26 @@ module.exports = {
     crearProfesor: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('FormularioProfesores/AgregarProfesor',{
-            title: 'crearProfesor'
+            title: 'crearProfesor',
+            tituloError: ''
         })
 
     },
     editarProfesor: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('FormularioProfesores/EditarProfesor',{
-            title: 'editarProfesor'
+            title: 'editarProfesor',
+            tituloError: ''
         })
 
     },
+    error: function (req, res) {
+        // res.view(String: Nombre vista, Datos JSON)
+        return res.view('error',{
+            title: 'error',
+            tituloError: ''
+        })
+
+    }
 };
 
