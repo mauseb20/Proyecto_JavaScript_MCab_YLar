@@ -11,28 +11,34 @@
                         <tr>
                             <th>#</th>
                             <th>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Nombre...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                                    </span>
-                                </div>
+                                <form class="form-inline" action="" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Nombre...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                        </span>
+                                    </div>
+                                </form>
                             </th>
                             <th>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Servicio...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                                    </span>
-                                </div>
+                                <form class="form-inline" action="" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Servicio...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                                        </span>
+                                    </div>
+                                </form>
                             </th>
                             <th>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Categoria...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                                    </span>
-                                </div>
+                                <form class="form-inline" action="" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Categoria...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                                        </span>
+                                    </div>
+                                </form>
                             </th>
                             <th>Version</th>
                             <th>Año</th>
@@ -41,16 +47,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <% var count=1; %>
+                        <% for(var i=0; i<software.length; i++){ %>
                         <tr>
-                            <th>1</th>
-                            <td>NetBeans</td>
-                            <td>IDE</td>
-                            <td>Libre</td>
-                            <td>8.0</td>
-                            <td>2016</td>
-                            <td><a href="/editarSoftware" data-toggle="tooltip" title="Editar Software"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-                            <td><a href="" data-toggle="tooltip" title="Eliminar Software"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+                            <th><%= count%></th>
+                            <td><%= software[i].nombrePrograma%></td>
+                            <td><%= software[i].servicio%></td>
+                            <td><%= software[i].categoria%></td>
+                            <td><%= software[i].versionProg%></td>
+                            <td><%= software[i].anioProg%></td>
+                            <td><a href="/editarSoftware?idPrograma=<%= software[i].idPrograma%>" data-toggle="tooltip" title="Editar Software"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href="/Programa/borrarPrograma?idPrograma=<%= software[i].idPrograma%>" data-toggle="tooltip" title="Eliminar Software"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
                         </tr>
+                        <% var count=count+1; %>
+                        <%  } %>
                     </tbody>
                 </table>
             </div>

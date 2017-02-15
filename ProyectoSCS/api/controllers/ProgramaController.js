@@ -15,7 +15,7 @@ module.exports = {
         console.log(parametros);
 
         if(req.method == 'POST'){
-            if(parametros.nombrePrograma && parametros.tipoProg && parametros.servicio && parametros.categoria && parametros.versionProg ){
+            if(parametros.nombrePrograma && parametros.tipoProg && parametros.categoria ){
                 //crear programa
 
                 Programa.create({
@@ -25,6 +25,7 @@ module.exports = {
                     servicio: parametros.servicio,
                     categoria: parametros.categoria,
                     versionProg: parametros.versionProg,
+                    anioProg: parametros.anioProg
                     
 
                 }).exec(function (error, programaCreado){

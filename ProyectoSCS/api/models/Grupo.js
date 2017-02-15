@@ -40,7 +40,7 @@ module.exports = {
             //required: true,
         },
         
-        laboratorioGru: {
+        idLaboratorio: {
             model: 'Laboratorio'
         }
 

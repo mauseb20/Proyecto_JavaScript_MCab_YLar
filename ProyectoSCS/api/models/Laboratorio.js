@@ -53,15 +53,9 @@ module.exports = {
 
         proyectorEmpotrado: {
             type: 'string',
-            //required: true,
             enum: ['SI', 'NO'],
             defaultsTo: 'NO',
             size: 2
-        },
-
-        LaboratoriosMateriasDeLaboratorio: {
-            collection: 'LaboMateria',
-            via: 'idLaboratorio'
         },
 
         LaboratoriosProgramasDeLaboratorio: {

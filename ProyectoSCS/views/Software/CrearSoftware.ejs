@@ -4,47 +4,41 @@
     </div>
     <br>
     <div class="row">
-        <form class="form-horizontal" action="" method="">
-            <div class="form-group form-inline">
+        <form class="form-horizontal" action="/Programa/crearPrograma" method="POST">
+            <div class="form-group">
                 <label for="inputPassword3" class="col-sm-2 control-label">Nombre</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="">
-                </div>
-                <label for="inputPassword3" class="col-sm-2 control-label">Tipo</label>
-                <div class="col-sm-3">
-                    <select class="form-control">
-                        <option></option>
-                        <option>Sistema Operativo</option>
-                        <option>Aplicativo</option>
-                    </select>
+                <div class="col-sm-10">
+                    <input type="hidden" name="tipoProg" value="APP">
+                    <input type="text" class="form-control" name="nombrePrograma" placeholder="Nombre del aplicativo">
                 </div>
             </div>
             <div class="form-group form-inline">
                 <label for="inputPassword3" class="col-sm-2 control-label">Servicio</label>
                 <div class="col-sm-4">
-                    <select class="form-control">
-                        <option></option>
-                        <option>IDE</option>
-                        <option>BDD</option>
+                    <select class="form-control" name="servicio">
+                        <option value="Ofimatica">Ofimatica</option>
+                        <option value="IDE">IDE</option>
+                        <option value="BDD">BDD</option>
+                        <option value="Case">Case</option>
+                        <option value="Otro" selected>Otro</option>
                     </select>
                 </div>
-                <label for="inputPassword3" class="col-sm-2 control-label">Categoria</label>
+                <label for="inputPassword3" class="col-sm-2 control-label">Categoría</label>
                 <div class="col-sm-3">
-                    <select class="form-control">
-                        <option></option>
-                        <option>Libre</option>
-                        <option>Pago</option>
+                    <select class="form-control" name="categoria">
+                        <option value="Pago">Pago</option>
+                        <option value="Libre">Libre</option>
                     </select>
                 </div>
             </div>
             <div class="form-group form-inline">
-                <label for="inputPassword3" class="col-sm-2 control-label">Version</label>
+                <label for="inputPassword3" class="col-sm-2 control-label">Versión</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="">
+                    <input type="text" class="form-control" name="versionProg" placeholder="Versión del aplicativo">
                 </div>
                 <label for="inputPassword3" class="col-sm-2 control-label">Año</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="">
+                    <input type="text" class="form-control" name="anioProg" placeholder="Año de la versión">
                 </div>
             </div>
             <br>

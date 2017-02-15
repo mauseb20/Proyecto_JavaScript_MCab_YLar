@@ -173,11 +173,16 @@ module.exports = {
     },
     software: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
-        return res.view('Software/Software',{
-            title: 'software',
-            tituloError: ''
+        Programa.find({
+            tipoProg: {contains:'APP'}
+        }).exec(function(error,swEncontrado){
+            if(error) return res.serverError();
+            return res.view('Software/Software',{
+                title:'software',
+                tituloError:'',
+                software:swEncontrado
+            })
         })
-
     },
     crearSoftware: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
@@ -196,10 +201,15 @@ module.exports = {
 
     },
     sistemasOperativos: function (req, res) {
-        // res.view(String: Nombre vista, Datos JSON)
-        return res.view('SistemasOperativos/SistemasO',{
-            title: 'sistemasOperativos',
-            tituloError: ''
+        Programa.find({
+            tipoProg: {contains:'SO'}
+        }).exec(function(error,swEncontrado){
+            if(error) return res.serverError();
+            return res.view('SistemasOperativos/SistemasO',{
+                title:'sistemasOperativos',
+                tituloError:'',
+                software:swEncontrado
+            })
         })
 
     },
