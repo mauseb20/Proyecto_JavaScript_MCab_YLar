@@ -229,12 +229,14 @@ module.exports = {
         })
 
     },
-    envioFormulario: function (req, res) {
+    profesores: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
-        Profesor.find().exec(function (error, profesoresEncontrados){
+        Profesor.find({
+            numIntentos: {contains:0}
+        }).exec(function (error, profesoresEncontrados){
             if (error) return res.serverError()
-            return res.view('FormularioProfesores/EnvioFormulario', {
-                title: 'envioFormulario',
+            return res.view('FormularioProfesores/Profesores', {
+                title: 'profesores',
                 tituloError: '',
                 profesores: profesoresEncontrados
             });
@@ -250,9 +252,25 @@ module.exports = {
 
     },
     editarProfesor: function (req, res) {
+        var parametros = req.allParams();
+        if(parametros.idProfesorSeleccionado){
+            Profesor.findOne({
+                idProfesor: parametros.idProfesorSeleccionado
+            }).exec(function(error,profesorEncontrado){
+                if (error) return res.serverError()
+                sails.log.info(profesorEncontrado);
+                return res.view('FormularioProfesores/EditarProfesor',{
+                    title: 'editarProfesor',
+                    tituloError: '',
+                    profesor: profesorEncontrado
+                })
+            })
+        }
+    },
+    enviarFormulario: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
-        return res.view('FormularioProfesores/EditarProfesor',{
-            title: 'editarProfesor',
+        return res.view('FormularioProfesores/EnvioFormulario',{
+            title: 'envioFormulario',
             tituloError: ''
         })
 

@@ -13,16 +13,15 @@ module.exports = {
         if (req.method=='POST'){
             if(parametros.nombreLaboratorio&&parametros.numAula&&parametros.capacidad&&parametros.numOrdenadores){
                 console.log(parametros);
-                Laboratorio.find({
+                Laboratorio.findOne({
                     nombreLaboratorio:parametros.nombreLaboratorio,
-                    numAula:parametros.numAula
                 }).exec(function(error,laboratorioEncontrado){
                     if (error) return res.serverError();
                     if (laboratorioEncontrado!=undefined){
                         return res.view('error',{
                             title: 'laboratorios',
                             tituloError: 'error',
-                            error: 'El Laboratorio o el aula ya estan registrados',
+                            error: 'El Laboratorio '+parametros.nombreLaboratorio+' ya esta registrado',
                             url: '/agregarLaboratorio'
                         })
                     }else{

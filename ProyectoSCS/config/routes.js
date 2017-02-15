@@ -62,9 +62,10 @@ module.exports.routes = {
     '/crearSO': 'RutasController.crearSO',
     '/editarSO': 'RutasController.editarSO',
         
-    '/formulario': 'RutasController.envioFormulario',
+    '/profesores': 'RutasController.profesores',
     '/crearProf': 'RutasController.crearProfesor',
     '/editarProf': 'RutasController.editarProfesor',
+    '/envioFormulario':'RutasController.enviarFormulario',
     
     '/error': 'RutasController.error',
     

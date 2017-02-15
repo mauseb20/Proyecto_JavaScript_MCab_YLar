@@ -1,26 +1,28 @@
 <div class="col-md-12">
     <div class="row">
         <h2>Editar Profesor</h2>
+        <% sails.log.info(profesor);%>
     </div>
     <br>
     <div class="row">
-        <form class="form-horizontal" action="" method="">
+        <form class="form-horizontal" action="/Profesor/editarProfesor" method="POST">
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Nombres</label>
+                <input type="hidden" name="idProfesor" value="<%=profesor.idProfesor%>">
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre de la materia">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre del profesor" name="nombreProf" value="<%=profesor.nombreProf%>">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">Apellidos</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre de la materia">
+                    <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre de la materia" name="apellidoProf"value="<%=profesor.apellidoProf %>">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">E-mail</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Codigo de la materia">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Codigo de la materia" name="correoProf" value="<%=profesor.correoProf %>">
                 </div>
             </div>
             <br>

@@ -14,31 +14,28 @@ module.exports = {
         console.log(parametros);
 
         if(req.method == 'POST'){
-            if(parametros.nombre_Prof && parametros.apellido_Prof && parametros.correo_Prof){
-                //crear usuario
+            if(parametros.nombreProf && parametros.apellidoProf && parametros.correoProf){
 
                 Profesor.create({
-                    nombre_Prof: parametros.nombre_Prof,
-                    apellido_Prof: parametros.apellido_Prof,
-                    correo_Prof: parametros.correo_Prof
-
+                    nombreProf: parametros.nombreProf,
+                    apellidoProf: parametros.apellidoProf,
+                    correoProf: parametros.correoProf
                 }).exec(function (error, profesorCreado){
 
 
                     if (error) { return res.serverError(); }
 
                     sails.log.info(profesorCreado);
-
-                    Profesor.find().exec(function(error,profesoresEncontrados){
-                        if (error) return res.serverError()
-                        sails.log.info(profesoresEncontrados);
+                    Profesor.find({
+                        numIntentos: {contains:0}
+                    }).exec(function(error,profesoresEncontrados){
+                        if(error) return res.serverError();
                         return res.view('FormularioProfesores/EnvioFormulario', {
                             title: 'envioFormulario',
+                            tituloError: '',
                             profesores: profesoresEncontrados
-                        })
-                    });
-
-                    //return res.redirect('back');
+                        });
+                    })
                 });
 
             } else {
@@ -51,6 +48,10 @@ module.exports = {
             return res.badRequest('Metodo invalido');
 
         }
+    },
+
+    editarProfesor: function(req,res){
+
     }
 
 };

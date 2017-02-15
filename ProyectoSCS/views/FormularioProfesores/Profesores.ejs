@@ -1,0 +1,90 @@
+<div class="col-md-12">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="form-group form-inline" style="display:inline">
+                    <h1 class="panel-title col-md-11">Profesores que no han llenado el formulario</h1>
+                    <a href="/crearMateria" data-toggle="tooltip" title="Agregar Profesor" style="color:white" class="btn btn-primary btn-xs" align="right"><span class="glyphicon glyphicon-plus"></span></a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+
+                            <th>#</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Correo</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <% var count=1; %>
+                        <% for(var i=0; i<profesores.length; i++){ %>
+                        <tr>
+                            <th><%= count%></th>
+                            <td><%= profesores[i].nombreProf%></td>
+                            <td><%= profesores[i].apellidoProf%></td>
+                            <td><%= profesores[i].correoProf%></td>
+                            <td><a href="" data-toggle="tooltip" title="Editar Profesor"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href="" data-toggle="tooltip" title="Eliminar Profesor"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+                            <td><a href="" data-toggle="tooltip" title="Enviar Formulario"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-envelope"></span></button></a></td>
+                        </tr>
+                        <% var count=count+1; %>
+                        <%  } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="form-group form-inline" style="display:inline">
+                    <h1 class="panel-title col-md-11">Profesores que ya han llenado el formulario</h1>
+                    <a href="/crearMateria" data-toggle="tooltip" title="Agregar Profesor" style="color:white" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-plus"></span></a>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+
+                            <th>#</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Correo</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <% var count=1; %>
+                        <% for(var i=0; i<profesores.length; i++){ %>
+                        <tr>
+                            <th><%= count%></th>
+                            <td><%= profesores[i].nombreProf%></td>
+                            <td><%= profesores[i].apellidoProf%></td>
+                            <td><%= profesores[i].correoProf%></td>
+                            <td><a href="" data-toggle="tooltip" title="Editar Profesor"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
+                            <td><a href="" data-toggle="tooltip" title="Eliminar Profesor"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+                            <td><a href="" data-toggle="tooltip" title="Reiniciar"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-retweet"></span></button></a></td>
+                        </tr>
+                        <% var count=count+1; %>
+                        <%  } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <a href="/crearMateria"><button type="button" class="btn btn-primary">Reiniciar Todos</button></a>
+    </div>
+</div>

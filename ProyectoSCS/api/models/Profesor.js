@@ -36,8 +36,16 @@ module.exports = {
         },
 
         numIntentos: {
-            type: 'number',
-            size: 4
+            type: 'integer',
+            size: 4,
+            defaultsTo: 0
+        },
+        
+        llenoForm: {
+            type: 'string',
+            size: 5,
+            enum: ['true', 'false'],
+            defaultsTo: 'false'
         },
 
         MateriasGruposDeProfesor: {
