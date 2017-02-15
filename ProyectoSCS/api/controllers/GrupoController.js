@@ -20,6 +20,7 @@ module.exports = {
                     sails.log.info(materiasEncontradas);
                     return res.view('Materias/Materias',{
                         title: 'materias',
+                        tituloError:'',
                         materias: materiasEncontradas
                     })
                 })
