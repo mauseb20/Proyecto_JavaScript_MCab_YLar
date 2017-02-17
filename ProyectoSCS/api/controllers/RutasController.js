@@ -253,9 +253,9 @@ module.exports = {
     },
     editarProfesor: function (req, res) {
         var parametros = req.allParams();
-        if(parametros.idProfesorSeleccionado){
+        if(parametros.idProfesor){
             Profesor.findOne({
-                idProfesor: parametros.idProfesorSeleccionado
+                idProfesor: parametros.idProfesor
             }).exec(function(error,profesorEncontrado){
                 if (error) return res.serverError()
                 sails.log.info(profesorEncontrado);
