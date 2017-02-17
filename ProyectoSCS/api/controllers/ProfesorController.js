@@ -33,9 +33,7 @@ module.exports = {
                         }).exec(function (error, profesorCreado){
                             if (error) { return res.serverError(); }
                             sails.log.info(profesorCreado);
-                            Profesor.find({
-                                numIntentos: {contains:0}
-                            }).exec(function(error,profesoresEncontrados){
+                            Profesor.find().exec(function(error,profesoresEncontrados){
                                 if(error) return res.serverError();
                                 return res.view('FormularioProfesores/Profesores', {
                                     title: 'profesores',
@@ -104,9 +102,7 @@ module.exports = {
                                             correoProf: parametros.correoProf
                                         }).exec(function(error,profesorEditado){
                                             if (error) { return res.serverError(); }
-                                            Profesor.find({
-                                                numIntentos: {contains:0}
-                                            }).exec(function(error,profesoresEncontrados){
+                                            Profesor.find().exec(function(error,profesoresEncontrados){
                                                 if(error) return res.serverError();
                                                 return res.view('FormularioProfesores/Profesores', {
                                                     title: 'profesores',
@@ -126,9 +122,7 @@ module.exports = {
                                     apellidoProf: parametros.apellidoProf
                                 }).exec(function(error,profesorEditado){
                                     if (error) { return res.serverError(); }
-                                    Profesor.find({
-                                        numIntentos: {contains:0}
-                                    }).exec(function(error,profesoresEncontrados){
+                                    Profesor.find().exec(function(error,profesoresEncontrados){
                                         if(error) return res.serverError();
                                         return res.view('FormularioProfesores/Profesores', {
                                             title: 'profesores',
@@ -156,9 +150,7 @@ module.exports = {
                                             correoProf: parametros.correoProf
                                         }).exec(function(error,profesorEditado){
                                             if (error) { return res.serverError(); }
-                                            Profesor.find({
-                                                numIntentos: {contains:0}
-                                            }).exec(function(error,profesoresEncontrados){
+                                            Profesor.find().exec(function(error,profesoresEncontrados){
                                                 if(error) return res.serverError();
                                                 return res.view('FormularioProfesores/Profesores', {
                                                     title: 'profesores',
@@ -180,9 +172,7 @@ module.exports = {
                                     nombreProf: parametros.nombreProf
                                 }).exec(function(error,prodesorEditado){
                                     if (error) { return res.serverError(); }
-                                    Profesor.find({
-                                        numIntentos: {contains:0}
-                                    }).exec(function(error,profesoresEncontrados){
+                                    Profesor.find().exec(function(error,profesoresEncontrados){
                                         if(error) return res.serverError();
                                         return res.view('FormularioProfesores/Profesores', {
                                             title: 'profesores',
@@ -210,9 +200,7 @@ module.exports = {
                                             correoProf: parametros.correoProf
                                         }).exec(function(error,prodesorEditado){
                                             if (error) { return res.serverError(); }
-                                            Profesor.find({
-                                                numIntentos: {contains:0}
-                                            }).exec(function(error,profesoresEncontrados){
+                                            Profesor.find().exec(function(error,profesoresEncontrados){
                                                 if(error) return res.serverError();
                                                 return res.view('FormularioProfesores/Profesores', {
                                                     title: 'profesores',
@@ -233,9 +221,7 @@ module.exports = {
                                     apellidoProf: parametros.apellidoProf
                                 }).exec(function(error,prodesorEditado){
                                     if (error) { return res.serverError(); }
-                                    Profesor.find({
-                                        numIntentos: {contains:0}
-                                    }).exec(function(error,profesoresEncontrados){
+                                    Profesor.find().exec(function(error,profesoresEncontrados){
                                         if(error) return res.serverError();
                                         return res.view('FormularioProfesores/Profesores', {
                                             title: 'profesores',
@@ -264,9 +250,7 @@ module.exports = {
                                             correoProf: parametros.correoProf
                                         }).exec(function(error,prodesorEditado){
                                             if (error) { return res.serverError(); }
-                                            Profesor.find({
-                                                numIntentos: {contains:0}
-                                            }).exec(function(error,profesoresEncontrados){
+                                            Profesor.find().exec(function(error,profesoresEncontrados){
                                                 if(error) return res.serverError();
                                                 return res.view('FormularioProfesores/Profesores', {
                                                     title: 'profesores',
@@ -308,9 +292,7 @@ module.exports = {
                 idProfesor:parametros.idProfesor
             }).exec(function(error,profesorEliminado){
                 if (error) return res.serverError()
-                Profesor.find({
-                    numIntentos: {contains:0}
-                }).exec(function(error,profesoresEncontrados){
+                Profesor.find().exec(function(error,profesoresEncontrados){
                     if(error) return res.serverError();
                     return res.view('FormularioProfesores/Profesores', {
                         title: 'profesores',

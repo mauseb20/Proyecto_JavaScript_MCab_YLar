@@ -231,9 +231,7 @@ module.exports = {
     },
     profesores: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
-        Profesor.find({
-            numIntentos: {contains:0}
-        }).exec(function (error, profesoresEncontrados){
+        Profesor.find().exec(function (error, profesoresEncontrados){
             if (error) return res.serverError()
             return res.view('FormularioProfesores/Profesores', {
                 title: 'profesores',
@@ -243,6 +241,7 @@ module.exports = {
         });
 
     },
+
     crearProfesor: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
         return res.view('FormularioProfesores/AgregarProfesor',{
@@ -267,13 +266,22 @@ module.exports = {
             })
         }
     },
-    enviarFormulario: function (req, res) {
+    envioFormulario: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
-        return res.view('FormularioProfesores/EnvioFormulario',{
-            title: 'envioFormulario',
-            tituloError: ''
-        })
-
+        var parametros = req.allParams();
+        if(parametros.idProfesor){
+            Profesor.findOne({
+                idProfesor: parametros.idProfesor
+            }).exec(function(error,profesorEncontrado){
+                if (error) return res.serverError()
+                sails.log.info(profesorEncontrado);
+                return res.view('FormularioProfesores/EnvioFormulario',{
+                    title: 'profesores',
+                    tituloError: '',
+                    profesor: profesorEncontrado
+                })
+            })
+        }
     },
     error: function (req, res) {
         // res.view(String: Nombre vista, Datos JSON)
@@ -282,6 +290,59 @@ module.exports = {
             tituloError: ''
         })
 
+    },
+
+    formulario: function (req,res){
+        var parametros = req.allParams();
+        if (parametros.idProfesor&&parametros.numIntentos){
+            Profesor.findOne({
+                idProfesor: parametros.idProfesor
+            }).exec(function(error,profesorEncontrado){
+                if(profesorEncontrado){
+                    if(profesorEncontrado.llenoForm=='false'){
+                        if(profesorEncontrado.numIntentos>0){
+                            Materia.find().sort('nombreMateria ASC').exec(function(error,materiasOrdenadas){
+                                if (error) return res.serverError();
+                                return res.view('formulario',{
+                                    title: 'formulario',
+                                    tituloError: '',
+                                    profesor: profesorEncontrado,
+                                    materias: materiasOrdenadas
+                                })
+                            })
+                        }else{
+                            return res.view('error',{
+                                title:'formulario',
+                                tituloError:'error',
+                                error:'Usted ya no tiene mas materias para registrar. En caso de necesitar un nuevo registro contactar al equipo L-FIS',
+                                url:'/gracias'
+                            })
+                        }
+                    }else{
+                        return res.view('error',{
+                            title:'formulario',
+                            tituloError:'error',
+                            error:'Usted ya a llenado el formulario',
+                            url:'/gracias'
+                        })
+                    }
+                }else{
+                    return res.view('error',{
+                        title:'formulario',
+                        tituloError:'error',
+                        error:'No se encuetra registrado',
+                        url:'/gracias'
+                    })
+                }
+            })
+        }
+    },
+    gracias: function (req,res){
+        return res.view('gracias',{
+            title: 'gracias',
+            tituloError: ''
+        })
     }
+
 };
 

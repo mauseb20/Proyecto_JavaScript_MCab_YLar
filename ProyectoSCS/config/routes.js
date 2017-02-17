@@ -65,22 +65,12 @@ module.exports.routes = {
     '/profesores': 'RutasController.profesores',
     '/crearProf': 'RutasController.crearProfesor',
     '/editarProf': 'RutasController.editarProfesor',
-    '/envioFormulario':'RutasController.enviarFormulario',
+    '/envioFormulario':'RutasController.envioFormulario',
     
     '/error': 'RutasController.error',
+    '/formProfesor':'RutasController.formulario',
     
-    '/formProfesor': {
-        view: 'formulario',
-        locals: {
-            layout: 'Login/LoginLayout'
-        }
-    },
-    '/gracias': {
-        view: 'gracias',
-        locals: {
-            layout: 'Login/LoginLayout'
-        }
-    }
+    '/gracias': 'RutasController.gracias'
 
     /***************************************************************************
   *                                                                          *

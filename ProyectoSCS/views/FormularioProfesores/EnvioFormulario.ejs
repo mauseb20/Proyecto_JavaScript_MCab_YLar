@@ -1,25 +1,11 @@
 <div class="col-md-12">
     <div class="row">
-        <form class="form-horizontal" action="" method="">
+        <form class="form-horizontal" action="/Formulario/enviarFormulario" method="POST">
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-3 control-label">Seleccionar Profesor</label>
                 <div class="col-sm-6">
-                    <select class="form-control" name="idProfesor">
-                        <option value="0"></option>
-                        <% var idProfesorSeleccionado=0; %>
-                        <% for(var i=0; i<profesores.length; i++){ %>
-                        <option value='<%=profesores[i].idProfesor%>'>
-                            <%=profesores[i].nombreProf%> <%=profesores[i].apellidoProf%>
-                        </option>
-                        <%  } %>
-                    </select>
-                </div>
-                <div id="" class="col-md-3">
-                    <div class="btn-group btn-group-justified" role="group">
-                        <a href="/crearProf" data-toggle="tooltip" title="Agregar Profesor"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button></a>
-                        <a href="/editarProf?idProfesorSeleccionado=<%=idProfesorSeleccionado%>" data-toggle="tooltip" title="Editar Profesor"><button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button></a>
-                        <a href="/Profesor/borrarProfesor?idProfesor=<%=idProfesorSeleccionado%>" data-toggle="tooltip" title="Eliminar Profesor"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
-                    </div>
+                    <input type="hidden" name="idProfesor" value="<%=profesor.idProfesor%>">
+                    <input type="text" class="form-control" value="<%=profesor.nombreProf%> <%=profesor.apellidoProf%>" disabled>
                 </div>
             </div>
             <div class="form-group">
@@ -36,12 +22,17 @@
             </div>
             <br>
             <div class="form-group">
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary">Enviar Formulario</button>
+                <div class="col-md-offset-4 col-md-4">
+                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+                        <div class="btn-group" role="group">
+                            <a href="/profesores"><button type="button" class="btn btn-default">Cancelar</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>               
-
-
         </form>
     </div>
 </div>
