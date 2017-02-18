@@ -104,6 +104,30 @@ module.exports = {
             return res.badRequest('Metodo invalido');
         }
     },
+    
+    borrarPrograma: function (req, res) {
+        
+         var parametros = req.allParams();
+        console.log(parametros);
+        
+        if(parametros.idPrograma){
+            Programa.destroy({
+                idPrograma:parametros.idPrograma
+            }).exec(function(error,programaEliminado){
+                if (error) return res.serverError()
+                
+                
+                    })
+        }
+        
+        
+    },
+    
+    editarPrograma: function (req, res) {
+        
+        
+        
+    }
 
 
 };
