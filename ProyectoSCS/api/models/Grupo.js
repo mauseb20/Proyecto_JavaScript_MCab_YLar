@@ -27,20 +27,13 @@ module.exports = {
 
         materiaGru: {
             model: 'Materia',
-            //required: true,
         },
 
         profesorGru: {
             model: 'Profesor',
-            //required: true,
         },
         
-        materiaProg: {
-            model: 'Programa',
-            //required: true,
-        },
-        
-        idLaboratorio: {
+        laboratorioGru: {
             model: 'Laboratorio'
         }
 

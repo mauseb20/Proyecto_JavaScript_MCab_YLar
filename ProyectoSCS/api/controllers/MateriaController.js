@@ -122,7 +122,7 @@ module.exports = {
                             tituloError: '',
                             materias: materiasEncontradas
                         })
-                    })
+                    }) 
                 })
             });
         }else{

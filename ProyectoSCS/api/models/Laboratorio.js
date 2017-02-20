@@ -65,7 +65,7 @@ module.exports = {
         
         LaboratoriosGruposDeLaboratorio: {
             collection: 'Grupo',
-            via: 'idLaboratorio'
+            via: 'laboratorioGru'
         }
 
     }

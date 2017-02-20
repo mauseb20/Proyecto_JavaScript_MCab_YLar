@@ -16,7 +16,6 @@ module.exports = {
             type: 'number',
             primaryKey: true,
             unique: true,
-            // required: true,
             autoIncrement: true,
             size: 6
         },
@@ -64,8 +63,8 @@ module.exports = {
         },
 
         ProgramasGruposDePrograma: {
-            collection: 'Grupo',
-            via: 'materiaProg'
+            collection: 'ProgramaGrupo',
+            via: 'idPrograma'
         }
 
     }

@@ -4,11 +4,12 @@
     </div>
     <br>
     <div class="row">
-        <form class="form-horizontal" action="" method="">
-            <div class="form-group form-inline">
+        <form class="form-horizontal" action="Programa/editarPrograma" method="POST">
+            <div class="form-group">
+               <input type="text" style="display:none" value="<%= software.idPrograma%>" name="idprograma">
                 <label for="inputPassword3" class="col-sm-2 control-label">Nombre</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="">
+                    <input type="text" class="form-control" name="nombrePrograma" placeholder="Nombre del aplicativo" value="<%= software.nombrePrograma%>">
                 </div>
                 <label for="inputPassword3" class="col-sm-2 control-label">Tipo</label>
                 <div class="col-sm-3">
@@ -23,9 +24,12 @@
                 <label for="inputPassword3" class="col-sm-2 control-label">Servicio</label>
                 <div class="col-sm-4">
                     <select class="form-control">
-                        <option></option>
-                        <option>IDE</option>
-                        <option>BDD</option>
+                        <option> </option>
+                        <option value="Ofimatica">Ofimatica</option>
+                        <option value="IDE">IDE</option>
+                        <option value="BDD">BDD</option>
+                        <option value="Case">Case</option>
+                        <option value="Otro" selected>Otro</option>
                     </select>
                 </div>
                 <label for="inputPassword3" class="col-sm-2 control-label">Categoria</label>
