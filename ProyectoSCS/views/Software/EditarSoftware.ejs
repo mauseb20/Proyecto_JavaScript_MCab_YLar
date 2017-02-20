@@ -6,26 +6,18 @@
     <div class="row">
         <form class="form-horizontal" action="Programa/editarPrograma" method="POST">
             <div class="form-group">
-               <input type="text" style="display:none" value="<%= software.idPrograma%>" name="idprograma">
+                <input type="text" style="display:none" value="<%= software.idPrograma%>" name="idprograma">
                 <label for="inputPassword3" class="col-sm-2 control-label">Nombre</label>
-                <div class="col-sm-4">
+                <div class="col-sm-10">
                     <input type="text" class="form-control" name="nombrePrograma" placeholder="Nombre del aplicativo" value="<%= software.nombrePrograma%>">
-                </div>
-                <label for="inputPassword3" class="col-sm-2 control-label">Tipo</label>
-                <div class="col-sm-3">
-                    <select class="form-control">
-                        <option></option>
-                        <option>Sistema Operativo</option>
-                        <option>Aplicativo</option>
-                    </select>
                 </div>
             </div>
             <div class="form-group form-inline">
                 <label for="inputPassword3" class="col-sm-2 control-label">Servicio</label>
                 <div class="col-sm-4">
-                    <select class="form-control">
-                        <option> </option>
-                        <option value="Ofimatica">Ofimatica</option>
+                    <select class="form-control" name="servicio">
+                       <% var seleccion = software.servicio %>
+                        <option <% if(seleccion == "Ofimatica"){ } %>value="Ofimatica">Ofimatica</option>
                         <option value="IDE">IDE</option>
                         <option value="BDD">BDD</option>
                         <option value="Case">Case</option>
@@ -35,6 +27,7 @@
                 <label for="inputPassword3" class="col-sm-2 control-label">Categoria</label>
                 <div class="col-sm-3">
                     <select class="form-control">
+                       
                         <option></option>
                         <option>Libre</option>
                         <option>Pago</option>
