@@ -134,16 +134,15 @@ module.exports = {
 
         var parametros =req.allParams();
         if (req.method=='POST'){
-            if(parametros.nombreLaboratorio&&parametros.numAula&&parametros.capacidad&&parametros.numOrdenadores){
+            if(parametros.nombrePrograma&&parametros.tipoProg&&parametros.capacidad&&parametros.numOrdenadores){
                 console.log(parametros);
-                if (parametros.proyectorEmpotrado==null) parametros.proyectorEmpotrado='NO'
-                Laboratorio.findOne({
-                    nombreLaboratorio: parametros.nombreLaboratorio,
-                    numAula: parametros.numAula,
-                    capacidad: parametros.capacidad,
-                    descripcionUbicacion: parametros.descripcionUbicacion,
-                    numOrdenadores: parametros.numOrdenadores,
-                    proyectorEmpotrado: parametros.proyectorEmpotrado
+                Programa.findOne({
+                    nombrePrograma: parametros.nombrePrograma,
+                            tipoProg: tipoPrograma,
+                            servicio: parametros.servicio,
+                            categoria: parametros.categoria,
+                            versionProg: parametros.versionProg,
+                            anioProg: parametros.anioProg
                 }).exec(function(error,laboratorioEncontrado){
                     if (error) return res.serverError();
                     if (laboratorioEncontrado!=undefined){
@@ -155,7 +154,7 @@ module.exports = {
                         })
                     }else{ 
 
-                        Laboratorio.update({
+                        Programa.update({
                             idLaboratorio: parametros.idLaboratorio
                         },{
                             nombreLaboratorio: parametros.nombreLaboratorio,

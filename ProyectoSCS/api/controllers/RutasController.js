@@ -193,12 +193,20 @@ module.exports = {
 
     },
     editarSoftware: function (req, res) {
-        // res.view(String: Nombre vista, Datos JSON)
-        return res.view('Software/EditarSoftware',{
-            title: 'editarSoftware',
-            tituloError: ''
-        })
-
+        var parametros = req.allParams();
+        if(parametros.idPrograma){
+            Programa.findOne({
+                idPrograma: parametros.idPrograma
+            }).exec (function(error,programaEncontrado){
+                if(error) return res.serverError();
+                
+                return res.view('Software/EditarSoftware',{
+                    title: 'software',
+                    tituloError: '',
+                    software: programaEncontrado
+                })
+            })
+        }
     },
     sistemasOperativos: function (req, res) {
         Programa.find({
