@@ -7,6 +7,9 @@
 
 module.exports = {
 
+    connection: 'conexionBaseSwControl',
+    tableName: 'grupo',
+    
     attributes: {
 
        

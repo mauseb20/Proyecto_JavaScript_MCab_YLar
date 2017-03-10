@@ -7,6 +7,9 @@
 
 module.exports = {
 
+    connection: 'conexionBaseSwControl',
+    tableName: 'profesor',
+    
     attributes: {
 
         idProfesor: {
