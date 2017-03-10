@@ -11,12 +11,12 @@ module.exports = {
 
         idPrograma: {
             model: 'Programa',
-            required: true,
+            required: true
         },
 
         idGrupo: {
             model: 'Grupo',
-            required: true,
+            required: true
         },
 
         estado:{

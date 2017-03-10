@@ -35,7 +35,7 @@ module.exports = {
 
         servicio: {
             type: 'string',
-            enum: ['Ofimatica', 'IDE', 'BDD', 'Case', 'Otro'],
+            enum: ['Ofimatica', 'IDE', 'BDD', 'Case', 'Otro','Sistema Operativo'],
             defaultsTo: 'Otro',
         },
 
