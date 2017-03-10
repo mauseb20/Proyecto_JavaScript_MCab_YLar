@@ -112,7 +112,7 @@ module.exports = {
             }).exec(function(error,materiaEliminada){
                 if (error) return res.serverError()
                 Grupo.destroy({
-                    materiaGru:materiaEliminada.idMateria,
+                    materiaGru:parametros.idMateria,
                 }).exec(function(error,grupoEliminado){
                     Materia.find().populate('MateriasGruposDeMateria').exec(function(error,materiasEncontradas){
                         if (error) return res.serverError()
