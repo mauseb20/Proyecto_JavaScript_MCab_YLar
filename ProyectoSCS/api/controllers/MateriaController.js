@@ -112,23 +112,24 @@ module.exports = {
             }).exec(function(error,materiaEliminada){
                 if (error) return res.serverError()
                 Grupo.destroy({
-                    materiaGru:parametros.idMateria,
+                    materiaGru:materiaEliminada.idMateria,
                 }).exec(function(error,grupoEliminado){
                     Materia.find().populate('MateriasGruposDeMateria').exec(function(error,materiasEncontradas){
-                        if (error) return res.serverError()
+                        if (error) return res.serverError();
                         //sails.log.info(materiasEncontradas);
                         return res.view('Materias/Materias',{
                             title: 'materias',
                             tituloError: '',
                             materias: materiasEncontradas
                         })
-                    }) 
+                    })
                 })
             });
         }else{
             return res.badRequest('No envia todos los parametros');
         }
     },
+
     editarMateria: function(req,res){
         var parametros = req.allParams();
         console.log(parametros);

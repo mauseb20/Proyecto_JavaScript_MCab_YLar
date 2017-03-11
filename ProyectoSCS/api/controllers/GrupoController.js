@@ -46,7 +46,10 @@ module.exports = {
                   if(profesorEncontrado.numIntentos>0){
                     Materia.find().sort('nombreMateria ASC').exec(function(error,materiasOrdenadas){
                       if (error) return res.serverError();
-                      Programa.find().populate('ProgramasGruposDePrograma').sort('nombrePrograma ASC').exec(function(error,swEncontradoMateria){
+                      ProgramaGrupo.find({
+                        idGrupo:grupoEncontrado.idGrupo
+                      }).populate('idPrograma').sort('idPrograma.nombrePrograma ASC').exec(function(error,swEncontradoMateria){
+                        console.log(swEncontradoMateria);
                         Programa.find({
                           tipoProg: {contains:'APP'}
                         }).exec(function(error,swDisponible){
@@ -81,7 +84,10 @@ module.exports = {
                     if(profesorEncontrado.numIntentos>0){
                       Materia.find().sort('nombreMateria ASC').exec(function(error,materiasOrdenadas){
                         if (error) return res.serverError();
-                        Programa.find().populate('ProgramasGruposDePrograma').sort('nombrePrograma ASC').exec(function(error,swEncontradoMateria){
+                        ProgramaGrupo.find({
+                          idGrupo:grupoEncontrado.idGrupo
+                        }).populate('idPrograma').sort('idPrograma.nombrePrograma ASC').exec(function(error,swEncontradoMateria){
+                          if (error) return res.serverError();
                           Programa.find({
                             tipoProg: {contains:'APP'}
                           }).exec(function(error,swDisponible){
@@ -97,6 +103,8 @@ module.exports = {
                             })
                           });
                         });
+
+
                       })
                     }
                   }
@@ -118,7 +126,9 @@ module.exports = {
                   if(profesorEncontrado.numIntentos>0){
                     Materia.find().sort('nombreMateria ASC').exec(function(error,materiasOrdenadas){
                       if (error) return res.serverError();
-                      Programa.find().populate('ProgramasGruposDePrograma').sort('nombrePrograma ASC').exec(function(error,swEncontradoMateria){
+                      ProgramaGrupo.find({
+                        idGrupo:grupoCreado.idGrupo
+                      }).populate('idPrograma').sort('idPrograma.nombrePrograma ASC').exec(function(error,swEncontradoMateria){
                         Programa.find({
                           tipoProg: {contains:'APP'}
                         }).exec(function(error,swDisponible){
@@ -184,7 +194,6 @@ module.exports = {
         })
       })
     }
-  },
-
+  }
 };
 

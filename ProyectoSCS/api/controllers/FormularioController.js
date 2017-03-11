@@ -6,7 +6,6 @@
  */
 
 module.exports = {
-
   enviarFormulario: function(req,res){
     var parametros = req.allParams();
     if(req.method == 'POST'){
@@ -45,7 +44,80 @@ module.exports = {
       return res.badRequest('Metodo invalido');
     }
   },
-  actualizarContador: function(req,res){
-
+  guardar: function(req,res){
+    var parametros=req.allParams();
+    var numIntentos;
+    if (parametros.idProfesor){
+      Profesor.findOne({
+        idProfesor:parametros.idProfesor
+      }).exec(function(error,profesorEncontrado){
+        if(profesorEncontrado){
+          numIntentos=profesorEncontrado.numIntentos-1;
+          if(numIntentos==0){
+            Profesor.update({
+              idProfesor:parametros.idProfesor
+            },{
+              llenoForm: 'true'
+            }).exec(function(error,profesorActualizado){
+              return res.view('gracias',{
+                title: 'gracias',
+                tituloError: ''
+              })
+            });
+          }else{
+            Profesor.update({
+              idProfesor: parametros.idProfesor
+            },{
+              numIntentos: numIntentos
+            }).exec(function(error,profesorActualizado){
+              Profesor.findOne({
+                idProfesor: parametros.idProfesor
+              }).exec(function(error,profesorEncontrado){
+                if(profesorEncontrado){
+                  if(profesorEncontrado.llenoForm=='false'){
+                    if(profesorEncontrado.numIntentos>0){
+                      Materia.find().sort('nombreMateria ASC').exec(function(error,materiasOrdenadas){
+                        if (error) return res.serverError();
+                        return res.view('formulario',{
+                          title: 'formulario',
+                          tituloError: '',
+                          profesor: profesorEncontrado,
+                          materias: materiasOrdenadas,
+                          grupo: '',
+                          asignado: 'No',
+                          softwareMateria: '',
+                          softwareDisponible: ''
+                        })
+                      })
+                    }else{
+                      return res.view('error',{
+                        title:'formulario',
+                        tituloError:'error',
+                        error:'Usted ya no tiene mas materias para registrar. En caso de necesitar un nuevo registro contactar al equipo L-FIS',
+                        url:'/gracias'
+                      })
+                    }
+                  }else{
+                    return res.view('error',{
+                      title:'formulario',
+                      tituloError:'error',
+                      error:'Usted ya a llenado el formulario',
+                      url:'/gracias'
+                    })
+                  }
+                }else{
+                  return res.view('error',{
+                    title:'formulario',
+                    tituloError:'error',
+                    error:'No se encuetra registrado',
+                    url:'/gracias'
+                  })
+                }
+              })
+            })
+          }
+        }
+      })
+    }
   }
 };

@@ -25,8 +25,6 @@ module.exports = {
 
   },
   materias: function (req, res) {
-
-    // res.view(String: Nombre vista, Datos JSON)
     Materia.find().populate('MateriasGruposDeMateria').sort('nombreMateria ASC').exec(function(error,materiasEncontradas){
       if (error) return res.serverError();
       //sails.log.info(materiasEncontradas);
@@ -39,7 +37,6 @@ module.exports = {
 
   },
   crearMaterias: function (req, res) {
-
     // res.view(String: Nombre vista, Datos JSON)
     return res.view('Materias/CrearMateria',{
       title: 'crearMaterias',
@@ -106,8 +103,10 @@ module.exports = {
     }
   },
   asignarSW: function (req, res) {
+    var parametros = req.allParams();
+    if(parametros.idMateria&&parametros.grupoMateria){
 
-    // res.view(String: Nombre vista, Datos JSON)
+    }
     return res.view('Materias/MateriaSoftware',{
       title: 'asignarSW',
       tituloError: ''

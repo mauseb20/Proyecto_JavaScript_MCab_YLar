@@ -159,19 +159,23 @@ module.exports = {
           Programa.destroy({
             idPrograma:parametros.idPrograma
           }).exec(function(error,programaEliminado){
-            if (error) return res.serverError()
-            Programa.find({
-              tipoProg: {
-                contains: 'APP'
-              }
-            }).exec(function(error,swEncontrado){
-              if(error) return res.serverError()
-              return res.view('Software/Software',{
-                title: 'software',
-                tituloError: '',
-                software: swEncontrado
+            if (error) return res.serverError();
+            ProgramaGrupo.destroy({
+              idPrograma:parametros.idPrograma
+            }).exec(function(error,asignacionesEliminadas){
+              Programa.find({
+                tipoProg: {
+                  contains: 'APP'
+                }
+              }).exec(function(error,swEncontrado){
+                if(error) return res.serverError();
+                return res.view('Software/Software',{
+                  title: 'software',
+                  tituloError: '',
+                  software: swEncontrado
+                })
               })
-            })
+            });
           })
         }else{
           Programa.destroy({

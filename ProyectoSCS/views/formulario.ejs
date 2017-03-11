@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
-    <form class="form-horizontal" action="/Formulario/actualizarContador" method="POST">
+    <form class="form-horizontal" action="/Formulario/guardar" method="POST">
       <div class="form-group">
         <div class="panel panel-primary">
           <div class="panel-heading">
@@ -69,19 +69,17 @@
 
               <%var count=1; %>
               <%for (var i=0; i<softwareMateria.length; i++){%>
-              <%for (var j=0; j<softwareMateria[i].length; j++){%>
               <tr>
                 <td><%= count%></td>
-                <td><%= softwareMateria[i].nombrePrograma%></td>
-                <td><%= softwareMateria[i].servicio%></td>
-                <td><%= softwareMateria[i].categoria%></td>
-                <td><%= softwareMateria[i].versionProg%></td>
-                <td><%= softwareMateria[i].anioProg%></td>
-                <td><%= softwareMateria[i].ProgramasGruposDePrograma[j].estado%></td>
-                <td><a href=""><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+                <td><%= softwareMateria[i].idPrograma.nombrePrograma%></td>
+                <td><%= softwareMateria[i].idPrograma.servicio%></td>
+                <td><%= softwareMateria[i].idPrograma.categoria%></td>
+                <td><%= softwareMateria[i].idPrograma.versionProg%></td>
+                <td><%= softwareMateria[i].idPrograma.anioProg%></td>
+                <td><%= softwareMateria[i].estado%></td>
+                <td><a href="/ProgramaGrupo/borrarAsignacionPrograma?idPrograma=<%= softwareMateria[i].idPrograma.idPrograma%>&idGrupo=<%= grupo.idGrupo%>&idProfesor=<%= profesor.idProfesor%>"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
                 <%count=count+1; %>
               </tr>
-              <%}%>
               <%}%>
               </tbody>
             </table>
@@ -105,7 +103,7 @@
               </select>
             </div>
             <div class="col-md-1">
-              <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button>
+              <button type="submit" formaction="/ProgramaGrupo/asignarProgramaSelect" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button>
             </div>
           </div>
           <div class="form-group">
@@ -113,7 +111,7 @@
             <div class="col-md-7">
               <div class="form-group form-inline">
                 <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Nombre delsoftware" name="nombrePrograma" <%= (asignado == 'No') ? 'disabled' :''%>>
+                  <input type="text" class="form-control" placeholder="Nombre del software solicitado" name="nombrePrograma" <%= (asignado == 'No') ? 'disabled' :''%>>
                 </div>
                 <label for="inputPassword3" class="col-sm-3 control-label">Categoria</label>
                 <div class="col-md-3">
@@ -125,7 +123,7 @@
               </div>
             </div>
             <div class="col-md-1">
-              <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button>
+              <button type="submit" formaction="/ProgramaGrupo/asignarProgramaForm" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button>
             </div>
           </div>
         </div>
