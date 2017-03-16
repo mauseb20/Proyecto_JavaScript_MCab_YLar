@@ -4,19 +4,35 @@
  * @description :: Server-side logic for managing Formularios
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+var nodemailer = require('nodemailer');
 
 module.exports = {
   enviarFormulario: function(req,res){
     var parametros = req.allParams();
     if(req.method == 'POST'){
-
       if(parametros.idProfesor&&parametros.numIntentos){
         Profesor.findOne({
           idProfesor: parametros.idProfesor
         }).exec(function(error,profesorEncontrado){
           if (error) return res.serverError();
           if(profesorEncontrado){
-            //envio correo
+            var smtpConfig = {
+              host: 'smtp.epn.edu.ec',
+              port: 25,
+              secure: false, // upgrade later with STARTTLS
+              auth: {  }
+            };
+            var transporter = nodemailer.createTransport(smtpConfig);
+            var correo = {
+              from: 'mauricio.cabrera@epn.edu.ec', // sender address
+              to: profesorEncontrado.correoProf, // list of receivers
+              subject: 'Formulario para solicitud de software', // Subject line
+              text: 'http://localhost:1337/formProfesor?idProfesor='+profesorEncontrado.idProfesor // plain text body
+            };
+            transporter.sendMail(correo, function(error,correoEnviado){
+              if (error) return res.serverError();
+              console.log(correoEnviado);
+            });
             Profesor.update({
               idProfesor: parametros.idProfesor
             },{
