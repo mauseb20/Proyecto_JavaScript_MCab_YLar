@@ -9,7 +9,7 @@ module.exports = {
 
     connection: 'conexionBaseSwControl',
     tableName: 'programa_grupo',
-    
+
     attributes: {
 
         idPrograma: {
@@ -24,7 +24,7 @@ module.exports = {
 
         estado:{
             type: 'string',
-            size: 6,
+            size: 10,
             enum: ['Solicitado', 'Instalado']
         }
 

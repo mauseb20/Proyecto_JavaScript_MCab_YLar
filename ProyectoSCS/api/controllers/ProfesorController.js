@@ -33,14 +33,17 @@ module.exports = {
             }).exec(function (error, profesorCreado){
               if (error) { return res.serverError(); }
               sails.log.info(profesorCreado);
-              Profesor.find().exec(function(error,profesoresEncontrados){
-                if(error) return res.serverError();
-                return res.view('FormularioProfesores/Profesores', {
-                  title: 'profesores',
-                  tituloError: '',
-                  profesores: profesoresEncontrados
+              Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+                Materia.find().exec(function(error,materiasEncontradas){
+                  if (error) return res.serverError();
+                  return res.view('FormularioProfesores/Profesores', {
+                    title: 'profesores',
+                    tituloError: '',
+                    profesores: profesoresEncontrados,
+                    materia: materiasEncontradas
+                  });
                 });
-              })
+              });
             });
 
           }
@@ -102,14 +105,17 @@ module.exports = {
                       correoProf: parametros.correoProf
                     }).exec(function(error,profesorEditado){
                       if (error) { return res.serverError(); }
-                      Profesor.find().exec(function(error,profesoresEncontrados){
-                        if(error) return res.serverError();
-                        return res.view('FormularioProfesores/Profesores', {
-                          title: 'profesores',
-                          tituloError: '',
-                          profesores: profesoresEncontrados
+                      Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+                        Materia.find().exec(function(error,materiasEncontradas){
+                          if (error) return res.serverError();
+                          return res.view('FormularioProfesores/Profesores', {
+                            title: 'profesores',
+                            tituloError: '',
+                            profesores: profesoresEncontrados,
+                            materia: materiasEncontradas
+                          });
                         });
-                      })
+                      });
                     })
                   }
                 })
@@ -122,14 +128,17 @@ module.exports = {
                   apellidoProf: parametros.apellidoProf
                 }).exec(function(error,profesorEditado){
                   if (error) { return res.serverError(); }
-                  Profesor.find().exec(function(error,profesoresEncontrados){
-                    if(error) return res.serverError();
-                    return res.view('FormularioProfesores/Profesores', {
-                      title: 'profesores',
-                      tituloError: '',
-                      profesores: profesoresEncontrados
+                  Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+                    Materia.find().exec(function(error,materiasEncontradas){
+                      if (error) return res.serverError();
+                      return res.view('FormularioProfesores/Profesores', {
+                        title: 'profesores',
+                        tituloError: '',
+                        profesores: profesoresEncontrados,
+                        materia: materiasEncontradas
+                      });
                     });
-                  })
+                  });
                 })
               }else{
                 Profesor.findOne({
@@ -150,14 +159,17 @@ module.exports = {
                       correoProf: parametros.correoProf
                     }).exec(function(error,profesorEditado){
                       if (error) { return res.serverError(); }
-                      Profesor.find().exec(function(error,profesoresEncontrados){
-                        if(error) return res.serverError();
-                        return res.view('FormularioProfesores/Profesores', {
-                          title: 'profesores',
-                          tituloError: '',
-                          profesores: profesoresEncontrados
+                      Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+                        Materia.find().exec(function(error,materiasEncontradas){
+                          if (error) return res.serverError();
+                          return res.view('FormularioProfesores/Profesores', {
+                            title: 'profesores',
+                            tituloError: '',
+                            profesores: profesoresEncontrados,
+                            materia: materiasEncontradas
+                          });
                         });
-                      })
+                      });
                     })
                   }
                 })
@@ -172,14 +184,17 @@ module.exports = {
                   nombreProf: parametros.nombreProf
                 }).exec(function(error,prodesorEditado){
                   if (error) { return res.serverError(); }
-                  Profesor.find().exec(function(error,profesoresEncontrados){
-                    if(error) return res.serverError();
-                    return res.view('FormularioProfesores/Profesores', {
-                      title: 'profesores',
-                      tituloError: '',
-                      profesores: profesoresEncontrados
+                  Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+                    Materia.find().exec(function(error,materiasEncontradas){
+                      if (error) return res.serverError();
+                      return res.view('FormularioProfesores/Profesores', {
+                        title: 'profesores',
+                        tituloError: '',
+                        profesores: profesoresEncontrados,
+                        materia: materiasEncontradas
+                      });
                     });
-                  })
+                  });
                 })
               }else{
                 Profesor.findOne({
@@ -200,14 +215,17 @@ module.exports = {
                       correoProf: parametros.correoProf
                     }).exec(function(error,prodesorEditado){
                       if (error) { return res.serverError(); }
-                      Profesor.find().exec(function(error,profesoresEncontrados){
-                        if(error) return res.serverError();
-                        return res.view('FormularioProfesores/Profesores', {
-                          title: 'profesores',
-                          tituloError: '',
-                          profesores: profesoresEncontrados
+                      Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+                        Materia.find().exec(function(error,materiasEncontradas){
+                          if (error) return res.serverError();
+                          return res.view('FormularioProfesores/Profesores', {
+                            title: 'profesores',
+                            tituloError: '',
+                            profesores: profesoresEncontrados,
+                            materia: materiasEncontradas
+                          });
                         });
-                      })
+                      });
                     })
                   }
                 })
@@ -221,14 +239,17 @@ module.exports = {
                   apellidoProf: parametros.apellidoProf
                 }).exec(function(error,prodesorEditado){
                   if (error) { return res.serverError(); }
-                  Profesor.find().exec(function(error,profesoresEncontrados){
-                    if(error) return res.serverError();
-                    return res.view('FormularioProfesores/Profesores', {
-                      title: 'profesores',
-                      tituloError: '',
-                      profesores: profesoresEncontrados
+                  Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+                    Materia.find().exec(function(error,materiasEncontradas){
+                      if (error) return res.serverError();
+                      return res.view('FormularioProfesores/Profesores', {
+                        title: 'profesores',
+                        tituloError: '',
+                        profesores: profesoresEncontrados,
+                        materia: materiasEncontradas
+                      });
                     });
-                  })
+                  });
                 })
               }else{
                 Profesor.findOne({
@@ -250,14 +271,17 @@ module.exports = {
                       correoProf: parametros.correoProf
                     }).exec(function(error,prodesorEditado){
                       if (error) { return res.serverError(); }
-                      Profesor.find().exec(function(error,profesoresEncontrados){
-                        if(error) return res.serverError();
-                        return res.view('FormularioProfesores/Profesores', {
-                          title: 'profesores',
-                          tituloError: '',
-                          profesores: profesoresEncontrados
+                      Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+                        Materia.find().exec(function(error,materiasEncontradas){
+                          if (error) return res.serverError();
+                          return res.view('FormularioProfesores/Profesores', {
+                            title: 'profesores',
+                            tituloError: '',
+                            profesores: profesoresEncontrados,
+                            materia: materiasEncontradas
+                          });
                         });
-                      })
+                      });
                     })
                   }
                 })
@@ -292,14 +316,17 @@ module.exports = {
           profesorGru:''
         });
         if (error) return res.serverError();
-        Profesor.find().exec(function(error,profesoresEncontrados){
-          if(error) return res.serverError();
-          return res.view('FormularioProfesores/Profesores', {
-            title: 'profesores',
-            tituloError: '',
-            profesores: profesoresEncontrados
+        Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+          Materia.find().exec(function(error,materiasEncontradas){
+            if (error) return res.serverError();
+            return res.view('FormularioProfesores/Profesores', {
+              title: 'profesores',
+              tituloError: '',
+              profesores: profesoresEncontrados,
+              materia: materiasEncontradas
+            });
           });
-        })
+        });
       });
     }else{
       return res.badRequest('No envia todos los parametros');
@@ -319,12 +346,15 @@ module.exports = {
             formEnviado: 'false',
             llenoForm: 'false'
           }).exec(function(error,profesorActualizado){
-            Profesor.find().exec(function (error, profesoresEncontrados){
-              if (error) return res.serverError();
-              return res.view('FormularioProfesores/Profesores', {
-                title: 'profesores',
-                tituloError: '',
-                profesores: profesoresEncontrados
+            Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+              Materia.find().exec(function(error,materiasEncontradas){
+                if (error) return res.serverError();
+                return res.view('FormularioProfesores/Profesores', {
+                  title: 'profesores',
+                  tituloError: '',
+                  profesores: profesoresEncontrados,
+                  materia: materiasEncontradas
+                });
               });
             });
           })
@@ -332,5 +362,7 @@ module.exports = {
       })
     }
   }
+
+
 };
 

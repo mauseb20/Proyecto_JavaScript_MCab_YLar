@@ -9,10 +9,10 @@ module.exports = {
 
     connection: 'conexionBaseSwControl',
     tableName: 'grupo',
-    
+
     attributes: {
 
-       
+
         idGrupo: {
             type: 'number',
             primaryKey: true,
@@ -29,13 +29,13 @@ module.exports = {
         },
 
         materiaGru: {
-            model: 'Materia',
+            model: 'Materia'
         },
 
         profesorGru: {
-            model: 'Profesor',
+            model: 'Profesor'
         },
-        
+
         laboratorioGru: {
             model: 'Laboratorio'
         }

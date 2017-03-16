@@ -59,27 +59,29 @@
             <th>#</th>
             <th>Nombres</th>
             <th>Apellidos</th>
-            <th>Correo</th>
-            <th></th>
-            <th></th>
+            <th>Materia</th>
+            <th>Grupo</th>
             <th></th>
           </tr>
 
           </thead>
           <tbody>
           <% var count=1; %>
-          <% for(var i=0; i<profesores.length; i++){ %>
-          <% if (profesores[i].llenoForm=='true'){%>
+          <% for(var j=0; j<profesores.length; j++){ %>
+          <% for(var k=0; k<profesores[j].MateriasGruposDeProfesor.length; k++){ %>
+          <% for(var l=0; l<materia.length; l++){ %>
+          <% if(profesores[j].MateriasGruposDeProfesor[k].materiaGru==materia[l].idMateria){ %>
           <tr>
             <th><%= count%></th>
-            <td><%= profesores[i].nombreProf%></td>
-            <td><%= profesores[i].apellidoProf%></td>
-            <td><%= profesores[i].correoProf%></td>
-            <td><a href="/editarProf?idProfesor=<%= profesores[i].idProfesor%>" data-toggle="tooltip" title="Editar Profesor"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-pencil"></span></button></a></td>
-            <td><a href="/Profesor/borrarProfesor?idProfesor=<%= profesores[i].idProfesor%>" data-toggle="tooltip" title="Eliminar Profesor"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
-            <td><a href="/Profesor/reiniciarProfesor?idProfesor=<%= profesores[i].idProfesor%>" data-toggle="tooltip" title="Reiniciar"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-retweet"></span></button></a></td>
+            <td><%= profesores[j].nombreProf%></td>
+            <td><%= profesores[j].apellidoProf%></td>
+            <td><%= materia[l].nombreMateria%></td>
+            <td><%= profesores[j].MateriasGruposDeProfesor[k].grupoMateria%></td>
+            <td><a href="/Profesor/reiniciarProfesor?idProfesor=<%= profesores[j].idProfesor%>" data-toggle="tooltip" title="Reiniciar"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-retweet"></span></button></a></td>
           </tr>
           <% var count=count+1; %>
+          <%  } %>
+          <%  } %>
           <%  } %>
           <%  } %>
           </tbody>
@@ -88,6 +90,6 @@
     </div>
   </div>
   <div class="row">
-    <a href="/crearMateria"><button type="button" class="btn btn-primary">Reiniciar Todos</button></a>
+    <a href="/reiniciarTodos"><button type="button" class="btn btn-primary">Reiniciar Todos</button></a>
   </div>
 </div>

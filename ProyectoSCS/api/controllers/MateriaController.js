@@ -24,7 +24,7 @@ module.exports = {
                     if(materiaEncontrada!=undefined){
                         Grupo.findOne({
                             materiaGru:materiaEncontrada.idMateria,
-                            grupoMateria:parametros.grupoMateria,
+                            grupoMateria:parametros.grupoMateria
                         }).exec(function(error,grupoEncontrado){
                             if(grupoEncontrado!=undefined){
                                 return res.view('error',{
@@ -36,7 +36,7 @@ module.exports = {
                             }else{
                                 Grupo.create({
                                     grupoMateria:parametros.grupoMateria,
-                                    materiaGru:materiaEncontrada.idMateria,
+                                    materiaGru:materiaEncontrada.idMateria
                                 }).exec(function(error,grupoCreado){
                                     if (error) { return res.serverError(); }
                                     sails.log.info(grupoCreado);
@@ -110,9 +110,9 @@ module.exports = {
             Materia.destroy({
                 idMateria:parametros.idMateria
             }).exec(function(error,materiaEliminada){
-                if (error) return res.serverError()
+                if (error) return res.serverError();
                 Grupo.destroy({
-                    materiaGru:materiaEliminada.idMateria,
+                    materiaGru:parametros.idMateria
                 }).exec(function(error,grupoEliminado){
                     Materia.find().populate('MateriasGruposDeMateria').exec(function(error,materiasEncontradas){
                         if (error) return res.serverError();

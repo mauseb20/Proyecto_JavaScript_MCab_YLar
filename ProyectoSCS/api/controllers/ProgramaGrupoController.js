@@ -22,14 +22,12 @@ module.exports = {
               if(profesorEncontrado.numIntentos>0){
                 Materia.find().sort('nombreMateria ASC').exec(function(error,materiasOrdenadas){
                   if (error) return res.serverError();
-                  ProgramaGrupo.find({
-                    idGrupo:parametros.idGrupo
-                  }).populate('idPrograma').sort('idPrograma.nombrePrograma ASC').exec(function(error,swEncontradoMateria){
+                  Programa.query('SELECT * FROM programa INNER JOIN programa_grupo ON programa.idPrograma=programa_grupo.idPrograma INNER JOIN grupo on programa_grupo.idGrupo=grupo.idGrupo INNER JOIN materia on grupo.materiaGru=materia.idMateria WHERE tipoProg="APP" and programa_grupo.idGrupo=?',[parametros.idGrupo],function(error,programasEncontrados){
                     Programa.find({
                       tipoProg: {contains:'APP'}
                     }).exec(function(error,swDisponible){
                       Grupo.findOne({
-                        idGrupo:parametros.idGrupo
+                        idGrupo: parametros.idGrupo
                       }).exec(function(error,grupoEncontrado){
                         return res.view('formulario',{
                           title: 'formulario',
@@ -38,7 +36,7 @@ module.exports = {
                           materias: materiasOrdenadas,
                           grupo: grupoEncontrado,
                           asignado: 'Si',
-                          softwareMateria: swEncontradoMateria,
+                          softwareMateria: programasEncontrados,
                           softwareDisponible: swDisponible
                         })
                       });
@@ -64,8 +62,9 @@ module.exports = {
     if(parametros.nombrePrograma&&parametros.categoria){
       Programa.create({
         nombrePrograma:parametros.nombrePrograma,
-        categoria:parametros.categoria
+        categoria:parametros.categoria,
       }).exec(function(error,programaCreado){
+        console.log(programaCreado);
         ProgramaGrupo.create({
           idPrograma:programaCreado.idPrograma,
           idGrupo:parametros.idGrupo,
@@ -79,14 +78,12 @@ module.exports = {
                 if(profesorEncontrado.numIntentos>0){
                   Materia.find().sort('nombreMateria ASC').exec(function(error,materiasOrdenadas){
                     if (error) return res.serverError();
-                    ProgramaGrupo.find({
-                      idGrupo:parametros.idGrupo
-                    }).populate('idPrograma').sort('idPrograma.nombrePrograma ASC').exec(function(error,swEncontradoMateria){
+                    Programa.query('SELECT * FROM programa INNER JOIN programa_grupo ON programa.idPrograma=programa_grupo.idPrograma INNER JOIN grupo on programa_grupo.idGrupo=grupo.idGrupo INNER JOIN materia on grupo.materiaGru=materia.idMateria WHERE tipoProg="APP" and programa_grupo.idGrupo=?',[parametros.idGrupo],function(error,programasEncontrados){
                       Programa.find({
                         tipoProg: {contains:'APP'}
                       }).exec(function(error,swDisponible){
                         Grupo.findOne({
-                          idGrupo:parametros.idGrupo
+                          idGrupo: parametros.idGrupo
                         }).exec(function(error,grupoEncontrado){
                           return res.view('formulario',{
                             title: 'formulario',
@@ -95,7 +92,7 @@ module.exports = {
                             materias: materiasOrdenadas,
                             grupo: grupoEncontrado,
                             asignado: 'Si',
-                            softwareMateria: swEncontradoMateria,
+                            softwareMateria: programasEncontrados,
                             softwareDisponible: swDisponible
                           })
                         });
@@ -125,14 +122,12 @@ module.exports = {
               if(profesorEncontrado.numIntentos>0){
                 Materia.find().sort('nombreMateria ASC').exec(function(error,materiasOrdenadas){
                   if (error) return res.serverError();
-                  ProgramaGrupo.find({
-                    idGrupo:parametros.idGrupo
-                  }).populate('idPrograma').sort('idPrograma.nombrePrograma ASC').exec(function(error,swEncontradoMateria){
+                  Programa.query('SELECT * FROM programa INNER JOIN programa_grupo ON programa.idPrograma=programa_grupo.idPrograma INNER JOIN grupo on programa_grupo.idGrupo=grupo.idGrupo INNER JOIN materia on grupo.materiaGru=materia.idMateria WHERE tipoProg="APP" and programa_grupo.idGrupo=?',[parametros.idGrupo],function(error,programasEncontrados){
                     Programa.find({
                       tipoProg: {contains:'APP'}
                     }).exec(function(error,swDisponible){
                       Grupo.findOne({
-                        idGrupo:parametros.idGrupo
+                        idGrupo: parametros.idGrupo
                       }).exec(function(error,grupoEncontrado){
                         return res.view('formulario',{
                           title: 'formulario',
@@ -141,7 +136,7 @@ module.exports = {
                           materias: materiasOrdenadas,
                           grupo: grupoEncontrado,
                           asignado: 'Si',
-                          softwareMateria: swEncontradoMateria,
+                          softwareMateria: programasEncontrados,
                           softwareDisponible: swDisponible
                         })
                       });

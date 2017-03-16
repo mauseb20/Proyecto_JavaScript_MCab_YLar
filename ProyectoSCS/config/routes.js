@@ -22,64 +22,65 @@
 
 module.exports.routes = {
 
-    /***************************************************************************
-  *                                                                          *
-  * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
-  * etc. depending on your default view engine) your home page.              *
-  *                                                                          *
-  * (Alternatively, remove this and add an `index.html` file in your         *
-  * `assets` directory)                                                      *
-  *                                                                          *
-  ***************************************************************************/
+  /***************************************************************************
+   *                                                                          *
+   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
+   * etc. depending on your default view engine) your home page.              *
+   *                                                                          *
+   * (Alternatively, remove this and add an `index.html` file in your         *
+   * `assets` directory)                                                      *
+   *                                                                          *
+   ***************************************************************************/
 
-    '/': {
-        view: 'Login/Login',
-        locals: {
-            layout: 'Login/LoginLayout'
-        }
-    },
-    
-    'get /home': 'RutasController.home',
-    'get /asignacion': 'RutasController.asignacion',
-    
-    '/materias': 'RutasController.materias',
-    '/crearMateria': 'RutasController.crearMaterias',
-    '/editarMateria': 'RutasController.editarMaterias',
-    '/buscarMaterias': 'RutasController.buscarMateria',
-    '/asignarSW': 'RutasController.asignarSW',
-    
-    '/laboratorios': 'RutasController.laboratorios',
-    '/agregarLaboratorio': 'RutasController.agregarLaboratorio',
-    '/editarLaboratorio': 'RutasController.editarLaboratorios',
-    '/asignarSO': 'RutasController.asignarSO',
-    '/asignarMateria': 'RutasController.asignarMateria',
-    
-    '/software': 'RutasController.software',
-    '/crearSoftware': 'RutasController.crearSoftware',
-    '/editarSoftware': 'RutasController.editarSoftware',
-    
-    '/sistemasO': 'RutasController.sistemasOperativos',
-    '/crearSO': 'RutasController.crearSO',
-    '/editarSO': 'RutasController.editarSO',
-        
-    '/profesores': 'RutasController.profesores',
-    '/crearProf': 'RutasController.crearProfesor',
-    '/editarProf': 'RutasController.editarProfesor',
-    '/envioFormulario':'RutasController.envioFormulario',
-    
-    '/error': 'RutasController.error',
-    '/formProfesor':'RutasController.formulario',
-    
-    '/gracias': 'RutasController.gracias'
+  '/': {
+    view: 'Login/Login',
+    locals: {
+      layout: 'Login/LoginLayout'
+    }
+  },
 
-    /***************************************************************************
-  *                                                                          *
-  * Custom routes here...                                                    *
-  *                                                                          *
-  * If a request to a URL doesn't match any of the custom routes above, it   *
-  * is matched against Sails route blueprints. See `config/blueprints.js`    *
-  * for configuration options and examples.                                  *
-  *                                                                          *
-  ***************************************************************************/
+  'get /home': 'RutasController.home',
+  'get /asignacion': 'RutasController.asignacion',
+
+  '/materias': 'RutasController.materias',
+  '/crearMateria': 'RutasController.crearMaterias',
+  '/editarMateria': 'RutasController.editarMaterias',
+  '/buscarMaterias': 'RutasController.buscarMateria',
+  '/asignarSW': 'RutasController.asignarSW',
+
+  '/laboratorios': 'RutasController.laboratorios',
+  '/agregarLaboratorio': 'RutasController.agregarLaboratorio',
+  '/editarLaboratorio': 'RutasController.editarLaboratorios',
+  '/asignarSO': 'RutasController.asignarSO',
+  '/asignarMateria': 'RutasController.asignarMateria',
+
+  '/software': 'RutasController.software',
+  '/crearSoftware': 'RutasController.crearSoftware',
+  '/editarSoftware': 'RutasController.editarSoftware',
+
+  '/sistemasO': 'RutasController.sistemasOperativos',
+  '/crearSO': 'RutasController.crearSO',
+  '/editarSO': 'RutasController.editarSO',
+
+  '/profesores': 'RutasController.profesores',
+  '/crearProf': 'RutasController.crearProfesor',
+  '/editarProf': 'RutasController.editarProfesor',
+  '/envioFormulario':'RutasController.envioFormulario',
+  '/reiniciarTodos':'RutasController.reiniciarTodosProfesores',
+
+  '/error': 'RutasController.error',
+  '/formProfesor':'RutasController.formulario',
+
+  '/gracias': 'RutasController.gracias'
+
+  /***************************************************************************
+   *                                                                          *
+   * Custom routes here...                                                    *
+   *                                                                          *
+   * If a request to a URL doesn't match any of the custom routes above, it   *
+   * is matched against Sails route blueprints. See `config/blueprints.js`    *
+   * for configuration options and examples.                                  *
+   *                                                                          *
+   ***************************************************************************/
 
 };

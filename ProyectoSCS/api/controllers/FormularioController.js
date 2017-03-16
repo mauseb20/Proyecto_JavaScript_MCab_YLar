@@ -24,14 +24,17 @@ module.exports = {
               formEnviado: 'true'
             }).exec(function(error,profesorActualizado){
               if(error) return res.serverError();
-              Profesor.find().exec(function(error,profesoresEcontrados){
-                if (error) return res.serverError();
-                return res.view('FormularioProfesores/Profesores', {
-                  title: 'profesores',
-                  tituloError: '',
-                  profesores: profesoresEcontrados
+              Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+                Materia.find().exec(function(error,materiasEncontradas){
+                  if (error) return res.serverError();
+                  return res.view('FormularioProfesores/Profesores', {
+                    title: 'profesores',
+                    tituloError: '',
+                    profesores: profesoresEncontrados,
+                    materia: materiasEncontradas
+                  });
                 });
-              })
+              });
             })
           }else{
             return res.badRequest('El profesor no existe');
@@ -57,12 +60,18 @@ module.exports = {
             Profesor.update({
               idProfesor:parametros.idProfesor
             },{
-              llenoForm: 'true'
+              llenoForm: 'true',
+              numIntentos: numIntentos
             }).exec(function(error,profesorActualizado){
-              return res.view('gracias',{
-                title: 'gracias',
-                tituloError: ''
-              })
+              Profesor.findOne({
+                idProfesor: parametros.idProfesor
+              }).exec(function(error,profesorActual){
+                return res.view('gracias',{
+                  title: 'gracias',
+                  tituloError: '',
+                  profesor: profesorActual
+                })
+              });
             });
           }else{
             Profesor.update({
@@ -71,49 +80,14 @@ module.exports = {
               numIntentos: numIntentos
             }).exec(function(error,profesorActualizado){
               Profesor.findOne({
-                idProfesor: parametros.idProfesor
-              }).exec(function(error,profesorEncontrado){
-                if(profesorEncontrado){
-                  if(profesorEncontrado.llenoForm=='false'){
-                    if(profesorEncontrado.numIntentos>0){
-                      Materia.find().sort('nombreMateria ASC').exec(function(error,materiasOrdenadas){
-                        if (error) return res.serverError();
-                        return res.view('formulario',{
-                          title: 'formulario',
-                          tituloError: '',
-                          profesor: profesorEncontrado,
-                          materias: materiasOrdenadas,
-                          grupo: '',
-                          asignado: 'No',
-                          softwareMateria: '',
-                          softwareDisponible: ''
-                        })
-                      })
-                    }else{
-                      return res.view('error',{
-                        title:'formulario',
-                        tituloError:'error',
-                        error:'Usted ya no tiene mas materias para registrar. En caso de necesitar un nuevo registro contactar al equipo L-FIS',
-                        url:'/gracias'
-                      })
-                    }
-                  }else{
-                    return res.view('error',{
-                      title:'formulario',
-                      tituloError:'error',
-                      error:'Usted ya a llenado el formulario',
-                      url:'/gracias'
-                    })
-                  }
-                }else{
-                  return res.view('error',{
-                    title:'formulario',
-                    tituloError:'error',
-                    error:'No se encuetra registrado',
-                    url:'/gracias'
-                  })
-                }
-              })
+                idProfesor:parametros.idProfesor
+              }).exec(function(error,profesorActual){
+                return res.view('gracias',{
+                  title: 'gracias',
+                  tituloError: '',
+                  profesor: profesorActual
+                });
+              });
             })
           }
         }

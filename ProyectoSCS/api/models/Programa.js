@@ -23,38 +23,38 @@ module.exports = {
         nombrePrograma: {
             type: 'string',
             required: true,
-            size: 30,
+            size: 30
         },
 
         tipoProg: {
             type: 'string',
             required: true,
             enum: ['SO', 'APP'],
-            defaultsTo: 'APP',
+            defaultsTo: 'APP'
         },
 
         servicio: {
             type: 'string',
             enum: ['Ofimatica', 'IDE', 'BDD', 'Case', 'Otro','Sistema Operativo'],
-            defaultsTo: 'Otro',
+            defaultsTo: 'Otro'
         },
 
         categoria: {
             type: 'string',
             required: true,
-            enum: ['Pago', 'Libre'],
+            enum: ['Pago', 'Libre']
         },
 
         versionProg: {
             type: 'string',
             defaultsTo: 'Sin Versión',
-            size: 10
+            size: 30
         },
 
         anioProg: {
             type: 'string',
             defaultsTo: 'Desconocido',
-            size: 10
+            size: 20
         },
 
         LaboratoriosProgramasDePrograma: {

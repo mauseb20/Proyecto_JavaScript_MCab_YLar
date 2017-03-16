@@ -9,7 +9,7 @@ module.exports = {
 
     connection: 'conexionBaseSwControl',
     tableName: 'profesor',
-    
+
     attributes: {
 
         idProfesor: {
@@ -43,14 +43,14 @@ module.exports = {
             size: 4,
             defaultsTo: 0
         },
-        
+
         formEnviado: {
             type: 'string',
             size: 5,
             enum: ['true','false'],
             defaultsTo: 'false'
         },
-        
+
         llenoForm: {
             type: 'string',
             size: 5,
@@ -61,8 +61,8 @@ module.exports = {
         MateriasGruposDeProfesor: {
             collection: 'Grupo',
             via: 'profesorGru'
-        },
-        
+        }
+
     }
 };
 

@@ -1,138 +1,142 @@
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
     <form class="form-horizontal" action="/Formulario/guardar" method="POST">
-      <div class="form-group">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h2 class="panel-title">Datos de la Materia</h2>
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="inputEmail3" class="col-sm-2 control-label">Profesor</label>
-            <div class="col-sm-9">
-              <input type="hidden" class="form-control" name="idGrupo" value="<%= grupo.idGrupo%>">
-              <input type="hidden" class="form-control" name="idProfesor" value="<%= profesor.idProfesor%>">
-              <input type="text" class="form-control" name="nombreProf" value="<%= profesor.nombreProf%> <%= profesor.apellidoProf%>" disabled>
+      <div class="row">
+        <div class="form-group">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h2 class="panel-title">Datos de la Materia</h2>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Materia</label>
-            <div class="col-sm-9">
-              <select class="form-control" name="idMateria" <%= (asignado == 'Si') ? 'disabled' :''%>>
-                <option></option>
-                <%for (var i=0; i<materias.length; i++){%>
-                <option <%= (grupo.materiaGru == materias[i].idMateria) ? 'selected' :''%> value="<%= materias[i].idMateria%>"><%= materias[i].nombreMateria%></option>
-                <%}%>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Grupo</label>
-            <div class="col-sm-7">
-              <select class="form-control" name="grupoMateria" <%= (asignado == 'Si') ? 'disabled' :''%>>
-                <option value="Sin Grupo" <%= (grupo.grupoMateria == "Sin Grupo") ? 'selected' :''%>>Sin Grupo</option>
-                <option value="GR1" <%= (grupo.grupoMateria == "GR1") ? 'selected' :''%>>Gr1</option>
-                <option value="GR2" <%= (grupo.grupoMateria == "GR2") ? 'selected' :''%>>Gr2</option>
-                <option value="GR3" <%= (grupo.grupoMateria == "GR3") ? 'selected' :''%>>Gr3</option>
-                <option value="GR4" <%= (grupo.grupoMateria == "GR4") ? 'selected' :''%>>Gr4</option>
-              </select>
-            </div>
-            <div class="col-sm-1">
-              <button type="submit" formaction="/Grupo/asignarProfesor" class="btn btn-primary"><span class="glyphicon glyphicon-ok" ></span></button>
-            </div>
-            <div class="col-sm-1">
-              <button type="submit" formaction="/Grupo/borrarAsignacionProfesor" class="btn btn-default"><span class="glyphicon glyphicon-remove" ></span></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h2 class="panel-title">Software Actual</h2>
-          </div>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-              <tr>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Servicio</th>
-                <th>Categoria</th>
-                <th>Version</th>
-                <th>Año</th>
-                <th>Estado</th>
-                <th></th>
-              </tr>
-              </thead>
-              <tbody>
-
-              <%var count=1; %>
-              <%for (var i=0; i<softwareMateria.length; i++){%>
-              <tr>
-                <td><%= count%></td>
-                <td><%= softwareMateria[i].idPrograma.nombrePrograma%></td>
-                <td><%= softwareMateria[i].idPrograma.servicio%></td>
-                <td><%= softwareMateria[i].idPrograma.categoria%></td>
-                <td><%= softwareMateria[i].idPrograma.versionProg%></td>
-                <td><%= softwareMateria[i].idPrograma.anioProg%></td>
-                <td><%= softwareMateria[i].estado%></td>
-                <td><a href="/ProgramaGrupo/borrarAsignacionPrograma?idPrograma=<%= softwareMateria[i].idPrograma.idPrograma%>&idGrupo=<%= grupo.idGrupo%>&idProfesor=<%= profesor.idProfesor%>"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
-                <%count=count+1; %>
-              </tr>
-              <%}%>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h2 class="panel-title">Software Adicional</h2>
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="inputPassword3" class="col-md-3 control-label">Software Disponible</label>
-            <div class="col-md-7">
-              <select class="form-control" name="idPrograma" <%= (asignado == 'No') ? 'disabled' :''%>>
-                <option></option>
-                <%for (var i=0; i<softwareDisponible.length; i++){%>
-                <option value="<%= softwareDisponible[i].idPrograma%>"><%= softwareDisponible[i].nombrePrograma%> <%= softwareDisponible[i].versionProg%></option>
-                <%}%>
-              </select>
-            </div>
-            <div class="col-md-1">
-              <button type="submit" formaction="/ProgramaGrupo/asignarProgramaSelect" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="inputPassword3" class="col-md-3 control-label">Otro Software</label>
-            <div class="col-md-7">
-              <div class="form-group form-inline">
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Nombre del software solicitado" name="nombrePrograma" <%= (asignado == 'No') ? 'disabled' :''%>>
-                </div>
-                <label for="inputPassword3" class="col-sm-3 control-label">Categoria</label>
-                <div class="col-md-3">
-                  <select class="form-control" name="categoria" <%= (asignado == 'No') ? 'disabled' :''%>>
-                    <option value="Libre">Libre</option>
-                    <option value="Pago">Pago</option>
-                  </select>
-                </div>
+            <br>
+            <div class="form-group">
+              <label for="inputEmail3" class="col-sm-2 control-label">Profesor</label>
+              <div class="col-sm-9">
+                <input type="hidden" class="form-control" name="idGrupo" value="<%= grupo.idGrupo%>">
+                <input type="hidden" class="form-control" name="idProfesor" value="<%= profesor.idProfesor%>">
+                <input type="text" class="form-control" name="nombreProf" value="<%= profesor.nombreProf%> <%= profesor.apellidoProf%>" disabled>
               </div>
             </div>
-            <div class="col-md-1">
-              <button type="submit" formaction="/ProgramaGrupo/asignarProgramaForm" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">Materia</label>
+              <div class="col-sm-9">
+                <select class="form-control" name="idMateria" <%= (asignado == 'Si') ? 'disabled' :''%>>
+                  <option></option>
+                  <%for (var i=0; i<materias.length; i++){%>
+                  <option <%= (grupo.materiaGru == materias[i].idMateria) ? 'selected' :''%> value="<%= materias[i].idMateria%>"><%= materias[i].nombreMateria%></option>
+                  <%}%>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-sm-2 control-label">Grupo</label>
+              <div class="col-sm-7">
+                <select class="form-control" name="grupoMateria" <%= (asignado == 'Si') ? 'disabled' :''%>>
+                  <option value="Sin Grupo" <%= (grupo.grupoMateria == "Sin Grupo") ? 'selected' :''%>>Sin Grupo</option>
+                  <option value="GR1" <%= (grupo.grupoMateria == "GR1") ? 'selected' :''%>>Gr1</option>
+                  <option value="GR2" <%= (grupo.grupoMateria == "GR2") ? 'selected' :''%>>Gr2</option>
+                  <option value="GR3" <%= (grupo.grupoMateria == "GR3") ? 'selected' :''%>>Gr3</option>
+                  <option value="GR4" <%= (grupo.grupoMateria == "GR4") ? 'selected' :''%>>Gr4</option>
+                </select>
+              </div>
+              <div class="col-sm-1">
+                <button type="submit" formaction="/Grupo/asignarProfesor" class="btn btn-primary"><span class="glyphicon glyphicon-ok" ></span></button>
+              </div>
+              <div class="col-sm-1">
+                <button type="submit" formaction="/Grupo/borrarAsignacionProfesor" class="btn btn-default"><span class="glyphicon glyphicon-remove" ></span></button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="form-group">
-        <div class="col-md-offset-4 col-md-4">
-          <div class="btn-group btn-group-justified" role="group" aria-label="...">
-            <div class="btn-group" role="group">
-              <button type="submit" class="btn btn-primary">Guardar</button>
+      <div class="row" style="display:<%= (asignado == 'No') ? 'none' :''%>">
+        <div class="form-group">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h2 class="panel-title">Software Actual</h2>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Servicio</th>
+                  <th>Categoria</th>
+                  <th>Version</th>
+                  <th>Año</th>
+                  <th>Estado</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <%var count=1; %>
+                <%for (var i=0; i<softwareMateria.length; i++){%>
+                <tr>
+                  <td><%= count%></td>
+                  <td><%= softwareMateria[i].nombrePrograma%></td>
+                  <td><%= softwareMateria[i].servicio%></td>
+                  <td><%= softwareMateria[i].categoria%></td>
+                  <td><%= softwareMateria[i].versionProg%></td>
+                  <td><%= softwareMateria[i].anioProg%></td>
+                  <td><%= softwareMateria[i].estado%></td>
+                  <td><a href="/ProgramaGrupo/borrarAsignacionPrograma?idPrograma=<%= softwareMateria[i].idPrograma%>&idGrupo=<%= grupo.idGrupo%>&idProfesor=<%= profesor.idProfesor%>"><button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span></button></a></td>
+                  <%count=count+1; %>
+                </tr>
+                <%}%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h2 class="panel-title">Software Adicional</h2>
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-md-3 control-label">Software Disponible</label>
+              <div class="col-md-7">
+                <select class="form-control" name="idPrograma" <%= (asignado == 'No') ? 'disabled' :''%>>
+                  <option></option>
+                  <%for (var i=0; i<softwareDisponible.length; i++){%>
+                  <option value="<%= softwareDisponible[i].idPrograma%>"><%= softwareDisponible[i].nombrePrograma%> <%= softwareDisponible[i].versionProg%></option>
+                  <%}%>
+                </select>
+              </div>
+              <div class="col-md-1">
+                <button type="submit" formaction="/ProgramaGrupo/asignarProgramaSelect" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword3" class="col-md-3 control-label">Otro Software</label>
+              <div class="col-md-7">
+                <div class="form-group form-inline">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Nombre del software solicitado" name="nombrePrograma" <%= (asignado == 'No') ? 'disabled' :''%>>
+                  </div>
+                  <label for="inputPassword3" class="col-sm-3 control-label">Categoria</label>
+                  <div class="col-md-3">
+                    <select class="form-control" name="categoria" <%= (asignado == 'No') ? 'disabled' :''%>>
+                      <option value="Libre">Libre</option>
+                      <option value="Pago">Pago</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <button type="submit" formaction="/ProgramaGrupo/asignarProgramaForm" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-4 col-md-4">
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+              <div class="btn-group" role="group">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
             </div>
           </div>
         </div>

@@ -7,7 +7,12 @@
       <br>
       <h4>Si ingesó otro software el equipo de LAB-FIS buscará la versión mas actual disponible para ser instalada.</h4>
       <br>
-      <h4>En caso de necesitar un ingreso mas comunicarse con el equipo de LAB-FIS.</h4>
+      <div class="row" style="display: <%= (profesor.llenoForm == 'true') ? 'none' :''%>">
+        <a href="/formProfesor?idProfesor=<%= profesor.idProfesor%>" type="button" class="btn btn-success"> Otro Ingreso</a>
+      </div>
+      <div class="row" style="display: <%= (profesor.llenoForm == 'false') ? 'none' :''%>">
+        <h4>En caso de necesitar un ingreso mas comunicarse con el equipo de LAB-FIS.</h4>
+      </div>
       <br>
     </div>
   </div>

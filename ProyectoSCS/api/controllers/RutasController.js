@@ -245,12 +245,15 @@ module.exports = {
   },
   profesores: function (req, res) {
     // res.view(String: Nombre vista, Datos JSON)
-    Profesor.find().exec(function (error, profesoresEncontrados){
-      if (error) return res.serverError()
-      return res.view('FormularioProfesores/Profesores', {
-        title: 'profesores',
-        tituloError: '',
-        profesores: profesoresEncontrados
+    Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresEncontrados){
+      Materia.find().exec(function(error,materiasEncontradas){
+        if (error) return res.serverError();
+        return res.view('FormularioProfesores/Profesores', {
+          title: 'profesores',
+          tituloError: '',
+          profesores: profesoresEncontrados,
+          materia: materiasEncontradas
+        });
       });
     });
 
@@ -359,6 +362,40 @@ module.exports = {
     return res.view('gracias',{
       title: 'gracias',
       tituloError: ''
+    })
+  },
+
+  reiniciarTodosProfesores: function (req,res) {
+    Profesor.find().exec(function(error,profesoresEncontrados){
+      if(profesoresEncontrados){
+        for (var i=0; i<profesoresEncontrados.length; i++){
+          Profesor.update({
+            idProfesor: profesoresEncontrados[i].idProfesor
+          },{
+            formEnviado: 'false',
+            llenoForm: 'false',
+            numIntentos: 0
+          }).exec(function(error,profesorActualizado){})
+        }
+      }else{
+        return res.view('error',{
+          title: 'profesores',
+          tituloError: 'error',
+          error: 'No existen profesores registrados',
+          url: '/profesores'
+        })
+      }
+      Materia.find().exec(function(error,materiasEncontradas){
+        Profesor.find().populate('MateriasGruposDeProfesor').exec(function (error, profesoresActualizados){
+          if (error) return res.serverError();
+          return res.view('FormularioProfesores/Profesores', {
+            title: 'profesores',
+            tituloError: '',
+            profesores: profesoresActualizados,
+            materia: materiasEncontradas
+          });
+        });
+      });
     })
   }
 
